@@ -23,7 +23,7 @@ const FresherTemplate: React.FC = () => {
   );
 
   return (
-    <section className="p-4 border  hover:border-green-500 template overflow-hidden template h-full">
+    <section className="p-4 bg-white overflow-auto template h-full hover:outline hover:outline-cyan-500  drop-shadow-[0_8px_20px_rgba(0,0,0,0.08)] ease-in-out transition rounded duration-300 hover:shadow-slate-500/10 hover:shadow-2xl">
       <div role="button" className="space-y-4">
         {/**Name section */}
         <section className="flex justify-between">

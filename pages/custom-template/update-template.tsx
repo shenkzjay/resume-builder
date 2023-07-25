@@ -31,7 +31,7 @@ const UpdateTemplate = () => {
             />
           </form>
         </div>
-        <div className="w-1/2">{TemplateComponent}</div>
+        <div className="w-1/3 h-[65vh] ">{TemplateComponent}</div>
       </div>
       <div className="space-x-4">
         <button> ←Back</button>

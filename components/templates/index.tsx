@@ -1,6 +1,6 @@
 import DefaultTemplate from "./defaultTemplate";
 import FresherTemplate from "./fresher-template";
-import { ReactElement } from "react";
+import IndoTemplate from "./indo-template";
 
 interface templateType {
   name: string;
@@ -18,15 +18,6 @@ export const templatesData: templateType[] = [
   },
   {
     name: "Fresher Template",
-    component: <FresherTemplate />,
-  },
-
-  {
-    name: "Fresher Template",
-    component: <FresherTemplate />,
-  },
-  {
-    name: "Default Template",
-    component: <DefaultTemplate />,
+    component: <IndoTemplate />,
   },
 ];

@@ -25,7 +25,7 @@ const SelectTemplate = () => {
       <div className="mt-20">
         <h1 className="text-center text-4xl">Choose a template</h1>
       </div>
-      <div className="grid grid-cols-[repeat(auto-fit,minmax(auto,380px))] gap-12">
+      <div className="grid grid-cols-[repeat(auto-fit,minmax(auto,380px))] gap-12 justify-center">
         {templatesData.map((template, index) => (
           <div
             key={index}
