@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.template {
+  transform-origin: top; /* Set the transformation origin to the top left corner */
+  transform: scale(
+    1
+  ); /* Adjust the scale value to reduce the size (0.8 means 80% of the original size) */
+  width: 100%;
+}

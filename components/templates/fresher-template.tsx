@@ -23,59 +23,143 @@ const FresherTemplate: React.FC = () => {
   );
 
   return (
-    <section>
-      <div
-        className={"p-4 border space-y-4 hover:border-green-500 "}
-        role="button"
-      >
+    <section className="p-4 border  hover:border-green-500 template overflow-hidden template h-full">
+      <div role="button" className="space-y-4">
         {/**Name section */}
-        <div>
-          <h2>{` ${
-            updateTextName ? updateTextName : "Olajide Seun ojo fresher"
-          }`}</h2>
-        </div>
+        <section className="flex justify-between">
+          <div>
+            <h2 className="text-2xl font-extrabold">{` ${
+              updateTextName ? updateTextName : "Olajide Seun"
+            }`}</h2>
 
-        {/**address */}
-        <div>
-          <p>somewhere beside ya!</p>
-        </div>
+            {/**address */}
+            <div className="text-[9px]">
+              <p className="font-bold">Frontend developer</p>
+              <p> Your Country, State</p>
+              <p>070XXXXXXXX</p>
+              <p>no_reply@gmail.com</p>
+            </div>
+          </div>
 
+          {/**address */}
+          <div className="text-[9px]">
+            <h2 className="font-extrabold mb-2 text-cyan-600">ADDRESS</h2>
+            <p> Your Country, State</p>
+            <p>070XXXXXXXX</p>
+            <p>no_reply@gmail.com</p>
+          </div>
+        </section>
+        {/**objective summary */}
+        <div>
+          <h2 className=" font-extrabold leading-none uppercase text-[9px] text-cyan-600 underline-offset-4 underline decoration-[2.5px]">
+            Professional summary
+          </h2>
+          <hr className="w-full border-[0.5px] border-cyan-300 mt-1 mb-2" />
+          <p className="text-[9px]">
+            A pace setter in the industry with a cos my stubborn heart always
+            rosms to places i cannot find and sometimes i hpe it hudt dtays in a
+            placr where i coild give it the restir deserves
+          </p>
+        </div>
         {/**Skills */}
         <div>
-          <p>Skills</p>
-          {updateSkills.map((skills, index) => (
-            <div key={index}>{skills.value}</div>
-          ))}
+          <h2 className=" font-extrabold leading-none uppercase text-[9px] text-cyan-600 underline-offset-4 underline decoration-[2.5px]">
+            Skills
+          </h2>
+          <hr className="w-full border-[0.5px] border-cyan-300 mt-1 mb-2" />
+          <div className="flex">
+            {updateSkills.map((skills, index) => (
+              <div key={index} className="text-[9px]">
+                <p>
+                  {`${skills.value}${
+                    index !== updateSkills.length - 1 ? " |" : ""
+                  }`}
+                  &nbsp;
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
-
         {/**Work experience */}
         {workExperience.length > 0 && (
           <div>
-            <p>Work experience</p>
+            <h2 className="uppercase text-[9px] font-extrabold text-cyan-600 underline-offset-4 underline decoration-[2.5px]">
+              WORK EXPERIENCE
+            </h2>
+            <hr className="w-full border-[0.5px] border-cyan-300 mt-[1.5px] mb-2" />
             {workExperience.map((item, index) => (
               <div key={index}>
-                {item.jobTitle} {item.companyName} {item.country}
+                <header className="">
+                  <div className="mt-2 mb-2 flex justify-between items-center">
+                    <p className="text-[11px]">
+                      <b>{item.companyName ? item.companyName : "Company"},</b>{" "}
+                      {item.country ? item.country : "Location"} -{" "}
+                      <i>{item.jobTitle ? item.jobTitle : "JobTitle"}</i>
+                    </p>
+                    <p className="text-[8px] uppercase">MONTH 20XX - PRESENT</p>
+                  </div>
+                </header>
+                <div>
+                  <ul className="text-[9px] space-y-1 ml-4 list-disc">
+                    <li className="">
+                      Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
+                      sed diam nonummy nibh.
+                    </li>
+                    <li>
+                      Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
+                      sed diam nonummy nibh.
+                    </li>
+                    <li>
+                      Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
+                      sed diam nonummy nibh.
+                    </li>
+                  </ul>
+                </div>
               </div>
             ))}
           </div>
         )}
-
         {/**Education history */}
-        {educationHistory.length > 0 && (
-          <div>
-            <p>Education History</p>
-            {educationHistory.map((item, index) => (
-              <div key={index}>
-                {item.schoolName} {item.degreeTitle} {item.course}
+        <div>
+          <h2 className="text-[9px] font-extrabold text-cyan-600 underline-offset-4 underline decoration-[2.5px]">
+            EDUCATION
+          </h2>
+          <hr className="w-full border-[0.5px] border-cyan-300 mt-[2px] mb-2" />
+          {educationHistory.map((item, index) => (
+            <div key={index}>
+              <div className="mt-2 mb-1 flex justify-between items-center">
+                <p className="text-[11px]">
+                  <b>{item.schoolName ? item.schoolName : "School name"},</b>{" "}
+                  Location -{" "}
+                  <i>{item.degreeTitle ? item.degreeTitle : "Degree"}</i>
+                </p>
+                <p className="text-[8px]"> MONTH 20XX - PRESENT</p>
               </div>
-            ))}
-          </div>
-        )}
+              <div>
+                <ul className="text-[9px]">
+                  <li>
+                    {item.course
+                      ? item.course
+                      : "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh."}
+                  </li>
+                </ul>
+              </div>
+            </div>
+          ))}
+        </div>
 
         {/**certification */}
         <div>
+          <h2 className="text-[9px] font-extrabold text-cyan-600 mt-4 underline-offset-4 underline decoration-[2.5px]">
+            CERTIFICATION
+          </h2>
+          <hr className="w-full border-[0.5px] border-cyan-300 mt-[1.5px] mb-2" />
           {certification.map((item, index) => (
-            <div key={index}>{item.value}</div>
+            <div key={index}>
+              <ul className="text-[9px] space-y-2 ">
+                <li>{item.value ? item.value : "Lorem ipsum dolor"}</li>
+              </ul>
+            </div>
           ))}
         </div>
       </div>

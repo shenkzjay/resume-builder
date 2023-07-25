@@ -25,7 +25,7 @@ const SelectTemplate = () => {
       <div className="mt-20">
         <h1 className="text-center text-4xl">Choose a template</h1>
       </div>
-      <div className="grid grid-cols-[repeat(auto-fit,minmax(100px,500px))] gap-6 justify-center">
+      <div className="grid grid-cols-[repeat(auto-fit,minmax(auto,380px))] gap-12">
         {templatesData.map((template, index) => (
           <div
             key={index}
@@ -35,7 +35,7 @@ const SelectTemplate = () => {
               selectedTemplate === index
                 ? "border-green-500"
                 : "border-slate-300"
-            }`}
+            } max-h-[65vh]`}
           >
             {template.component}
           </div>

@@ -16,4 +16,17 @@ export const templatesData: templateType[] = [
     name: "Fresher Template",
     component: <FresherTemplate />,
   },
+  {
+    name: "Fresher Template",
+    component: <FresherTemplate />,
+  },
+
+  {
+    name: "Fresher Template",
+    component: <FresherTemplate />,
+  },
+  {
+    name: "Default Template",
+    component: <DefaultTemplate />,
+  },
 ];
