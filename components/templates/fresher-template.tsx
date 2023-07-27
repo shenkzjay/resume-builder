@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 
 const FresherTemplate: React.FC = () => {
   const updateTextName = useSelector(
-    (state: RootState) => state.updateTextName.value
+    (state: RootState) => state.updateTextName.personalDetails
   );
 
   const updateSkills = useSelector(
@@ -22,6 +22,10 @@ const FresherTemplate: React.FC = () => {
     (state: RootState) => state.updateTextName.certification
   );
 
+  const updateObjective = useSelector(
+    (state: RootState) => state.updateTextName.objective
+  );
+
   return (
     <section className="p-4 bg-white overflow-auto template h-full hover:outline hover:outline-cyan-500  drop-shadow-[0_8px_20px_rgba(0,0,0,0.08)] ease-in-out transition rounded duration-300 hover:shadow-slate-500/10 hover:shadow-2xl">
       <div role="button" className="space-y-4">
@@ -29,15 +33,31 @@ const FresherTemplate: React.FC = () => {
         <section className="flex justify-between">
           <div>
             <h2 className="text-2xl font-extrabold">{` ${
-              updateTextName ? updateTextName : "Olajide Seun"
+              updateTextName.name ? updateTextName.name : "Olajide Seun"
             }`}</h2>
 
             {/**address */}
             <div className="text-[9px]">
-              <p className="font-bold">Frontend developer</p>
-              <p> Your Country, State</p>
-              <p>070XXXXXXXX</p>
-              <p>no_reply@gmail.com</p>
+              <p className="font-bold">
+                {updateTextName.profession
+                  ? updateTextName.profession
+                  : "Frontend developer"}
+              </p>
+              <p>
+                {" "}
+                {updateTextName.country
+                  ? updateTextName.country
+                  : "Your Country"}
+                ,{updateTextName.state ? updateTextName.state : "State"}
+              </p>
+              <p>
+                {updateTextName.phone ? updateTextName.phone : "070XXXXXXXX"}
+              </p>
+              <p>
+                {updateTextName.email
+                  ? updateTextName.email
+                  : "no_reply@gmail.com"}
+              </p>
             </div>
           </div>
 
@@ -59,6 +79,7 @@ const FresherTemplate: React.FC = () => {
             A pace setter in the industry with a cos my stubborn heart always
             rosms to places i cannot find and sometimes i hpe it hudt dtays in a
             placr where i coild give it the restir deserves
+            {updateObjective}
           </p>
         </div>
         {/**Skills */}

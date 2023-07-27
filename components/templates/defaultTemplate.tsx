@@ -1,7 +1,31 @@
 import { useSelector } from "react-redux";
-import { useDispatch } from "react-redux";
+import { RootState } from "@/states/store";
+import { updateWorkExperience } from "@/states/reducers/slice/textUpdateSlice";
 
 const DefaultTemplate: React.FC = () => {
+  const updateTextName = useSelector(
+    (state: RootState) => state.updateTextName.personalDetails
+  );
+
+  const updateSkills = useSelector(
+    (state: RootState) => state.updateTextName.skills
+  );
+
+  const workExperience = useSelector(
+    (state: RootState) => state.updateTextName.workExperience
+  );
+
+  const educationHistory = useSelector(
+    (state: RootState) => state.updateTextName.educationHistory
+  );
+
+  const certification = useSelector(
+    (state: RootState) => state.updateTextName.certification
+  );
+
+  const updateObjective = useSelector(
+    (state: RootState) => state.updateTextName.objective
+  );
   return (
     <section className=" bg-white overflow-auto template h-full hover:outline hover:outline-cyan-500 drop-shadow-[0_8px_20px_rgba(0,0,0,0.08)] ease-in-out transition rounded duration-300 hover:shadow-slate-500/10 hover:shadow-2xl">
       <div className="flex h-full">
@@ -9,7 +33,14 @@ const DefaultTemplate: React.FC = () => {
         <div className="p-4 space-y-4 w-2/3" role="button">
           {/**Name section */}
           <div>
-            <h2 className="text-2xl font-bold leading-none">Olajide Seun</h2>
+            <h2 className="text-2xl font-bold leading-none">
+              {updateTextName.name ? updateTextName.name : "Olajide Seun"}
+            </h2>
+            <p className="font-bold text-[9px]">
+              {updateTextName.profession
+                ? updateTextName.profession
+                : "Frontend developer"}
+            </p>
           </div>
 
           {/**objective summary */}
@@ -21,6 +52,7 @@ const DefaultTemplate: React.FC = () => {
               A pace setter in the industry with a cos my stubborn heart always
               rosms to places i cannot find and sometimes i hpe it hudt dtays in
               a placr where i coild give it the restir deserves
+              {updateObjective}
             </p>
           </div>
 
@@ -31,29 +63,38 @@ const DefaultTemplate: React.FC = () => {
                 <h2 className="uppercase text-[9px] font-extrabold text-cyan-600">
                   EXPERIENCE
                 </h2>
-                <div className="mt-4 mb-2">
-                  <p className="text-[11px]">
-                    <b>Company,</b> Location - <i>Job Title</i>
-                  </p>
-                  <p className="text-[8px] uppercase">MONTH 20XX - PRESENT</p>
-                </div>
               </header>
-              <div>
-                <ul className="text-[9px] space-y-2 ml-4 list-disc">
-                  <li className="">
-                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
-                    sed diam nonummy nibh.
-                  </li>
-                  <li>
-                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
-                    sed diam nonummy nibh.
-                  </li>
-                  <li>
-                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
-                    sed diam nonummy nibh.
-                  </li>
-                </ul>
-              </div>
+              {workExperience.map((item, index) => (
+                <div>
+                  <div className="mt-4 mb-2">
+                    <p className="text-[11px]">
+                      <b>
+                        {item.companyName ? item.companyName : "Company name"},
+                      </b>{" "}
+                      {item.country ? item.country : "Location"} -{" "}
+                      <i>{item.jobTitle ? item.jobTitle : "Job title"}</i>
+                    </p>
+                    <p className="text-[8px] uppercase">MONTH 20XX - PRESENT</p>
+                  </div>
+
+                  <div>
+                    <ul className="text-[9px] space-y-2 ml-4 list-disc">
+                      <li className="">
+                        Lorem ipsum dolor sit amet, consectetuer adipiscing
+                        elit, sed diam nonummy nibh.
+                      </li>
+                      <li>
+                        Lorem ipsum dolor sit amet, consectetuer adipiscing
+                        elit, sed diam nonummy nibh.
+                      </li>
+                      <li>
+                        Lorem ipsum dolor sit amet, consectetuer adipiscing
+                        elit, sed diam nonummy nibh.
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              ))}
             </div>
 
             <div>
@@ -109,27 +150,32 @@ const DefaultTemplate: React.FC = () => {
 
           {/**Education */}
           <article>
-            <div>
-              <header className="mt-4">
-                <h2 className="text-[9px] font-extrabold text-cyan-600">
-                  EDUCATION
-                </h2>
+            {educationHistory.map((item) => (
+              <div>
+                <header className="mt-4">
+                  <h2 className="text-[9px] font-extrabold text-cyan-600">
+                    EDUCATION
+                  </h2>
+                </header>
                 <div className="mt-4 mb-2">
                   <p className="text-[11px]">
-                    <b>School,</b> Location - <i>Degree</i>
+                    <b>{item.schoolName ? item.schoolName : "School name"},</b>{" "}
+                    {item.course ? item.course : "Location"} -{" "}
+                    <i>{item.degreeTitle ? item.degreeTitle : "Degree"}</i>
                   </p>
                   <p className="text-[8px]"> MONTH 20XX - PRESENT</p>
                 </div>
-              </header>
-              <div>
-                <ul className="text-[9px]">
-                  <li>
-                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
-                    sed diam nonummy nibh.
-                  </li>
-                </ul>
+
+                <div>
+                  <ul className="text-[9px]">
+                    <li>
+                      Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
+                      sed diam nonummy nibh.
+                    </li>
+                  </ul>
+                </div>
               </div>
-            </div>
+            ))}
 
             <div>
               <header className="my-2">
@@ -193,9 +239,17 @@ const DefaultTemplate: React.FC = () => {
           {/**Address */}
           <div className="text-[9px]">
             <h2 className="font-extrabold mb-2 text-cyan-600">ADDRESS</h2>
-            <p> Your Country, State</p>
-            <p>070XXXXXXXX</p>
-            <p>no_reply@gmail.com</p>
+            <p>
+              {" "}
+              {updateTextName.country ? updateTextName.country : "Your Country"}
+              , {updateTextName.state ? updateTextName.state : "State"}
+            </p>
+            <p>{updateTextName.phone ? updateTextName.phone : "070XXXXXXXX"}</p>
+            <p>
+              {updateTextName.email
+                ? updateTextName.email
+                : "no_reply@gmail.com"}
+            </p>
           </div>
 
           <article>
@@ -203,11 +257,18 @@ const DefaultTemplate: React.FC = () => {
               <h2 className="text-[9px] font-extrabold text-cyan-600 mt-4 mb-2">
                 SKILLS
               </h2>
-              <ul className="space-y-2 text-[9px]">
-                <li>Lorem ipsum dolor sit</li>
-                <li>Lorem ipsum dolor sit</li>
-                <li>Lorem ipsum dolor sit</li>
-              </ul>
+              {updateSkills.map((skills, index) => (
+                <div key={index} className="text-[9px] flex">
+                  <ul className="flex">
+                    <li className="">
+                      {`${skills.value}${
+                        index !== updateSkills.length - 1 ? "," : ""
+                      }`}
+                      &nbsp;
+                    </li>
+                  </ul>
+                </div>
+              ))}
             </div>
           </article>
 

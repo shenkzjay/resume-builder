@@ -2,7 +2,14 @@ import { ActionTypes } from ".";
 
 interface UpdateAction {
   type: ActionTypes.UPADATE_NAME;
-  payload: string;
+  payload: {
+    name: string;
+    profession: string;
+    country: string;
+    state: string;
+    email: string;
+    phone: string;
+  };
 }
 
 interface skillUpdateAction {
@@ -33,6 +40,11 @@ interface educationHistoryAction {
   };
 }
 
+interface updateObjectiveAction {
+  type: ActionTypes.OBJECTIVES;
+  payload: string;
+}
+
 interface workExperienceAction {
   type: ActionTypes.UPDATE_WORK_EXPERIENCE;
   payload: {
@@ -54,6 +66,7 @@ export type {
   workExperienceAction,
   educationHistoryAction,
   certificateActions,
+  updateObjectiveAction,
 };
 
 export const deleteWorkExperienceAction = (index: number) => ({

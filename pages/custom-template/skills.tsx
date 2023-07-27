@@ -56,46 +56,52 @@ const Skills = () => {
 
   return (
     <section>
-      <div className="flex">
-        <div className="w-1/2">
-          <MultiSelect
-            classNames={{ searchInput: classes.outline }}
-            label="Creatable MultiSelect"
-            data={addSkills}
-            placeholder="Add your skills here"
-            searchable
-            creatable
-            clearable
-            transitionProps={{
-              duration: 150,
-              transition: "pop-top-left",
-              timingFunction: "ease",
-            }}
-            aria-label="Add skilll input field"
-            getCreateLabel={(query) => `+ Add "${query}"`}
-            value={selectedValues}
-            onChange={(values) => handleMultiSelectChange(values)}
-            onCreate={(query) => {
-              const item = { value: query, label: query };
-              dispatch(updateSkills(item));
-              return item;
-            }}
-          />
+      <div className="mx-auto container">
+        <div className="my-10 ">
+          <p className="font-bold text-4xl">Skillset</p>
+          <p>Type to add your skill set</p>
         </div>
-        <div className="w-1/2">{TemplateComponent}</div>
-      </div>
-      <div className="space-x-4">
-        <button> ←Back</button>
-        <button
-          onClick={() =>
-            router.push({
-              pathname: "/custom-template/work-exp",
-              query: { template: selectedTemplate },
-            })
-          }
-        >
-          Next→{" "}
-        </button>
+        <div className="flex gap-20">
+          <div className="w-1/2">
+            <MultiSelect
+              classNames={{ searchInput: classes.outline }}
+              label=""
+              data={addSkills}
+              placeholder="Add your skills here"
+              searchable
+              creatable
+              clearable
+              transitionProps={{
+                duration: 150,
+                transition: "pop-top-left",
+                timingFunction: "ease",
+              }}
+              aria-label="Add skilll input field"
+              getCreateLabel={(query) => `+ Add "${query}"`}
+              value={selectedValues}
+              onChange={(values) => handleMultiSelectChange(values)}
+              onCreate={(query) => {
+                const item = { value: query, label: query };
+                dispatch(updateSkills(item));
+                return item;
+              }}
+            />
+          </div>
+          <div className="w-1/2 h-[70vh]">{TemplateComponent}</div>
+        </div>
+        <div className="space-x-4">
+          <button> ←Back</button>
+          <button
+            onClick={() =>
+              router.push({
+                pathname: "/custom-template/work-exp",
+                query: { template: selectedTemplate },
+              })
+            }
+          >
+            Next→{" "}
+          </button>
+        </div>
       </div>
     </section>
   );

@@ -1,10 +1,11 @@
 export enum ActionTypes {
-  UPADATE_NAME = "update-name",
+  UPADATE_NAME = "update-personal-details",
   UPDATE_SKILL = "update-skill",
   UPDATE_WORK_EXPERIENCE = "update-work-experience",
   DELETE_WORK_EXPERIENCE = "delete-work-experience",
   EDUCATION_HISTORY = "education-history",
   CERTIFICATE = "certificate",
+  OBJECTIVES = "career-objective",
 }
 
 interface skillUpdate {
@@ -28,12 +29,22 @@ export interface updateCert {
   value: string;
 }
 
+export interface personalDetails {
+  name: string;
+  profession: string;
+  country: string;
+  state: string;
+  email: string;
+  phone: string;
+}
+
 interface updateName {
-  value: string | undefined;
+  personalDetails: personalDetails;
   skills: skillUpdate[];
   workExperience: workExp[];
   educationHistory: eduHistory[];
   certification: updateCert[];
+  objective: string;
 }
 
 export type update = updateName;

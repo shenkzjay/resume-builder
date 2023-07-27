@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { templatesData } from "@/components/templates";
 import { useRouter } from "next/router";
+import ToggleButton from "@/components/toggleButton/toggle-button";
 
 const PreviewTemplate = () => {
   const router = useRouter();
@@ -22,16 +23,30 @@ const PreviewTemplate = () => {
   };
 
   return (
-    <section className="flex">
-      <div className="w-1/2">
-        {templatesData.map((item, index) => (
-          <div role="button" onClick={() => handleSelectTemplate(index)}>
-            {item.component}
-          </div>
-        ))}
+    <section className="mx-auto w-[90vw]">
+      <div className="my-10 flex justify-between ">
+        <p className="font-bold text-4xl">RESUME</p>
+        <ToggleButton />
       </div>
-      {/* <div className="w-1/2">{TemplateComponent}</div> */}
-      <div className="w-1/2">{select_template}</div>
+      <div className="flex gap-20">
+        <div className="w-[55%] max-h-[70vh] overflow-auto p-1">
+          <div className="grid grid-cols-[repeat(auto-fit,minmax(auto,300px))] gap-10 justify-start">
+            {templatesData.map((item, index) => (
+              <div
+                role="button"
+                onClick={() => handleSelectTemplate(index)}
+                className="w-full h-[50vh]"
+              >
+                {item.component}
+              </div>
+            ))}
+          </div>
+        </div>
+        {/* <div className="w-1/2">{TemplateComponent}</div> */}
+        <div className="w-[45%] h-[80vh] overflow-auto p-1">
+          {select_template}
+        </div>
+      </div>
     </section>
   );
 };

@@ -3,9 +3,58 @@
 @tailwind utilities;
 
 .template {
-  transform-origin: top; /* Set the transformation origin to the top left corner */
-  transform: scale(
-    0.9
-  ); /* Adjust the scale value to reduce the size (0.8 means 80% of the original size) */
-  width: 100%;
+  transform-origin: center;
+  transform: scale(0.9);
+}
+
+/* Remove default marker styles */
+details > summary {
+  list-style: none;
+}
+details > summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Remove default marker styles */
+details summary::marker {
+  display: none;
+}
+
+details summary {
+  padding-left: 20px;
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* Arrow icon when collapsed */
+details summary::before {
+  content: "＋";
+  position: absolute;
+  left: 0;
+}
+
+/* Arrow icon when expanded */
+details[open] summary::before {
+  content: "−";
+  padding-left: 3px;
+}
+
+/* .scales {
+  --scale: 0.5;
+
+  width: 400px;
+  height: 400px;
+  background: lightgreen;
+  transform: scale(var(--scale));
+  transform-origin: top center;
+  margin-bottom: calc((var(--scale) - 1) * 100%);
+} */
+
+.mantine-mcm8g9 {
+  background-color: rgb(8, 116, 116);
+}
+
+.mantine-mcm8g9:hover {
+  background-color: rgb(8, 116, 116);
 }

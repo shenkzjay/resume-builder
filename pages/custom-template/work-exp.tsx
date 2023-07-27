@@ -56,64 +56,92 @@ const WorkExperience = () => {
   };
 
   return (
-    <section className="flex">
-      <div className="w-1/2">
-        <p>Tell us about your previous jobs</p>
-        {updateWorkExp.map((item, index) => (
-          <>
-            <div className="flex  space-x-4" key={index}>
-              <details>
-                <summary>add details of work experience</summary>
-                <input
-                  type="text"
-                  value={item.jobTitle}
-                  placeholder="job title"
-                  onChange={(e) =>
-                    handleInputChange(index, "jobTitle", e.target.value)
-                  }
-                />
-                <input
-                  type="text"
-                  placeholder="company name"
-                  value={item.companyName}
-                  onChange={(e) =>
-                    handleInputChange(index, "companyName", e.target.value)
-                  }
-                />
-                <input
-                  type="text"
-                  placeholder="country"
-                  value={item.country}
-                  onChange={(e) =>
-                    handleInputChange(index, "country", e.target.value)
-                  }
-                />
-              </details>
-              <button onClick={() => handleDeleteWorkExperience(index)}>
-                delete
+    <section className="">
+      <div className="container mx-auto ">
+        <div className="my-10 ">
+          <p className="font-bold text-4xl">Tell us about your previous jobs</p>
+        </div>
+        <div className="flex gap-20">
+          <div className="w-1/2">
+            {updateWorkExp.map((item, index) => (
+              <>
+                <div
+                  className="flex mb-6 rounded justify-between p-4 border"
+                  key={index}
+                >
+                  <details className="w-full ">
+                    <summary className="relative">
+                      <span>Add details of work experience</span>
+                      <button
+                        onClick={() => handleDeleteWorkExperience(index)}
+                        className="absolute top-0 bottom-0 right-0"
+                      >
+                        delete
+                      </button>
+                    </summary>
+                    <div className="flex flex-col space-y-4 mt-6">
+                      <input
+                        type="text"
+                        value={item.jobTitle}
+                        placeholder="job title"
+                        className="border px-4 py-3"
+                        onChange={(e) =>
+                          handleInputChange(index, "jobTitle", e.target.value)
+                        }
+                      />
+                      <input
+                        type="text"
+                        placeholder="company name"
+                        value={item.companyName}
+                        className="border px-4 py-3"
+                        onChange={(e) =>
+                          handleInputChange(
+                            index,
+                            "companyName",
+                            e.target.value
+                          )
+                        }
+                      />
+                      <input
+                        type="text"
+                        placeholder="country"
+                        value={item.country}
+                        className="border px-4 py-3"
+                        onChange={(e) =>
+                          handleInputChange(index, "country", e.target.value)
+                        }
+                      />
+                    </div>
+                  </details>
+                </div>
+              </>
+            ))}
+            <button
+              onClick={handleAddWorkExp}
+              className="px-4 py-3 bg-cyan-600 text-white rounded mb-6"
+            >
+              Add work experience
+            </button>
+            <div className="space-x-4">
+              <button> ←Back</button>
+              <button
+                onClick={() =>
+                  router.push({
+                    pathname: "/custom-template/education",
+                    query: { template: selectedTemplate },
+                  })
+                }
+              >
+                Next→{" "}
               </button>
             </div>
-          </>
-        ))}
-        <button onClick={handleAddWorkExp}>Add work Ex</button>
-        <div className="space-x-4">
-          <button> ←Back</button>
-          <button
-            onClick={() =>
-              router.push({
-                pathname: "/custom-template/education",
-                query: { template: selectedTemplate },
-              })
-            }
-          >
-            Next→{" "}
-          </button>
+          </div>
+
+          <section className="w-1/2 ">
+            <div className="h-[70vh]">{TemplateComponent}</div>
+          </section>
         </div>
       </div>
-
-      <section className="w-1/2">
-        <div>{TemplateComponent}</div>
-      </section>
     </section>
   );
 };

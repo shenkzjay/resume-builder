@@ -3,6 +3,7 @@ import {
   UpdateAction,
   skillUpdateAction,
   certificateActions,
+  updateObjectiveAction,
 } from "../../actions-types/action";
 import {
   update,
@@ -12,7 +13,16 @@ import {
 } from "@/states/actions-types";
 
 const initialState: update = {
-  value: "",
+  personalDetails: {
+    name: "",
+    profession: "",
+    country: "",
+    state: "",
+    email: "",
+    phone: "",
+  },
+
+  objective: "",
 
   skills: [
     {
@@ -57,7 +67,15 @@ export const textUpdateSlice = createSlice({
       state: update = initialState,
       action: PayloadAction<UpdateAction["payload"]>
     ) {
-      state.value = action.payload;
+      const updatePersonalDetails = {
+        name: action.payload.name,
+        profession: action.payload.profession,
+        country: action.payload.country,
+        state: action.payload.state,
+        email: action.payload.email,
+        phone: action.payload.phone,
+      };
+      state.personalDetails = { ...updatePersonalDetails };
     },
 
     updateSkills(
@@ -149,6 +167,13 @@ export const textUpdateSlice = createSlice({
       const index = action.payload;
       state.certification.splice(index, 1);
     },
+
+    updateObjective(
+      state: update = initialState,
+      action: PayloadAction<updateObjectiveAction["payload"]>
+    ) {
+      state.objective = action.payload;
+    },
   },
 });
 
@@ -165,6 +190,7 @@ export const {
   updateCertification,
   addCertification,
   deleteCertification,
+  updateObjective,
 } = textUpdateSlice.actions;
 
 export default textUpdateSlice.reducer;
