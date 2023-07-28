@@ -38,9 +38,15 @@ const initialState: update = {
 
   workExperience: [
     {
-      jobTitle: "",
-      companyName: "",
+      job_title: "",
+      company_name: "",
       country: "",
+      state: "",
+      start_month: "",
+      start_year: "",
+      end_month: "",
+      end_year: "",
+      description: "",
     },
   ],
 
@@ -170,7 +176,7 @@ export const textUpdateSlice = createSlice({
 
     updateObjective(
       state: update = initialState,
-      action: PayloadAction<updateObjectiveAction["payload"]>
+      action: PayloadAction<string>
     ) {
       state.objective = action.payload;
     },

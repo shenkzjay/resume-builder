@@ -1,5 +1,7 @@
 import { RootState } from "@/states/store";
 import { useSelector } from "react-redux";
+import { useMemo } from "react";
+import htmr from "htmr";
 
 const FresherTemplate: React.FC = () => {
   const updateTextName = useSelector(
@@ -32,9 +34,9 @@ const FresherTemplate: React.FC = () => {
         {/**Name section */}
         <section className="flex justify-between">
           <div>
-            <h2 className="text-2xl font-extrabold">{` ${
-              updateTextName.name ? updateTextName.name : "Olajide Seun"
-            }`}</h2>
+            <h2 className="text-2xl font-extrabold">
+              {updateTextName.name ? updateTextName.name : "Olajide Seun"}
+            </h2>
 
             {/**address */}
             <div className="text-[9px]">
@@ -79,8 +81,8 @@ const FresherTemplate: React.FC = () => {
             A pace setter in the industry with a cos my stubborn heart always
             rosms to places i cannot find and sometimes i hpe it hudt dtays in a
             placr where i coild give it the restir deserves
-            {updateObjective}
           </p>
+          <div className="text-[9px]">{htmr(updateObjective)}</div>
         </div>
         {/**Skills */}
         <div>
@@ -113,15 +115,22 @@ const FresherTemplate: React.FC = () => {
                 <header className="">
                   <div className="mt-2 mb-2 flex justify-between items-center">
                     <p className="text-[11px]">
-                      <b>{item.companyName ? item.companyName : "Company"},</b>{" "}
+                      <b>
+                        {item.company_name ? item.company_name : "Company"},
+                      </b>{" "}
                       {item.country ? item.country : "Location"} -{" "}
-                      <i>{item.jobTitle ? item.jobTitle : "JobTitle"}</i>
+                      <i>{item.job_title ? item.job_title : "JobTitle"}</i>
                     </p>
-                    <p className="text-[8px] uppercase">MONTH 20XX - PRESENT</p>
+                    <p className="text-[8px] uppercase">
+                      {item.start_month ? item.start_month : "MONTH"}{" "}
+                      {item.start_year ? item.start_year : "20XX"} -{" "}
+                      {item.end_month ? item.end_month : "MONTH"}{" "}
+                      {item.end_year ? item.end_year : "20XX"}
+                    </p>
                   </div>
                 </header>
                 <div>
-                  <ul className="text-[9px] space-y-1 ml-4 list-disc">
+                  <ul className="text-[9px] space-y-1 ml-4">
                     <li className="">
                       Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
                       sed diam nonummy nibh.
@@ -157,7 +166,7 @@ const FresherTemplate: React.FC = () => {
                 <p className="text-[8px]"> MONTH 20XX - PRESENT</p>
               </div>
               <div>
-                <ul className="text-[9px]">
+                <ul className="text-[9px] ml-4">
                   <li>
                     {item.course
                       ? item.course
@@ -174,10 +183,10 @@ const FresherTemplate: React.FC = () => {
           <h2 className="text-[9px] font-extrabold text-cyan-600 mt-4 underline-offset-4 underline decoration-[2.5px]">
             CERTIFICATION
           </h2>
-          <hr className="w-full border-[0.5px] border-cyan-300 mt-[1.5px] mb-2" />
+          <hr className="w-full border-[0.5px] border-cyan-300 mt-[1.5px] mb-2 " />
           {certification.map((item, index) => (
             <div key={index}>
-              <ul className="text-[9px] space-y-2 ">
+              <ul className="text-[9px] space-y-2 ml-4">
                 <li>{item.value ? item.value : "Lorem ipsum dolor"}</li>
               </ul>
             </div>

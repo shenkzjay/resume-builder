@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import { RootState } from "@/states/store";
-import { updateWorkExperience } from "@/states/reducers/slice/textUpdateSlice";
+import parse from "html-react-parser";
 
 const DefaultTemplate: React.FC = () => {
   const updateTextName = useSelector(
@@ -26,6 +26,7 @@ const DefaultTemplate: React.FC = () => {
   const updateObjective = useSelector(
     (state: RootState) => state.updateTextName.objective
   );
+
   return (
     <section className=" bg-white overflow-auto template h-full hover:outline hover:outline-cyan-500 drop-shadow-[0_8px_20px_rgba(0,0,0,0.08)] ease-in-out transition rounded duration-300 hover:shadow-slate-500/10 hover:shadow-2xl">
       <div className="flex h-full">
@@ -52,8 +53,8 @@ const DefaultTemplate: React.FC = () => {
               A pace setter in the industry with a cos my stubborn heart always
               rosms to places i cannot find and sometimes i hpe it hudt dtays in
               a placr where i coild give it the restir deserves
-              {updateObjective}
             </p>
+            <div className="text-[9px]">{parse(updateObjective)}</div>
           </div>
 
           {/**Work experience */}
@@ -69,82 +70,26 @@ const DefaultTemplate: React.FC = () => {
                   <div className="mt-4 mb-2">
                     <p className="text-[11px]">
                       <b>
-                        {item.companyName ? item.companyName : "Company name"},
+                        {item.company_name ? item.company_name : "Company name"}
+                        ,
                       </b>{" "}
                       {item.country ? item.country : "Location"} -{" "}
-                      <i>{item.jobTitle ? item.jobTitle : "Job title"}</i>
+                      <i>{item.job_title ? item.job_title : "Job title"}</i>
                     </p>
                     <p className="text-[8px] uppercase">MONTH 20XX - PRESENT</p>
                   </div>
 
                   <div>
-                    <ul className="text-[9px] space-y-2 ml-4 list-disc">
-                      <li className="">
-                        Lorem ipsum dolor sit amet, consectetuer adipiscing
-                        elit, sed diam nonummy nibh.
-                      </li>
-                      <li>
-                        Lorem ipsum dolor sit amet, consectetuer adipiscing
-                        elit, sed diam nonummy nibh.
-                      </li>
-                      <li>
-                        Lorem ipsum dolor sit amet, consectetuer adipiscing
-                        elit, sed diam nonummy nibh.
-                      </li>
-                    </ul>
+                    <div className="text-[9px] space-y-2 pl-3">
+                      <div className="">
+                        {item.description
+                          ? parse(item.description)
+                          : " Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh."}
+                      </div>
+                    </div>
                   </div>
                 </div>
               ))}
-            </div>
-
-            <div>
-              <header className="my-2">
-                <p className="text-[11px]">
-                  <b>Company,</b> Location - <i>Job Title</i>
-                </p>
-                <p className="text-[8px]">MONTH 20XX - PRESENT</p>
-              </header>
-              <div>
-                <ul className="text-[9px] space-y-2 ml-4 list-disc">
-                  <li>
-                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
-                    sed diam nonummy nibh.
-                  </li>
-                  <li>
-                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
-                    sed diam nonummy nibh.
-                  </li>
-                  <li>
-                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
-                    sed diam nonummy nibh.
-                  </li>
-                </ul>
-              </div>
-            </div>
-
-            <div>
-              <header className="my-2">
-                <p className="text-[11px]">
-                  <b>Company,</b> Location - <i>Job Title</i>
-                </p>
-                <p className="text-[8px]">MONTH 20XX - PRESENT</p>
-              </header>
-              <div>
-                <ul className="text-[9px] space-y-2 ml-4 list-disc">
-                  <li>
-                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
-                    sed diam nonummy nibh.
-                  </li>
-                  <li>
-                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
-                    sed diam nonummy nibh.
-                  </li>
-                  <li>
-                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
-                    sed diam nonummy nibh.
-                  </li>
-                </ul>
-              </div>
             </div>
           </article>
 
@@ -176,23 +121,6 @@ const DefaultTemplate: React.FC = () => {
                 </div>
               </div>
             ))}
-
-            <div>
-              <header className="my-2">
-                <p className="text-[11px]">
-                  <b>School,</b> Location - <i>Degree</i>
-                </p>
-                <p className="text-[8px]">MONTH 20XX - PRESENT</p>
-              </header>
-              <div>
-                <ul className="text-[9px]">
-                  <li>
-                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
-                    sed diam nonummy nibh.
-                  </li>
-                </ul>
-              </div>
-            </div>
           </article>
 
           {/**Projects */}

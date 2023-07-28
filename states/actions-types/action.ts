@@ -21,9 +21,15 @@ interface skillUpdateAction {
 }
 
 interface workExpData {
-  jobTitle: string;
-  companyName: string;
+  job_title: string;
+  company_name: string;
   country: string;
+  state: string;
+  start_month: string;
+  start_year: string;
+  end_month: string;
+  end_year: string;
+  description: string;
 }
 
 interface educationHistory {
@@ -40,10 +46,10 @@ interface educationHistoryAction {
   };
 }
 
-interface updateObjectiveAction {
-  type: ActionTypes.OBJECTIVES;
-  payload: string;
-}
+export const updateObjectiveAction = (content: string) => ({
+  type: ActionTypes.OBJECTIVES,
+  payload: content,
+});
 
 interface workExperienceAction {
   type: ActionTypes.UPDATE_WORK_EXPERIENCE;
@@ -66,7 +72,6 @@ export type {
   workExperienceAction,
   educationHistoryAction,
   certificateActions,
-  updateObjectiveAction,
 };
 
 export const deleteWorkExperienceAction = (index: number) => ({

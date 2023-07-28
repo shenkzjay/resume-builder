@@ -4,7 +4,7 @@
 
 .template {
   transform-origin: center;
-  transform: scale(0.9);
+  transform: scale(1);
 }
 
 /* Remove default marker styles */
@@ -57,4 +57,11 @@ details[open] summary::before {
 
 .mantine-mcm8g9:hover {
   background-color: rgb(8, 116, 116);
+}
+
+@layer base {
+  ul,
+  ol {
+    list-style: revert;
+  }
 }

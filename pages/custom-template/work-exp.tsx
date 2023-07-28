@@ -10,6 +10,8 @@ import {
 import { workExp as InputItem } from "@/states/actions-types";
 import { useRouter } from "next/router";
 import { templatesData } from "@/components/templates";
+import SunEditorFile from "@/components/markdown-editor/sun-editor";
+import { Content } from "@mantine/tiptap/lib/Content/Content";
 
 const WorkExperience = () => {
   //init router
@@ -44,9 +46,15 @@ const WorkExperience = () => {
   const handleAddWorkExp = () => {
     dispatch(
       addWorkExperience({
-        jobTitle: "",
-        companyName: "",
+        job_title: "",
+        company_name: "",
         country: "",
+        description: "",
+        start_month: "",
+        start_year: "",
+        end_month: "",
+        end_year: "",
+        state: "",
       })
     );
   };
@@ -82,22 +90,22 @@ const WorkExperience = () => {
                     <div className="flex flex-col space-y-4 mt-6">
                       <input
                         type="text"
-                        value={item.jobTitle}
+                        value={item.job_title}
                         placeholder="job title"
                         className="border px-4 py-3"
                         onChange={(e) =>
-                          handleInputChange(index, "jobTitle", e.target.value)
+                          handleInputChange(index, "job_title", e.target.value)
                         }
                       />
                       <input
                         type="text"
                         placeholder="company name"
-                        value={item.companyName}
+                        value={item.company_name}
                         className="border px-4 py-3"
                         onChange={(e) =>
                           handleInputChange(
                             index,
-                            "companyName",
+                            "company_name",
                             e.target.value
                           )
                         }
@@ -109,6 +117,23 @@ const WorkExperience = () => {
                         className="border px-4 py-3"
                         onChange={(e) =>
                           handleInputChange(index, "country", e.target.value)
+                        }
+                      />
+                      <input
+                        type="text"
+                        placeholder="company name"
+                        value={item.company_name}
+                        className="border px-4 py-3"
+                        onChange={(e) =>
+                          handleInputChange(index, "state", e.target.value)
+                        }
+                      />
+
+                      <SunEditorFile
+                        placeholder="Type your work experience here"
+                        value={item.description}
+                        onChange={(content) =>
+                          handleInputChange(index, "description", content)
                         }
                       />
                     </div>

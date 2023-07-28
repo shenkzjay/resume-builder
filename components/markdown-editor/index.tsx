@@ -6,6 +6,7 @@ import Underline from "@tiptap/extension-underline";
 import TextAlign from "@tiptap/extension-text-align";
 import Superscript from "@tiptap/extension-superscript";
 import SubScript from "@tiptap/extension-subscript";
+import Typography from "@tiptap/extension-typography";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { RootState } from "@/states/store";
@@ -20,17 +21,13 @@ function Demo() {
 
   console.log("content", updateObjectiveText);
 
-  const handleOnChange = (content: string) => {
-    // Dispatch the updateObjective action with the new content
-    dispatch(updateObjective(content));
-  };
-
   const editor = useEditor({
     extensions: [
       StarterKit,
       Underline,
       Link,
       Superscript,
+      Typography,
       SubScript,
       Highlight,
       TextAlign.configure({ types: ["heading", "paragraph"] }),
@@ -38,6 +35,11 @@ function Demo() {
     content: "",
     onUpdate({ editor }) {
       dispatch(updateObjective(editor.getHTML()));
+    },
+    editorProps: {
+      attributes: {
+        class: "prose prose-list-disc",
+      },
     },
   });
 

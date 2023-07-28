@@ -9,6 +9,7 @@ import {
   updateObjective,
 } from "@/states/reducers/slice/textUpdateSlice";
 import Tiptap from "@/components/markdown-editor";
+import SunEditorFile from "@/components/markdown-editor/sun-editor";
 
 const UpdateTemplate = () => {
   const router = useRouter();
@@ -25,10 +26,6 @@ const UpdateTemplate = () => {
   const updateCareerObjective = useSelector(
     (state: RootState) => state.updateTextName.objective
   );
-
-  // const handleOnChange = useCallback((value: string) => {
-  //   dispatch(updateObjective(value));
-  // }, []);
 
   return (
     <section className="container mx-auto bg-white  text-black">
@@ -119,13 +116,13 @@ const UpdateTemplate = () => {
                 }
               />
             </div>
-            <div className="mt-6">
-              {/* <SimpleMarkdown
-                key="paa"
-                value={updateCareerObjective ?? ""}
-                onChange={handleOnChange}
-              /> */}
-              <Tiptap />
+            <div className="mt-6 prose prose-li:list-disc">
+              {/* <Tiptap /> */}
+              <SunEditorFile
+                placeholder="Type your professional summary here"
+                value={updateCareerObjective}
+                onChange={(content) => dispatch(updateObjective(content))}
+              />
             </div>
           </div>
         </div>

@@ -14,9 +14,15 @@ interface skillUpdate {
 }
 
 export interface workExp {
-  jobTitle: string;
-  companyName: string;
+  job_title: string;
+  company_name: string;
   country: string;
+  state: string;
+  start_month: string;
+  start_year: string;
+  end_month: string;
+  end_year: string;
+  description: string;
 }
 
 export interface eduHistory {

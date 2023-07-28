@@ -21,11 +21,11 @@ const SelectTemplate = () => {
   };
 
   return (
-    <section className="container mx-auto space-y-10">
+    <section className="w-[95vw] mx-auto space-y-10 scale-95">
       <div className="mt-20">
         <h1 className="text-center text-4xl">Choose a template</h1>
       </div>
-      <div className="grid grid-cols-[repeat(auto-fit,minmax(auto,380px))] gap-12 justify-center">
+      <div className="grid grid-cols-[repeat(auto-fit,minmax(auto,380px))] gap-12 justify-center scale-75 origin-top">
         {templatesData.map((template, index) => (
           <div
             key={index}
