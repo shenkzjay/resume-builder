@@ -66,12 +66,18 @@ interface certificateActions {
   };
 }
 
+interface editorExperienceActions {
+  type: ActionTypes.UPDATE_WORK_EXPERIENCE;
+  payload: string;
+}
+
 export type {
   UpdateAction,
   skillUpdateAction,
   workExperienceAction,
   educationHistoryAction,
   certificateActions,
+  editorExperienceActions,
 };
 
 export const deleteWorkExperienceAction = (index: number) => ({

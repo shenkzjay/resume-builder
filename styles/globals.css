@@ -5,6 +5,12 @@
 .template {
   transform-origin: center;
   transform: scale(1);
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.template::-webkit-scrollbar {
+  display: none;
 }
 
 /* Remove default marker styles */

@@ -4,6 +4,7 @@ import {
   skillUpdateAction,
   certificateActions,
   updateObjectiveAction,
+  editorExperienceActions,
 } from "../../actions-types/action";
 import {
   update,
@@ -23,6 +24,7 @@ const initialState: update = {
   },
 
   objective: "",
+  editorExperience: "",
 
   skills: [
     {
@@ -109,10 +111,10 @@ export const textUpdateSlice = createSlice({
       action: PayloadAction<{ index: number; data: InputItem }>
     ) {
       const { index, data } = action.payload;
-      state.workExperience[index] = data;
-      // state.workExperience = [...state.workExperience];
+      const updatedWorkExperience = [...state.workExperience];
+      updatedWorkExperience[index] = data;
+      return { ...state, workExperience: updatedWorkExperience };
     },
-
     addWorkExperience(
       state: update = initialState,
       action: PayloadAction<InputItem>

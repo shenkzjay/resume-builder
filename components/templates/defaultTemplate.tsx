@@ -66,7 +66,7 @@ const DefaultTemplate: React.FC = () => {
                 </h2>
               </header>
               {workExperience.map((item, index) => (
-                <div>
+                <div key={index}>
                   <div className="mt-4 mb-2">
                     <p className="text-[11px]">
                       <b>
@@ -81,7 +81,7 @@ const DefaultTemplate: React.FC = () => {
 
                   <div>
                     <div className="text-[9px] space-y-2 pl-3">
-                      <div className="">
+                      <div className="prose">
                         {item.description
                           ? parse(item.description)
                           : " Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh."}
@@ -95,8 +95,8 @@ const DefaultTemplate: React.FC = () => {
 
           {/**Education */}
           <article>
-            {educationHistory.map((item) => (
-              <div>
+            {educationHistory.map((item, index) => (
+              <div key={index}>
                 <header className="mt-4">
                   <h2 className="text-[9px] font-extrabold text-cyan-600">
                     EDUCATION

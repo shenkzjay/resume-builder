@@ -11,10 +11,12 @@ import { workExp as InputItem } from "@/states/actions-types";
 import { useRouter } from "next/router";
 import { templatesData } from "@/components/templates";
 import SunEditorFile from "@/components/markdown-editor/sun-editor";
-import { Content } from "@mantine/tiptap/lib/Content/Content";
+import DropDown from "@/components/dropdown";
 
 const WorkExperience = () => {
   //init router
+  console.log("render ");
+
   const router = useRouter();
 
   //init
@@ -30,6 +32,10 @@ const WorkExperience = () => {
   //retrieve updated state from store
   const updateWorkExp = useSelector(
     (state: RootState) => state.updateTextName.workExperience
+  );
+
+  const updateEditor = useSelector(
+    (state: RootState) => state.updateTextName.editorExperience
   );
 
   //function to update text input change
@@ -72,81 +78,80 @@ const WorkExperience = () => {
         <div className="flex gap-20">
           <div className="w-1/2">
             {updateWorkExp.map((item, index) => (
-              <>
-                <div
-                  className="flex mb-6 rounded justify-between p-4 border"
-                  key={index}
-                >
-                  <details className="w-full ">
-                    <summary className="relative">
-                      <span>Add details of work experience</span>
-                      <button
-                        onClick={() => handleDeleteWorkExperience(index)}
-                        className="absolute top-0 bottom-0 right-0"
-                      >
-                        delete
-                      </button>
-                    </summary>
-                    <div className="flex flex-col space-y-4 mt-6">
-                      <input
-                        type="text"
-                        value={item.job_title}
-                        placeholder="job title"
-                        className="border px-4 py-3"
-                        onChange={(e) =>
-                          handleInputChange(index, "job_title", e.target.value)
-                        }
-                      />
-                      <input
-                        type="text"
-                        placeholder="company name"
-                        value={item.company_name}
-                        className="border px-4 py-3"
-                        onChange={(e) =>
-                          handleInputChange(
-                            index,
-                            "company_name",
-                            e.target.value
-                          )
-                        }
-                      />
-                      <input
-                        type="text"
-                        placeholder="country"
-                        value={item.country}
-                        className="border px-4 py-3"
-                        onChange={(e) =>
-                          handleInputChange(index, "country", e.target.value)
-                        }
-                      />
-                      <input
-                        type="text"
-                        placeholder="company name"
-                        value={item.company_name}
-                        className="border px-4 py-3"
-                        onChange={(e) =>
-                          handleInputChange(index, "state", e.target.value)
-                        }
-                      />
-
-                      <SunEditorFile
-                        placeholder="Type your work experience here"
-                        value={item.description}
-                        onChange={(content) =>
-                          handleInputChange(index, "description", content)
-                        }
-                      />
+              <div
+                className="flex mb-6 rounded justify-between p-4 border"
+                key={index}
+              >
+                <details className="w-full ">
+                  <summary className="relative">
+                    <span>Add details of work experience</span>
+                    <button
+                      onClick={() => handleDeleteWorkExperience(index)}
+                      className="absolute top-0 bottom-0 right-0"
+                    >
+                      delete
+                    </button>
+                  </summary>
+                  <div className="flex flex-col space-y-4 mt-6">
+                    <input
+                      type="text"
+                      value={item.job_title}
+                      placeholder="Job title"
+                      className="border px-4 py-3"
+                      onChange={(e) =>
+                        handleInputChange(index, "job_title", e.target.value)
+                      }
+                    />
+                    <input
+                      type="text"
+                      placeholder="Company name"
+                      value={item.company_name}
+                      className="border px-4 py-3"
+                      onChange={(e) =>
+                        handleInputChange(index, "company_name", e.target.value)
+                      }
+                    />
+                    <input
+                      type="text"
+                      placeholder="Country"
+                      value={item.country}
+                      className="border px-4 py-3"
+                      onChange={(e) =>
+                        handleInputChange(index, "country", e.target.value)
+                      }
+                    />
+                    <div className="flex gap-10">
+                      <DropDown />
+                      <DropDown />
                     </div>
-                  </details>
-                </div>
-              </>
+
+                    <div className="flex gap-10">
+                      <DropDown />
+                      <DropDown />
+                    </div>
+
+                    <SunEditorFile
+                      placeholder="Type your work experience here"
+                      value={updateEditor[index]}
+                      onChange={(content) =>
+                        handleInputChange(index, "description", content)
+                      }
+                    />
+                  </div>
+                </details>
+              </div>
             ))}
-            <button
-              onClick={handleAddWorkExp}
-              className="px-4 py-3 bg-cyan-600 text-white rounded mb-6"
-            >
-              Add work experience
-            </button>
+            <div className="flex justify-between">
+              <button
+                onClick={handleAddWorkExp}
+                className="px-4 py-3 bg-cyan-600 text-white rounded mb-6"
+              >
+                Add work experience
+              </button>
+              <button className="px-4 py-3 border border-cyan-600 text-cyan-600 rounded mb-6">
+                ✨ AI suggestions
+              </button>
+            </div>
             <div className="space-x-4">
               <button> ←Back</button>
               <button

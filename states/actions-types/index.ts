@@ -51,6 +51,7 @@ interface updateName {
   educationHistory: eduHistory[];
   certification: updateCert[];
   objective: string;
+  editorExperience: string;
 }
 
 export type update = updateName;

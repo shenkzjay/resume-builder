@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import dynamic from "next/dynamic";
 import "suneditor/dist/css/suneditor.min.css"; // Import Sun Editor's CSS File
 import { useDispatch } from "react-redux";
@@ -16,59 +16,50 @@ interface SunEditorProps {
   onChange: (content: string) => void;
 }
 
-const SunEditorFile: React.FC<SunEditorProps> = ({
-  placeholder,
-  onChange,
-  value,
-}) => {
-  //init dispatch
-  const dispatch = useDispatch();
+const SunEditorFile: React.FC<SunEditorProps> = memo(
+  ({ placeholder, onChange, value }) => {
+    const handleDetailInputChange = (content: string) => {
+      onChange(content);
+    };
 
-  const updateObjectivetext = useSelector(
-    (state: RootState) => state.updateTextName.objective
-  );
+    return (
+      <div>
+        <SunEditor
+          placeholder={placeholder}
+          onChange={handleDetailInputChange}
+          setContents={value}
+          setOptions={{
+            height: "auto",
+            minHeight: "100px",
+            buttonList: [
+              [
+                "undo",
+                "redo",
+                "bold",
+                "underline",
+                "italic",
+                "strike",
+                "subscript",
+                "superscript",
+                "removeFormat",
+              ],
 
-  const handleInputChange = (content: string) => {
-    onChange(content);
-  };
-
-  return (
-    <div>
-      <SunEditor
-        placeholder={placeholder}
-        onChange={handleInputChange}
-        setContents={value}
-        setOptions={{
-          height: "auto",
-          minHeight: "100px",
-          buttonList: [
-            [
-              "undo",
-              "redo",
-              "bold",
-              "underline",
-              "italic",
-              "strike",
-              "subscript",
-              "superscript",
-              "removeFormat",
+              [
+                "fontColor",
+                "hiliteColor",
+                "outdent",
+                "indent",
+                "align",
+                "horizontalRule",
+                "list",
+                "table",
+              ],
+              "/",
             ],
-
-            [
-              "fontColor",
-              "hiliteColor",
-              "outdent",
-              "indent",
-              "align",
-              "horizontalRule",
-              "list",
-              "table",
-            ],
-            "/",
-          ],
-        }}
-      />
-    </div>
-  );
-};
+          }}
+        />
+      </div>
+    );
+  }
+);
 export default SunEditorFile;
