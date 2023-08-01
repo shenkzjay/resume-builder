@@ -6,7 +6,7 @@ import html2canvas from "html2canvas";
 import { jsPDF } from "jspdf";
 
 const PreviewTemplate = () => {
-  const printRef = useRef<null>(null);
+  const printRef = useRef<HTMLDivElement | null>(null);
   const router = useRouter();
   const selectedTemplate = Number(router.query.template);
   const TemplateComponent = templatesData[selectedTemplate]?.component ?? (
@@ -27,6 +27,7 @@ const PreviewTemplate = () => {
 
   const handleDownloadPDF = async () => {
     try {
+      if (!printRef.current) return;
       const canvas = await html2canvas(printRef.current);
       const imgData = canvas.toDataURL("image/png");
 
