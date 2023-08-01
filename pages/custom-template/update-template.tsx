@@ -8,8 +8,9 @@ import {
   updateName,
   updateObjective,
 } from "@/states/reducers/slice/textUpdateSlice";
-import Tiptap from "@/components/markdown-editor";
-import SunEditorFile from "@/components/markdown-editor/sun-editor";
+import Tiptap from "@/components/ui components/markdown-editor";
+import SunEditorFile from "@/components/ui components/markdown-editor/sun-editor";
+import Link from "next/link";
 
 const UpdateTemplate = () => {
   const router = useRouter();
@@ -30,7 +31,9 @@ const UpdateTemplate = () => {
   return (
     <section className="container mx-auto bg-white  text-black">
       <div className="my-10 ">
-        <p className="font-bold text-4xl">Contact details</p>
+        <p className="font-semibold text-4xl">
+          Tell us a little about yourself
+        </p>
       </div>
       <div className="flex w-full gap-20 ">
         <div className="w-1/2">
@@ -63,19 +66,7 @@ const UpdateTemplate = () => {
                   )
                 }
               />
-              <input
-                type="text"
-                className="border px-4 py-3"
-                placeholder="Enter your country"
-                onChange={(e) =>
-                  dispatch(
-                    updateName({
-                      ...updateTextUpdate.personalDetails,
-                      country: e.target.value,
-                    })
-                  )
-                }
-              />
+
               <input
                 type="text"
                 className="border px-4 py-3"
@@ -85,6 +76,19 @@ const UpdateTemplate = () => {
                     updateName({
                       ...updateTextUpdate.personalDetails,
                       state: e.target.value,
+                    })
+                  )
+                }
+              />
+              <input
+                type="text"
+                className="border px-4 py-3"
+                placeholder="Enter your country"
+                onChange={(e) =>
+                  dispatch(
+                    updateName({
+                      ...updateTextUpdate.personalDetails,
+                      country: e.target.value,
                     })
                   )
                 }
@@ -130,8 +134,11 @@ const UpdateTemplate = () => {
           <div className="h-[70vh]">{TemplateComponent}</div>
         </div>
       </div>
-      <div className="space-x-4">
-        <button> ←Back</button>
+      <div className="space-x-4 mt-4">
+        <button>
+          {" "}
+          <Link href={"javascript:history.back()"}>←Back</Link>
+        </button>
         <button
           onClick={() =>
             router.push({

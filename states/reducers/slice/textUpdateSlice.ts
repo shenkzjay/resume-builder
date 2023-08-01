@@ -5,6 +5,7 @@ import {
   certificateActions,
   updateObjectiveAction,
   editorExperienceActions,
+  searchSuggestionsActions,
 } from "../../actions-types/action";
 import {
   update,
@@ -25,6 +26,7 @@ const initialState: update = {
 
   objective: "",
   editorExperience: "",
+  searchSuggestions: "",
 
   skills: [
     {
@@ -49,14 +51,18 @@ const initialState: update = {
       end_month: "",
       end_year: "",
       description: "",
+      checkboxstatus: false,
     },
   ],
 
   educationHistory: [
     {
-      schoolName: "",
-      course: "",
-      degreeTitle: "",
+      school_name: "",
+      school_location: "",
+      degree_program: "",
+      field_of_study: "",
+      graduation_month: "",
+      graduation_year: "",
     },
   ],
 
@@ -135,8 +141,9 @@ export const textUpdateSlice = createSlice({
       action: PayloadAction<{ index: number; data: eduHistory }>
     ) {
       const { index, data } = action.payload;
-      state.educationHistory[index] = data;
-      state.educationHistory = [...state.educationHistory];
+      const updateEducationHistory = [...state.educationHistory];
+      updateEducationHistory[index] = data;
+      return { ...state, educationHistory: updateEducationHistory };
     },
 
     addEducationHistory(
@@ -182,6 +189,13 @@ export const textUpdateSlice = createSlice({
     ) {
       state.objective = action.payload;
     },
+
+    search(
+      state: update,
+      action: PayloadAction<searchSuggestionsActions["payload"]>
+    ) {
+      state.searchSuggestions = action.payload;
+    },
   },
 });
 
@@ -199,6 +213,7 @@ export const {
   addCertification,
   deleteCertification,
   updateObjective,
+  search,
 } = textUpdateSlice.actions;
 
 export default textUpdateSlice.reducer;

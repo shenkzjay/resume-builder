@@ -10,16 +10,20 @@ import Typography from "@tiptap/extension-typography";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { RootState } from "@/states/store";
-import { updateObjective } from "@/states/reducers/slice/textUpdateSlice";
 
-function Demo() {
-  const dispatch = useDispatch();
+interface TipTapProps {
+  content: string;
+  onUpdate: (content: any) => void;
+}
 
-  const updateObjectiveText = useSelector(
-    (state: RootState) => state.updateTextName.objective
-  );
+function TiptapEditor({ content, onUpdate }: TipTapProps) {
+  // const dispatch = useDispatch();
 
-  console.log("content", updateObjectiveText);
+  // const updateObjectiveText = useSelector(
+  //   (state: RootState) => state.updateTextName.objective
+  // );
+
+  // console.log("content", updateObjectiveText);
 
   const editor = useEditor({
     extensions: [
@@ -32,10 +36,12 @@ function Demo() {
       Highlight,
       TextAlign.configure({ types: ["heading", "paragraph"] }),
     ],
-    content: "",
-    onUpdate({ editor }) {
-      dispatch(updateObjective(editor.getHTML()));
+    content,
+    onUpdate: ({ editor }) => {
+      const updatedContent = editor.getHTML(); // Get the HTML content of the editor
+      onUpdate(updatedContent); // Pass the updated content to the onUpdate function
     },
+
     editorProps: {
       attributes: {
         class: "prose prose-list-disc",
@@ -52,42 +58,21 @@ function Demo() {
           <RichTextEditor.Underline />
           <RichTextEditor.Strikethrough />
           <RichTextEditor.ClearFormatting />
-          <RichTextEditor.Highlight />
           <RichTextEditor.Code />
         </RichTextEditor.ControlsGroup>
-
-        <RichTextEditor.ControlsGroup>
-          <RichTextEditor.H1 />
-          <RichTextEditor.H2 />
-          <RichTextEditor.H3 />
-          <RichTextEditor.H4 />
-        </RichTextEditor.ControlsGroup>
-
         <RichTextEditor.ControlsGroup>
           <RichTextEditor.Blockquote />
-          <RichTextEditor.Hr />
           <RichTextEditor.BulletList />
           <RichTextEditor.OrderedList />
-          <RichTextEditor.Subscript />
-          <RichTextEditor.Superscript />
         </RichTextEditor.ControlsGroup>
-
         <RichTextEditor.ControlsGroup>
           <RichTextEditor.Link />
           <RichTextEditor.Unlink />
         </RichTextEditor.ControlsGroup>
-
-        <RichTextEditor.ControlsGroup>
-          <RichTextEditor.AlignLeft />
-          <RichTextEditor.AlignCenter />
-          <RichTextEditor.AlignJustify />
-          <RichTextEditor.AlignRight />
-        </RichTextEditor.ControlsGroup>
       </RichTextEditor.Toolbar>
-
       <RichTextEditor.Content />
     </RichTextEditor>
   );
 }
 
-export default Demo;
+export default TiptapEditor;

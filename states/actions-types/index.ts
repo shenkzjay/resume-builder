@@ -6,6 +6,8 @@ export enum ActionTypes {
   EDUCATION_HISTORY = "education-history",
   CERTIFICATE = "certificate",
   OBJECTIVES = "career-objective",
+  AI_SEARCH = "aisearch",
+  ADD_WORK_EXPERIENCE = "add-wor-experience",
 }
 
 interface skillUpdate {
@@ -23,12 +25,16 @@ export interface workExp {
   end_month: string;
   end_year: string;
   description: string;
+  checkboxstatus: boolean;
 }
 
 export interface eduHistory {
-  schoolName: string;
-  course: string;
-  degreeTitle: string;
+  school_name: string;
+  school_location: string;
+  degree_program: string;
+  field_of_study: string;
+  graduation_month: string;
+  graduation_year: string;
 }
 
 export interface updateCert {
@@ -44,6 +50,11 @@ export interface personalDetails {
   phone: string;
 }
 
+export interface trial {
+  workexperience: workExp[];
+  updateObjectives: string;
+}
+
 interface updateName {
   personalDetails: personalDetails;
   skills: skillUpdate[];
@@ -52,6 +63,7 @@ interface updateName {
   certification: updateCert[];
   objective: string;
   editorExperience: string;
+  searchSuggestions: string;
 }
 
 export type update = updateName;

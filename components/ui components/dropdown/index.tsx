@@ -1,16 +1,41 @@
 import { Select, rem } from "@mantine/core";
+import { useState } from "react";
+import { updateWorkExperience } from "@/states/reducers/slice/textUpdateSlice";
 
-const DropDown = () => {
+interface dropdown {
+  value: string;
+  label: string;
+}
+
+interface DropDownProps {
+  data: dropdown[];
+  placeholder: string;
+  disabled?: boolean;
+  onChange: (content: string) => void;
+  value: string;
+}
+
+const DropDown: React.FC<DropDownProps> = ({
+  data,
+  placeholder,
+  disabled,
+  onChange,
+  value,
+}) => {
+  console.log(value);
+
+  const handleDropdownSelect = (content: string) => {
+    onChange(content);
+  };
+
   return (
     <section>
       <Select
-        placeholder="Pick one"
-        data={[
-          { value: "react", label: "React" },
-          { value: "ng", label: "Angular" },
-          { value: "svelte", label: "Svelte" },
-          { value: "vue", label: "Vue" },
-        ]}
+        placeholder={placeholder}
+        data={data}
+        disabled={disabled}
+        value={value}
+        onChange={handleDropdownSelect}
         styles={(theme) => ({
           input: {
             paddingTop: rem(21),

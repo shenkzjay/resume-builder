@@ -15,6 +15,8 @@ const DefaultTemplate: React.FC = () => {
     (state: RootState) => state.updateTextName.workExperience
   );
 
+  console.log(workExperience);
+
   const educationHistory = useSelector(
     (state: RootState) => state.updateTextName.educationHistory
   );
@@ -50,11 +52,10 @@ const DefaultTemplate: React.FC = () => {
               Professional summary
             </h2>
             <p className="text-[9px]">
-              A pace setter in the industry with a cos my stubborn heart always
-              rosms to places i cannot find and sometimes i hpe it hudt dtays in
-              a placr where i coild give it the restir deserves
+              {updateObjective
+                ? parse(updateObjective)
+                : " A pace setter in the industry with a cos my stubborn heart always rosms to places i cannot find and sometimes i hpe it hudt dtays in a placr where i coild give it the restir deserves"}
             </p>
-            <div className="text-[9px]">{parse(updateObjective)}</div>
           </div>
 
           {/**Work experience */}
@@ -76,16 +77,28 @@ const DefaultTemplate: React.FC = () => {
                       {item.country ? item.country : "Location"} -{" "}
                       <i>{item.job_title ? item.job_title : "Job title"}</i>
                     </p>
-                    <p className="text-[8px] uppercase">MONTH 20XX - PRESENT</p>
+                    {!item.checkboxstatus ? (
+                      <p className="text-[8px] uppercase">
+                        {item.start_month ? item.start_month : "MONTH"}{" "}
+                        {item.start_year ? item.start_year : "20XX"} -{" "}
+                        {item.end_month ? item.end_month : "MONTH"}{" "}
+                        {item.end_year ? item.end_year : "20XX"}
+                      </p>
+                    ) : (
+                      <p className="text-[8px] uppercase">
+                        {item.start_month ? item.start_month : "MONTH"}{" "}
+                        {item.start_year ? item.start_year : "20XX"} - PRESENT
+                      </p>
+                    )}
                   </div>
 
-                  <div>
+                  <div className="">
                     <div className="text-[9px] space-y-2 pl-3">
-                      <div className="prose">
+                      <p className="">
                         {item.description
                           ? parse(item.description)
                           : " Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh."}
-                      </div>
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -104,9 +117,13 @@ const DefaultTemplate: React.FC = () => {
                 </header>
                 <div className="mt-4 mb-2">
                   <p className="text-[11px]">
-                    <b>{item.schoolName ? item.schoolName : "School name"},</b>{" "}
-                    {item.course ? item.course : "Location"} -{" "}
-                    <i>{item.degreeTitle ? item.degreeTitle : "Degree"}</i>
+                    <b>
+                      {item.school_name ? item.school_name : "School name"},
+                    </b>{" "}
+                    {item.school_location ? item.school_location : "Location"} -{" "}
+                    <i>
+                      {item.degree_program ? item.degree_program : "Degree"}
+                    </i>
                   </p>
                   <p className="text-[8px]"> MONTH 20XX - PRESENT</p>
                 </div>
@@ -169,8 +186,8 @@ const DefaultTemplate: React.FC = () => {
             <h2 className="font-extrabold mb-2 text-cyan-600">ADDRESS</h2>
             <p>
               {" "}
+              {updateTextName.state ? updateTextName.state : "State"},
               {updateTextName.country ? updateTextName.country : "Your Country"}
-              , {updateTextName.state ? updateTextName.state : "State"}
             </p>
             <p>{updateTextName.phone ? updateTextName.phone : "070XXXXXXXX"}</p>
             <p>

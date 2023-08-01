@@ -1,4 +1,4 @@
-import { ActionTypes } from ".";
+import { ActionTypes, workExp } from ".";
 
 interface UpdateAction {
   type: ActionTypes.UPADATE_NAME;
@@ -30,12 +30,16 @@ interface workExpData {
   end_month: string;
   end_year: string;
   description: string;
+  checkboxstatus: boolean;
 }
 
 interface educationHistory {
-  schoolName: string;
-  course: string;
-  degreeTitle: string;
+  school_name: string;
+  school_location: string;
+  degree_program: string;
+  field_of_study: string;
+  graduation_month: string;
+  graduation_year: string;
 }
 
 interface educationHistoryAction {
@@ -71,6 +75,19 @@ interface editorExperienceActions {
   payload: string;
 }
 
+interface searchSuggestionsActions {
+  type: ActionTypes.AI_SEARCH;
+  payload: string;
+}
+
+type AddWorkExperienceAction = {
+  type: string;
+  payload: {
+    workExperience: workExp;
+    updateObjective: string; // Add the new property here
+  };
+};
+
 export type {
   UpdateAction,
   skillUpdateAction,
@@ -78,9 +95,24 @@ export type {
   educationHistoryAction,
   certificateActions,
   editorExperienceActions,
+  searchSuggestionsActions,
+  AddWorkExperienceAction,
 };
 
 export const deleteWorkExperienceAction = (index: number) => ({
   type: ActionTypes.DELETE_WORK_EXPERIENCE,
   payload: index,
 });
+
+export const addWorkExperience = (
+  data: workExp,
+  updateObjective: string
+): AddWorkExperienceAction => {
+  return {
+    type: ActionTypes.ADD_WORK_EXPERIENCE,
+    payload: {
+      workExperience: data,
+      updateObjective, // Include the new property in the payload
+    },
+  };
+};

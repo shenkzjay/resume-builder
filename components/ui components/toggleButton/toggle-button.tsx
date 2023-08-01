@@ -16,7 +16,11 @@ import {
   IconFileTypePdf,
 } from "@tabler/icons-react";
 
-const ToggleButton = () => {
+interface ToggleButtonProps {
+  onClick: () => void;
+}
+
+const ToggleButton: React.FC<ToggleButtonProps> = ({ onClick }) => {
   return (
     <Menu width={200}>
       <Menu.Target>
@@ -25,7 +29,9 @@ const ToggleButton = () => {
 
       <Menu.Dropdown>
         <Menu.Label>Export resume as</Menu.Label>
-        <Menu.Item icon={<IconFileTypePdf size={14} />}>Pdf</Menu.Item>
+        <Menu.Item icon={<IconFileTypePdf size={14} />}>
+          <div onClick={onClick}> Pdf</div>
+        </Menu.Item>
         <Menu.Item icon={<IconFileTypeDoc size={14} />}>Doc</Menu.Item>
         <Menu.Item icon={<IconFileTypeTxt size={14} />}>Plain text</Menu.Item>
       </Menu.Dropdown>

@@ -1,7 +1,7 @@
 import React from "react";
 import { useRouter } from "next/router";
 import { templatesData } from "@/components/templates";
-import { MultiSelect } from "@mantine/core";
+import { MultiSelect, rem } from "@mantine/core";
 import { createStyles } from "@mantine/core";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
@@ -10,6 +10,7 @@ import {
   updateSkills,
   deleteSkill,
 } from "@/states/reducers/slice/textUpdateSlice";
+import Link from "next/link";
 
 const Skills = () => {
   //init router
@@ -41,6 +42,10 @@ const Skills = () => {
         outline: 0,
       },
     },
+    input: {
+      paddingTop: rem(8),
+      paddingBottom: rem(8),
+    },
   }));
 
   const handleMultiSelectChange = (value: string[]) => {
@@ -57,14 +62,16 @@ const Skills = () => {
   return (
     <section>
       <div className="mx-auto container">
-        <div className="my-10 ">
-          <p className="font-bold text-4xl">Skillset</p>
-          <p>Type to add your skill set</p>
+        <div className="mt-10 mb-6 space-y-4 ">
+          <p className="font-semibold text-4xl">Lets talk skills</p>
         </div>
         <div className="flex gap-20">
           <div className="w-1/2">
             <MultiSelect
-              classNames={{ searchInput: classes.outline }}
+              classNames={{
+                searchInput: classes.outline,
+                input: classes.input,
+              }}
               label=""
               data={addSkills}
               placeholder="Add your skills here"
@@ -90,7 +97,10 @@ const Skills = () => {
           <div className="w-1/2 h-[70vh]">{TemplateComponent}</div>
         </div>
         <div className="space-x-4">
-          <button> ←Back</button>
+          <button>
+            {" "}
+            <Link href={"javascript:history.back()"}>←Back</Link>
+          </button>
           <button
             onClick={() =>
               router.push({

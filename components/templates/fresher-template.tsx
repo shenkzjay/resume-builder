@@ -16,6 +16,8 @@ const FresherTemplate: React.FC = () => {
     (state: RootState) => state.updateTextName.workExperience
   );
 
+  console.log("updates", workExperience);
+
   const educationHistory = useSelector(
     (state: RootState) => state.updateTextName.educationHistory
   );
@@ -121,12 +123,19 @@ const FresherTemplate: React.FC = () => {
                       {item.country ? item.country : "Location"} -{" "}
                       <i>{item.job_title ? item.job_title : "JobTitle"}</i>
                     </p>
-                    <p className="text-[8px] uppercase">
-                      {item.start_month ? item.start_month : "MONTH"}{" "}
-                      {item.start_year ? item.start_year : "20XX"} -{" "}
-                      {item.end_month ? item.end_month : "MONTH"}{" "}
-                      {item.end_year ? item.end_year : "20XX"}
-                    </p>
+                    {!item.checkboxstatus ? (
+                      <p className="text-[8px] uppercase">
+                        {item.start_month ? item.start_month : "MONTH"}{" "}
+                        {item.start_year ? item.start_year : "20XX"} -{" "}
+                        {item.end_month ? item.end_month : "MONTH"}{" "}
+                        {item.end_year ? item.end_year : "20XX"}
+                      </p>
+                    ) : (
+                      <p className="text-[8px] uppercase">
+                        {item.start_month ? item.start_month : "MONTH"}{" "}
+                        {item.start_year ? item.start_year : "20XX"} - PRESENT
+                      </p>
+                    )}
                   </div>
                 </header>
                 <div>
@@ -159,9 +168,9 @@ const FresherTemplate: React.FC = () => {
             <div key={index}>
               <div className="mt-2 mb-1 flex justify-between items-center">
                 <p className="text-[11px]">
-                  <b>{item.schoolName ? item.schoolName : "School name"},</b>{" "}
+                  <b>{item.school_name ? item.school_name : "School name"},</b>{" "}
                   Location -{" "}
-                  <i>{item.degreeTitle ? item.degreeTitle : "Degree"}</i>
+                  <i>{item.degree_program ? item.degree_program : "Degree"}</i>
                 </p>
                 <p className="text-[8px]"> MONTH 20XX - PRESENT</p>
               </div>
