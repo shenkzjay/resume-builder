@@ -7,6 +7,7 @@ import { jsPDF } from "jspdf";
 import EditSectionButton from "@/components/ui components/toggleButton/edit-section";
 import { ModalCard } from "@/components/ui components/modal";
 import { useDisclosure } from "@mantine/hooks";
+import { IconDownload } from "@tabler/icons-react";
 
 const PreviewTemplate = () => {
   const printRef = useRef<HTMLDivElement | null>(null);
@@ -85,6 +86,9 @@ const PreviewTemplate = () => {
           Preview template
         </button>
         <ModalCard opened={opened} close={close} open={open}>
+          <button onClick={handleDownloadPDF}>
+            <IconDownload size={16} />
+          </button>
           <div className="h-[70vh]" ref={printRef}>
             {select_template}
           </div>
