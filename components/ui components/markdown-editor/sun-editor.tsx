@@ -12,39 +12,38 @@ interface SunEditorProps {
   onChange: (content: string) => void;
 }
 
-const SunEditorFile: React.FC<SunEditorProps> = memo(
-  ({ placeholder, onChange, value }) => {
-    const handleDetailInputChange = (content: string) => {
-      onChange(content);
-    };
+function SunEditorFile({ placeholder, onChange, value }: SunEditorProps) {
+  const handleDetailInputChange = (content: string) => {
+    onChange(content);
+  };
 
-    return (
-      <div>
-        <SunEditor
-          placeholder={placeholder}
-          onChange={handleDetailInputChange}
-          setContents={value}
-          setOptions={{
-            height: "auto",
-            minHeight: "100px",
-            buttonList: [
-              [
-                "undo",
-                "redo",
-                "bold",
-                "underline",
-                "italic",
-                "strike",
-                "outdent",
-                "indent",
-                "align",
-                "list",
-              ],
+  return (
+    <div>
+      <SunEditor
+        placeholder={placeholder}
+        onChange={handleDetailInputChange}
+        setContents={value}
+        setOptions={{
+          height: "auto",
+          minHeight: "100px",
+          buttonList: [
+            [
+              "undo",
+              "redo",
+              "bold",
+              "underline",
+              "italic",
+              "strike",
+              "outdent",
+              "indent",
+              "align",
+              "list",
             ],
-          }}
-        />
-      </div>
-    );
-  }
-);
-export default SunEditorFile;
+          ],
+        }}
+      />
+    </div>
+  );
+}
+
+export default memo(SunEditorFile);

@@ -8,8 +8,8 @@ const Home = () => {
       {/**Body */}
       <section className="flex flex-col justify-center items-center mx-auto container">
         <div className=" w-[80%] flex flex-col items-center justify-center">
-          <h1 className="text-6xl font-extrabold mt-32 text-center">
-            Pick.Customize.Download
+          <h1 className="text-7xl font-extrabold mt-32 text-center">
+            Select.Customize.Download
           </h1>
           <button
             className="mt-10 py-4 px-3 bg-orange-400"
