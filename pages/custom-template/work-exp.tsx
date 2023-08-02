@@ -21,12 +21,11 @@ import { IconPlus } from "@tabler/icons-react";
 import TiptapEditor from "@/components/ui components/markdown-editor";
 import { Checkboxelement } from "@/components/ui components/checkbox";
 import Link from "next/link";
+import { BackButton, NextButton, AddButtons } from "@/components/buttons";
 
 const WorkExperience = () => {
   //init router
   console.log("render ");
-
-  const [checked, setChecked] = useState(false);
 
   const { data, isLoading, error } = UseSuggestions();
   console.log("wx", data);
@@ -160,146 +159,148 @@ const WorkExperience = () => {
             Snapshot of Your Accomplishments
           </p>
         </div>
-        <div className="flex gap-20">
-          <div className="w-1/2">
-            {updateWorkExp.map((item, index) => (
-              <div
-                className="flex mb-6 rounded justify-between p-4 border"
-                key={index}
-              >
-                <details className="w-full ">
-                  <summary className="relative">
-                    <span>Add details of work experience</span>
-                    <button
-                      onClick={() => handleDeleteWorkExperience(index)}
-                      className="absolute top-0 bottom-0 right-0"
-                    >
-                      <IconTrashX color="red" size={20} />
-                    </button>
-                  </summary>
-                  <div className="flex flex-col space-y-4 mt-6">
-                    <input
-                      type="text"
-                      placeholder="Company name"
-                      value={item.company_name}
-                      className="border px-4 py-3"
-                      onChange={(e) =>
-                        handleInputChange(index, "company_name", e.target.value)
-                      }
-                    />
-                    <input
-                      type="text"
-                      placeholder="Country"
-                      value={item.country}
-                      className="border px-4 py-3"
-                      onChange={(e) =>
-                        handleInputChange(index, "country", e.target.value)
-                      }
-                    />
-                    <input
-                      type="text"
-                      value={item.job_title}
-                      placeholder="Job title"
-                      className="border px-4 py-3"
-                      onChange={(e) =>
-                        handleInputChange(index, "job_title", e.target.value)
-                      }
-                    />
-                    <div className="flex gap-10">
-                      <DropDown
-                        placeholder="Start month"
-                        data={monthsArray}
-                        onChange={(content) =>
-                          handleInputChange(index, "start_month", content)
+        <div className="flex gap-20 mb-20">
+          <div className="w-1/2 flex flex-col justify-between">
+            <div>
+              {updateWorkExp.map((item, index) => (
+                <div
+                  className="flex mb-6 rounded justify-between p-4 border"
+                  key={index}
+                >
+                  <details className="w-full ">
+                    <summary className="relative">
+                      <span>Add details of work experience</span>
+                      <button
+                        onClick={() => handleDeleteWorkExperience(index)}
+                        className="absolute top-0 bottom-0 right-0"
+                      >
+                        <IconTrashX color="red" size={20} />
+                      </button>
+                    </summary>
+                    <div className="flex flex-col space-y-4 mt-6">
+                      <input
+                        type="text"
+                        placeholder="Company name"
+                        value={item.company_name}
+                        className="border px-4 py-3"
+                        onChange={(e) =>
+                          handleInputChange(
+                            index,
+                            "company_name",
+                            e.target.value
+                          )
                         }
-                        value={item.start_month}
                       />
-                      <DropDown
-                        placeholder="Start year"
-                        data={yearArray}
-                        onChange={(content) =>
-                          handleInputChange(index, "start_year", content)
+                      <input
+                        type="text"
+                        placeholder="Country"
+                        value={item.country}
+                        className="border px-4 py-3"
+                        onChange={(e) =>
+                          handleInputChange(index, "country", e.target.value)
                         }
-                        value={item.start_year}
                       />
-                    </div>
+                      <input
+                        type="text"
+                        value={item.job_title}
+                        placeholder="Job title"
+                        className="border px-4 py-3"
+                        onChange={(e) =>
+                          handleInputChange(index, "job_title", e.target.value)
+                        }
+                      />
+                      <div className="flex gap-10">
+                        <DropDown
+                          placeholder="Start month"
+                          data={monthsArray}
+                          onChange={(content) =>
+                            handleInputChange(index, "start_month", content)
+                          }
+                          value={item.start_month}
+                        />
+                        <DropDown
+                          placeholder="Start year"
+                          data={yearArray}
+                          onChange={(content) =>
+                            handleInputChange(index, "start_year", content)
+                          }
+                          value={item.start_year}
+                        />
+                      </div>
 
-                    <div className="flex gap-10">
-                      <DropDown
-                        placeholder="End month"
-                        data={monthsArray}
-                        disabled={item.checkboxstatus}
-                        onChange={(content) =>
-                          handleInputChange(index, "end_month", content)
-                        }
-                        value={item.end_month}
-                      />
-                      <DropDown
-                        placeholder="End year"
-                        data={yearArray}
-                        disabled={item.checkboxstatus}
-                        onChange={(content) =>
-                          handleInputChange(index, "end_year", content)
-                        }
-                        value={item.end_year}
-                      />
-                    </div>
-                    <div>
-                      <Checkboxelement
-                        label="Currently working there?"
-                        checked={item.checkboxstatus}
-                        onChange={(checked) =>
-                          handleCheckboxChange(index, checked)
-                        }
-                      />
-                    </div>
+                      <div className="flex gap-10">
+                        <DropDown
+                          placeholder="End month"
+                          data={monthsArray}
+                          disabled={item.checkboxstatus}
+                          onChange={(content) =>
+                            handleInputChange(index, "end_month", content)
+                          }
+                          value={item.end_month}
+                        />
+                        <DropDown
+                          placeholder="End year"
+                          data={yearArray}
+                          disabled={item.checkboxstatus}
+                          onChange={(content) =>
+                            handleInputChange(index, "end_year", content)
+                          }
+                          value={item.end_year}
+                        />
+                      </div>
+                      <div>
+                        <Checkboxelement
+                          label="Currently working there?"
+                          checked={item.checkboxstatus}
+                          onChange={(checked) =>
+                            handleCheckboxChange(index, checked)
+                          }
+                        />
+                      </div>
 
-                    {/* <SunEditorFile
+                      {/* <SunEditorFile
                       placeholder="Type your work experience here"
                       value={updateEditor}
                       onChange={(content) =>
                         handleInputChange(index, "description", content)
                       }
                     /> */}
-                    <TiptapEditor
-                      onUpdate={(content) =>
-                        handleInputChange(index, "description", content)
-                      }
-                      content={item.description}
-                    />
-                    <button
-                      onClick={() => open()}
-                      className="px-4 py-3 border border-cyan-600 text-cyan-600 rounded mb-6"
-                    >
-                      ✨ AI suggestions
-                    </button>
-                  </div>
-                </details>
+                      <TiptapEditor
+                        onUpdate={(content) =>
+                          handleInputChange(index, "description", content)
+                        }
+                        content={item.description}
+                      />
+                      <button
+                        onClick={() => open()}
+                        className="px-4 py-3 border border-cyan-600 text-cyan-600 rounded mb-6"
+                      >
+                        ✨ AI suggestions
+                      </button>
+                    </div>
+                  </details>
+                </div>
+              ))}
+              <div>
+                <AddButtons
+                  name="Add work experience"
+                  onClick={handleAddWorkExp}
+                />
               </div>
-            ))}
-            <div className="flex justify-between">
-              <button
-                onClick={handleAddWorkExp}
-                className="px-4 py-3 bg-cyan-600 text-white rounded mb-6"
-              >
-                Add work experience
-              </button>
             </div>
-            <div className="space-x-4">
-              <button>
-                {" "}
-                <Link href={"javascript:history.back()"}>←Back</Link>
-              </button>
-              <button
+
+            <div className="flex justify-between mt-4">
+              <BackButton name="Back" link="javascript:history.back()" />
+
+              <NextButton
+                name="Continue"
                 onClick={() =>
                   router.push({
                     pathname: "/custom-template/education",
                     query: { template: selectedTemplate },
                   })
                 }
-              >
-                Next→{" "}
-              </button>
+              />
             </div>
           </div>
 

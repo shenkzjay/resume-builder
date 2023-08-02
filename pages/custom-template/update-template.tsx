@@ -11,6 +11,7 @@ import {
 import Tiptap from "@/components/ui components/markdown-editor";
 import SunEditorFile from "@/components/ui components/markdown-editor/sun-editor";
 import Link from "next/link";
+import { NextButton, BackButton } from "@/components/buttons";
 
 const UpdateTemplate = () => {
   const router = useRouter();
@@ -129,26 +130,24 @@ const UpdateTemplate = () => {
               />
             </div>
           </div>
+
+          <div className="flex justify-between mt-4 mb-20">
+            <BackButton name="Back" link="javascript:history.back()" />
+
+            <NextButton
+              name="Continue"
+              onClick={() =>
+                router.push({
+                  pathname: "/custom-template/skills",
+                  query: { template: selectedTemplate },
+                })
+              }
+            />
+          </div>
         </div>
         <div className="w-1/2 ">
           <div className="h-[70vh]">{TemplateComponent}</div>
         </div>
-      </div>
-      <div className="space-x-4 mt-4">
-        <button>
-          {" "}
-          <Link href={"javascript:history.back()"}>←Back</Link>
-        </button>
-        <button
-          onClick={() =>
-            router.push({
-              pathname: "/custom-template/skills",
-              query: { template: selectedTemplate },
-            })
-          }
-        >
-          Next→{" "}
-        </button>
       </div>
     </section>
   );

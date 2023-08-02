@@ -20,7 +20,7 @@ interface ToggleButtonProps {
   onClick: () => void;
 }
 
-const ToggleButton: React.FC<ToggleButtonProps> = ({ onClick }) => {
+const ExportButton: React.FC<ToggleButtonProps> = ({ onClick }) => {
   return (
     <Menu width={200}>
       <Menu.Target>
@@ -39,4 +39,4 @@ const ToggleButton: React.FC<ToggleButtonProps> = ({ onClick }) => {
   );
 };
 
-export default ToggleButton;
+export default ExportButton;

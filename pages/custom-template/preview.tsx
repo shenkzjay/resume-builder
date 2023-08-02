@@ -1,9 +1,10 @@
 import React, { useState, useRef } from "react";
 import { templatesData } from "@/components/templates";
 import { useRouter } from "next/router";
-import ToggleButton from "@/components/ui components/toggleButton/toggle-button";
+import ExportButton from "@/components/ui components/toggleButton/export-button";
 import html2canvas from "html2canvas";
 import { jsPDF } from "jspdf";
+import EditSectionButton from "@/components/ui components/toggleButton/edit-section";
 
 const PreviewTemplate = () => {
   const printRef = useRef<HTMLDivElement | null>(null);
@@ -45,7 +46,10 @@ const PreviewTemplate = () => {
     <section className="mx-auto w-[90vw]">
       <div className="my-10 flex justify-between ">
         <p className="font-bold text-4xl">RESUME</p>
-        <ToggleButton onClick={handleDownloadPDF} />
+        <div className="flex gap-10">
+          <EditSectionButton />
+          <ExportButton onClick={handleDownloadPDF} />
+        </div>
       </div>
       <div className="flex gap-20">
         <div className="w-[55%] max-h-[70vh] overflow-auto p-1">

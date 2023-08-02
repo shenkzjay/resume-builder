@@ -11,6 +11,7 @@ import {
   deleteSkill,
 } from "@/states/reducers/slice/textUpdateSlice";
 import Link from "next/link";
+import { NextButton, BackButton } from "@/components/buttons";
 
 const Skills = () => {
   //init router
@@ -66,51 +67,50 @@ const Skills = () => {
           <p className="font-semibold text-4xl">Lets talk skills</p>
         </div>
         <div className="flex gap-20">
-          <div className="w-1/2">
-            <MultiSelect
-              classNames={{
-                searchInput: classes.outline,
-                input: classes.input,
-              }}
-              label=""
-              data={addSkills}
-              placeholder="Add your skills here"
-              searchable
-              creatable
-              clearable
-              transitionProps={{
-                duration: 150,
-                transition: "pop-top-left",
-                timingFunction: "ease",
-              }}
-              aria-label="Add skilll input field"
-              getCreateLabel={(query) => `+ Add "${query}"`}
-              value={selectedValues}
-              onChange={(values) => handleMultiSelectChange(values)}
-              onCreate={(query) => {
-                const item = { value: query, label: query };
-                dispatch(updateSkills(item));
-                return item;
-              }}
-            />
+          <div className="flex flex-col w-1/2 justify-between ">
+            <div className="">
+              <MultiSelect
+                classNames={{
+                  searchInput: classes.outline,
+                  input: classes.input,
+                }}
+                label=""
+                data={addSkills}
+                placeholder="Add your skills here"
+                searchable
+                creatable
+                clearable
+                transitionProps={{
+                  duration: 150,
+                  transition: "pop-top-left",
+                  timingFunction: "ease",
+                }}
+                aria-label="Add skilll input field"
+                getCreateLabel={(query) => `+ Add "${query}"`}
+                value={selectedValues}
+                onChange={(values) => handleMultiSelectChange(values)}
+                onCreate={(query) => {
+                  const item = { value: query, label: query };
+                  dispatch(updateSkills(item));
+                  return item;
+                }}
+              />
+            </div>
+            <div className="flex justify-between mt-4">
+              <BackButton name="Back" link="javascript:history.back()" />
+
+              <NextButton
+                name="Continue"
+                onClick={() =>
+                  router.push({
+                    pathname: "/custom-template/work-exp",
+                    query: { template: selectedTemplate },
+                  })
+                }
+              />
+            </div>
           </div>
           <div className="w-1/2 h-[70vh]">{TemplateComponent}</div>
-        </div>
-        <div className="space-x-4">
-          <button>
-            {" "}
-            <Link href={"javascript:history.back()"}>←Back</Link>
-          </button>
-          <button
-            onClick={() =>
-              router.push({
-                pathname: "/custom-template/work-exp",
-                query: { template: selectedTemplate },
-              })
-            }
-          >
-            Next→{" "}
-          </button>
         </div>
       </div>
     </section>
