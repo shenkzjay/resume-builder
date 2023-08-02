@@ -177,8 +177,8 @@ const FresherTemplate: React.FC = () => {
               <div>
                 <ul className="text-[9px] ml-4">
                   <li>
-                    {item.course
-                      ? item.course
+                    {item.school_location
+                      ? item.school_location
                       : "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh."}
                   </li>
                 </ul>
