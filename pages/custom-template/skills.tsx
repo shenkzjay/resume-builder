@@ -44,8 +44,8 @@ const Skills = () => {
       },
     },
     input: {
-      paddingTop: rem(8),
-      paddingBottom: rem(8),
+      paddingTop: rem(4),
+      paddingBottom: rem(4),
     },
   }));
 
