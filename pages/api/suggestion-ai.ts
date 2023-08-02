@@ -28,8 +28,8 @@ export default async function handler(
   const searchData = {
     action: "resume_builder_ai",
     section: "profession",
-    phrase,
-    aisearch: false,
+    phrase: phrase as string,
+    aisearch: "false",
   };
 
   try {
