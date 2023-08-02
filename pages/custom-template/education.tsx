@@ -14,11 +14,15 @@ import { IconTrashX } from "@tabler/icons-react";
 import DropDown from "@/components/ui components/dropdown";
 import Link from "next/link";
 import { BackButton, NextButton, AddButtons } from "@/components/buttons";
+import { ModalCard } from "@/components/ui components/modal";
+
+import { useDisclosure } from "@mantine/hooks";
 
 const EducationHistory = () => {
   //init router
   const router = useRouter();
 
+  const [opened, { open, close }] = useDisclosure(false);
   //init
   const dispatch = useDispatch();
 
@@ -106,10 +110,12 @@ const EducationHistory = () => {
     <section className="">
       <div className="mx-auto container">
         <div className="my-10 ">
-          <p className="font-semibold text-4xl">Your educational journey</p>
+          <p className="font-semibold text-4xl mx-6 md:mx-0">
+            Your educational journey
+          </p>
         </div>
-        <div className="flex gap-20 mb-20">
-          <div className="w-1/2 flex justify-between flex-col">
+        <div className="flex md:flex-row flex-col gap-20 mb-20 mx-6 md:mx-0">
+          <div className="md:w-1/2 flex justify-between flex-col">
             <div>
               {updateEduHistory.map((item, index) => (
                 <>
@@ -233,9 +239,20 @@ const EducationHistory = () => {
             </div>
           </div>
 
-          <section className="w-1/2 sticky top-24 max-h-[70vh]">
+          <section className="md:w-1/2 hidden md:flex sticky top-24 max-h-[70vh]">
             <div className="h-[70vh]">{TemplateComponent}</div>
           </section>
+        </div>
+        <div className="h-24 md:hidden flex fixed bottom-0 z-50 w-full justify-center items-center rounded-t-[20px] bg-white drop-shadow-[0_8px_20px_rgba(0,0,0,0.20)]">
+          <button
+            className="py-3 px-4 bg-cyan-600  text-white font-semibold rounded "
+            onClick={() => open()}
+          >
+            Preview template
+          </button>
+          <ModalCard opened={opened} close={close} open={open}>
+            <div className="h-[70vh]">{TemplateComponent}</div>
+          </ModalCard>
         </div>
       </div>
     </section>

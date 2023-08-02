@@ -12,9 +12,12 @@ import Tiptap from "@/components/ui components/markdown-editor";
 import SunEditorFile from "@/components/ui components/markdown-editor/sun-editor";
 import Link from "next/link";
 import { NextButton, BackButton } from "@/components/buttons";
+import { useDisclosure } from "@mantine/hooks";
+import { ModalCard } from "@/components/ui components/modal";
 
 const UpdateTemplate = () => {
   const router = useRouter();
+  const [opened, { open, close }] = useDisclosure(false);
   const dispatch = useDispatch();
   const selectedTemplate = Number(router.query.template);
   const TemplateComponent = templatesData[selectedTemplate]?.component ?? (
@@ -30,14 +33,14 @@ const UpdateTemplate = () => {
   );
 
   return (
-    <section className="container mx-auto bg-white  text-black">
+    <section className="md:container md:mx-auto bg-white  text-black">
       <div className="my-10 ">
-        <p className="font-semibold text-4xl">
+        <p className="font-semibold text-4xl mx-6 md:mx-0">
           Tell us a little about yourself
         </p>
       </div>
-      <div className="flex w-full gap-20 ">
-        <div className="w-1/2">
+      <div className="flex md:flex-row flex-col w-full gap-20 mb-20 md:mb-0">
+        <div className="md:w-1/2 mx-6 md:mx-0">
           <div className="w-full">
             <div className="flex flex-col space-y-6">
               <input
@@ -145,9 +148,20 @@ const UpdateTemplate = () => {
             />
           </div>
         </div>
-        <div className="w-1/2 ">
+        <div className="md:w-1/2 md:flex hidden">
           <div className="h-[70vh]">{TemplateComponent}</div>
         </div>
+      </div>
+      <div className="h-24 md:hidden flex fixed bottom-0 z-50 w-full justify-center items-center rounded-t-[20px] bg-white drop-shadow-[0_8px_20px_rgba(0,0,0,0.20)]">
+        <button
+          className="py-3 px-4 bg-cyan-600  text-white font-semibold rounded "
+          onClick={() => open()}
+        >
+          Preview template
+        </button>
+        <ModalCard opened={opened} close={close} open={open}>
+          <div className="h-[70vh]">{TemplateComponent}</div>
+        </ModalCard>
       </div>
     </section>
   );

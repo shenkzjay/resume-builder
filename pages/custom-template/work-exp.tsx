@@ -155,12 +155,12 @@ const WorkExperience = () => {
     <section className="">
       <div className="container mx-auto ">
         <div className="my-10 ">
-          <p className="font-semibold text-4xl">
+          <p className="font-semibold text-4xl mx-6 md:mx-0">
             Snapshot of Your Accomplishments
           </p>
         </div>
-        <div className="flex gap-20 mb-20">
-          <div className="w-1/2 flex flex-col justify-between">
+        <div className="flex md:flex-row flex-col gap-20 mb-48 md:mb-20 mx-6 md:mx-0">
+          <div className="md:w-1/2 flex flex-col justify-between">
             <div>
               {updateWorkExp.map((item, index) => (
                 <div
@@ -304,7 +304,7 @@ const WorkExperience = () => {
             </div>
           </div>
 
-          <section className="w-1/2 max-h-[70vh] sticky top-24">
+          <section className="md:w-1/2 hidden md:flex max-h-[70vh] sticky top-24">
             <div className="h-[70vh]">{TemplateComponent}</div>
           </section>
         </div>
@@ -341,6 +341,14 @@ const WorkExperience = () => {
               ))}
           </div>
         </ModalCard>
+      </div>
+      <div className="h-24 md:hidden flex fixed bottom-0 z-50 w-full justify-center items-center rounded-t-[20px] bg-white drop-shadow-[0_8px_20px_rgba(0,0,0,0.20)]">
+        <button
+          className="py-3 px-4 bg-cyan-600  text-white font-semibold rounded "
+          // onClick={() => open()}
+        >
+          Preview template
+        </button>
       </div>
     </section>
   );

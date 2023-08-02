@@ -16,16 +16,16 @@ const SelectTemplate = () => {
     setSelectedTemplate(index);
     router.push({
       pathname: "/custom-template/update-template",
-      query: { template: index },
+      query: { template: selectedTemplate },
     });
   };
 
   return (
-    <section className="w-[95vw] mx-auto space-y-10 scale-95">
+    <section className="md:w-[95vw] md:mx-auto space-y-10 md:scale-95">
       <div className="mt-20">
         <h1 className="text-center text-4xl">Choose a template</h1>
       </div>
-      <div className="grid grid-cols-[repeat(auto-fit,minmax(auto,380px))] gap-12 justify-center scale-75 origin-top">
+      <div className="grid grid-cols-[repeat(auto-fit,minmax(auto,380px))] gap-20 md:gap-12 justify-center  md:scale-75 origin-top mx-6 md:mx-0">
         {templatesData.map((template, index) => (
           <div
             key={index}
