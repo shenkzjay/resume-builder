@@ -6,13 +6,15 @@ const Home = () => {
   return (
     <main className="bg-white h-screen text-black">
       {/**Body */}
-      <section className="flex flex-col justify-center items-center mx-auto container">
-        <div className=" w-[80%] flex flex-col items-center justify-center">
-          <h1 className="text-7xl font-extrabold mt-32 text-center">
-            Select.Customize.Download
-          </h1>
+      <section className="flex flex-col justify-center items-center md:mx-auto md:container">
+        <div className=" md:w-[80%] flex flex-col items-center justify-center mx-6">
+          <div className="flex md:flex-row flex-col md:text-7xl text-6xl font-extrabold mt-32 text-center">
+            <span>Select.</span>
+            <span>Customize.</span>
+            <span>Download.</span>
+          </div>
           <button
-            className="mt-10 py-4 px-3 bg-orange-400"
+            className="mt-10 py-4 px-3 bg-cyan-600 font-semibold text-white rounded"
             onClick={() => router.push({ pathname: "/custom-template" })}
           >
             Start building your resume

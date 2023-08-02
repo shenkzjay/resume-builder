@@ -114,7 +114,7 @@ const EducationHistory = () => {
             Your educational journey
           </p>
         </div>
-        <div className="flex md:flex-row flex-col gap-20 mb-20 mx-6 md:mx-0">
+        <div className="flex md:flex-row flex-col gap-20 mb-44 mx-6 md:mx-0">
           <div className="md:w-1/2 flex justify-between flex-col">
             <div>
               {updateEduHistory.map((item, index) => (

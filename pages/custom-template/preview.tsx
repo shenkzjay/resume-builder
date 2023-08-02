@@ -85,7 +85,9 @@ const PreviewTemplate = () => {
           Preview template
         </button>
         <ModalCard opened={opened} close={close} open={open}>
-          <div className="h-[70vh]">{select_template}</div>
+          <div className="h-[70vh]" ref={printRef}>
+            {select_template}
+          </div>
         </ModalCard>
       </div>
     </section>

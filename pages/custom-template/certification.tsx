@@ -43,7 +43,7 @@ const Certification = () => {
             Got a certification?
           </p>
         </div>
-        <div className="flex flex-col md:flex-row gap-20 mb-20 mx-6 md:mx-0">
+        <div className="flex flex-col md:flex-row gap-20 mb-44 mx-6 md:mx-0">
           <div className="md:w-1/2 flex flex-col justify-between">
             <div>
               {updateCert.map((item, index) => (
