@@ -17,7 +17,7 @@ const SelectTemplate = () => {
     setSelectedTemplate(index);
     router.push({
       pathname: "/custom-template/update-template",
-      query: { template: selectedTemplate },
+      query: { template: index },
     });
   };
 
