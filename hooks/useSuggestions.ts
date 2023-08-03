@@ -28,9 +28,9 @@ const UseSuggestions = () => {
     },
   });
 
-  if (data) {
-    console.log("The data is:", data.data.output);
-  }
+  // if (data) {
+  //   console.log("The data is:", data.data.output);
+  // }
 
   return {
     data: data?.data.output,

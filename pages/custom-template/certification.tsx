@@ -47,11 +47,15 @@ const Certification = () => {
           <div className="md:w-1/2 flex flex-col justify-between">
             <div>
               {updateCert.map((item, index) => (
-                <div className="flex justify-between mb-6" key={index}>
+                <div
+                  className="flex justify-between mb-6 relative"
+                  key={index}
+                  tabIndex={0}
+                >
                   <input
                     type="text"
                     value={item.value}
-                    className="border px-4 py-3 rounded w-full"
+                    className="rounded w-full pl-4 pr-12 py-3  border"
                     onChange={(e) =>
                       dispatch(
                         updateCertification({ index, value: e.target.value })
@@ -60,7 +64,7 @@ const Certification = () => {
                   />
                   <button
                     onClick={() => handleDeleteCertification(index)}
-                    className="mx-4"
+                    className="mx-4 absolute top-3 right-0"
                   >
                     <IconTrashX size={20} color="red" />
                   </button>
@@ -89,7 +93,7 @@ const Certification = () => {
               />
             </div>
           </div>
-          <section className="md:w-1/2 hidden md:flex">
+          <section className="md:w-1/2 hidden md:flex border-2 rounded border-cyan-600">
             <div className="h-[70vh]">{TemplateComponent}</div>
           </section>
         </div>

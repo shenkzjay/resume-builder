@@ -72,7 +72,7 @@ const PreviewTemplate = () => {
         </div>
         {/* <div className="w-1/2">{TemplateComponent}</div> */}
         <div
-          className="md:w-[45%] md:h-[80vh] overflow-auto p-1 hidden md:flex"
+          className="md:w-[45%] md:h-[80vh] overflow-auto  hidden md:flex border-2 border-cyan-600 rounded"
           ref={printRef}
         >
           {select_template}
@@ -89,7 +89,7 @@ const PreviewTemplate = () => {
           <button onClick={handleDownloadPDF}>
             <IconDownload size={16} />
           </button>
-          <div className="h-[70vh]" ref={printRef}>
+          <div className="h-[70vh] " ref={printRef}>
             {select_template}
           </div>
         </ModalCard>

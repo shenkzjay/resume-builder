@@ -1,5 +1,5 @@
 import { RootState } from "@/states/store";
-import React, { useRef, useState, ChangeEvent } from "react";
+import React, { useRef, useState, ChangeEvent, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import {
@@ -22,13 +22,15 @@ import TiptapEditor from "@/components/ui components/markdown-editor";
 import { Checkboxelement } from "@/components/ui components/checkbox";
 import Link from "next/link";
 import { BackButton, NextButton, AddButtons } from "@/components/buttons";
+import localforage from "localforage";
+import { ActionTypes } from "@/states/actions-types";
 
 const WorkExperience = () => {
   //init router
   console.log("render ");
 
-  const { data, isLoading, error } = UseSuggestions();
-  console.log("wx", data);
+  // const { data, isLoading, error } = UseSuggestions();
+  // console.log("wx", data);
 
   const [opened, { open, close }] = useDisclosure(false);
 
@@ -49,13 +51,13 @@ const WorkExperience = () => {
     (state: RootState) => state.updateTextName.workExperience
   );
 
-  const updateEditor = useSelector(
-    (state: RootState) => state.updateTextName.editorExperience
-  );
+  // const updateEditor = useSelector(
+  //   (state: RootState) => state.updateTextName.editorExperience
+  // );
 
-  const searchSuggestions = useSelector(
-    (state: RootState) => state.updateTextName.searchSuggestions
-  );
+  // const searchSuggestions = useSelector(
+  //   (state: RootState) => state.updateTextName.searchSuggestions
+  // );
 
   //function to update text input change
   const handleInputChange = (
@@ -89,23 +91,15 @@ const WorkExperience = () => {
     dispatch(deleteWorkExperience(index));
   };
 
-  const handleSearchInput = (content: string) => {
-    dispatch(search(content));
-  };
+  // const handleSearchInput = (content: string) => {
+  //   dispatch(search(content));
+  // };
 
-  const handleClickSuggestion = (index: number) => {
-    console.log(index);
+  // const handleClickSuggestion = (index: number) => {
+  //   console.log(index);
 
-    close();
-
-    const selectedSuggestion = data[index].content;
-    const currentEditorContent = updateEditor; // Get the current editor content
-    const updatedEditorContent = currentEditorContent
-      ? `${currentEditorContent}\n- ${selectedSuggestion}`
-      : `- ${selectedSuggestion}`;
-    // Set the updated editor content to the Sun Editor
-    handleInputChange(index, "description", updatedEditorContent);
-  };
+  //   close();
+  // };
 
   function createMonths() {
     return [
@@ -149,6 +143,28 @@ const WorkExperience = () => {
 
   const handleCheckboxChange = (index: number, checked: boolean) => {
     handleInputChange(index, "checkboxstatus", checked);
+  };
+
+  useEffect(() => {
+    const getWorkExpereince = async () => {
+      const storedWorkExp = await localforage.getItem(
+        ActionTypes.ADD_WORK_EXPERIENCE
+      );
+
+      if (storedWorkExp) {
+        dispatch(updateWorkExperience(storedWorkExp));
+      }
+    };
+
+    getWorkExpereince();
+  }, []);
+
+  const handleNext = async () => {
+    await localforage.setItem(ActionTypes.ADD_WORK_EXPERIENCE, updateWorkExp);
+    router.push({
+      pathname: "/custom-template/education",
+      query: { template: selectedTemplate },
+    });
   };
 
   return (
@@ -271,12 +287,12 @@ const WorkExperience = () => {
                         }
                         content={item.description}
                       />
-                      <button
+                      {/* <button
                         onClick={() => open()}
                         className="px-4 py-3 border border-cyan-600 text-cyan-600 rounded mb-6"
                       >
                         ✨ AI suggestions
-                      </button>
+                      </button> */}
                     </div>
                   </details>
                 </div>
@@ -292,24 +308,18 @@ const WorkExperience = () => {
             <div className="flex justify-between mt-4">
               <BackButton name="Back" link="javascript:history.back()" />
 
-              <NextButton
-                name="Continue"
-                onClick={() =>
-                  router.push({
-                    pathname: "/custom-template/education",
-                    query: { template: selectedTemplate },
-                  })
-                }
-              />
+              <NextButton name="Continue" onClick={handleNext} />
             </div>
           </div>
 
           <section className="md:w-1/2 hidden md:flex max-h-[70vh] sticky top-24">
-            <div className="h-[70vh]">{TemplateComponent}</div>
+            <div className="h-[70vh] border-2 rounded border-cyan-600">
+              {TemplateComponent}
+            </div>
           </section>
         </div>
       </div>
-      <div className="relative">
+      {/* <div className="relative">
         <ModalCard opened={opened} close={close} open={open}>
           <input
             type="search"
@@ -341,7 +351,7 @@ const WorkExperience = () => {
               ))}
           </div>
         </ModalCard>
-      </div>
+      </div> */}
       <div className="h-24 md:hidden flex fixed bottom-0 z-50 w-full justify-center items-center rounded-t-[20px] bg-white drop-shadow-[0_8px_20px_rgba(0,0,0,0.20)]">
         <button
           className="py-3 px-4 bg-cyan-600  text-white font-semibold rounded "

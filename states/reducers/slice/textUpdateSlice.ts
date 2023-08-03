@@ -81,15 +81,22 @@ export const textUpdateSlice = createSlice({
       state: update = initialState,
       action: PayloadAction<UpdateAction["payload"]>
     ) {
-      const updatePersonalDetails = {
-        name: action.payload.name,
-        profession: action.payload.profession,
-        country: action.payload.country,
-        state: action.payload.state,
-        email: action.payload.email,
-        phone: action.payload.phone,
+      // const updatePersonalDetails = {
+      //   name: action.payload.name,
+      //   profession: action.payload.profession,
+      //   country: action.payload.country,
+      //   state: action.payload.state,
+      //   email: action.payload.email,
+      //   phone: action.payload.phone,
+      // };
+      // state.personalDetails = { ...updatePersonalDetails };
+      return {
+        ...state,
+        personalDetails: {
+          ...state.personalDetails,
+          ...action.payload,
+        },
       };
-      state.personalDetails = { ...updatePersonalDetails };
     },
 
     updateSkills(
@@ -188,6 +195,10 @@ export const textUpdateSlice = createSlice({
       action: PayloadAction<string>
     ) {
       state.objective = action.payload;
+      // return {
+      //   ...state,
+      //   objective: action.payload,
+      // };
     },
 
     search(

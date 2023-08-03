@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useRouter } from "next/router";
 import { templatesData } from "@/components/templates";
 import { MultiSelect, rem } from "@mantine/core";
@@ -14,6 +14,8 @@ import Link from "next/link";
 import { NextButton, BackButton } from "@/components/buttons";
 import { ModalCard } from "@/components/ui components/modal";
 import { useDisclosure } from "@mantine/hooks";
+import localforage from "localforage";
+import { ActionTypes } from "@/states/actions-types";
 
 const Skills = () => {
   //init router
@@ -58,6 +60,13 @@ const Skills = () => {
     if (removedKill) {
       dispatch(deleteSkill(removedKill));
     }
+  };
+
+  const handleNext = async () => {
+    router.push({
+      pathname: "/custom-template/work-exp",
+      query: { template: selectedTemplate },
+    });
   };
 
   const selectedValues = addSkills.map((item) => item.value);
@@ -105,18 +114,10 @@ const Skills = () => {
             <div className="flex justify-between mt-4">
               <BackButton name="Back" link="javascript:history.back()" />
 
-              <NextButton
-                name="Continue"
-                onClick={() =>
-                  router.push({
-                    pathname: "/custom-template/work-exp",
-                    query: { template: selectedTemplate },
-                  })
-                }
-              />
+              <NextButton name="Continue" onClick={handleNext} />
             </div>
           </div>
-          <div className="md:w-1/2 hidden md:flex h-[70vh]">
+          <div className="md:w-1/2 hidden md:flex h-[70vh] border-2 rounded border-cyan-600">
             {TemplateComponent}
           </div>
         </div>
@@ -128,7 +129,7 @@ const Skills = () => {
             Preview template
           </button>
           <ModalCard opened={opened} close={close} open={open}>
-            <div className="h-[70vh]">{TemplateComponent}</div>
+            <div className="h-[70vh] ">{TemplateComponent}</div>
           </ModalCard>
         </div>
       </div>

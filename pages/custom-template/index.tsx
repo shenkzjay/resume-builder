@@ -3,6 +3,7 @@ import localForage from "localforage";
 import { useState } from "react";
 import { useRouter } from "next/router";
 import { templatesData } from "@/components/templates";
+import Head from "next/head";
 
 const SelectTemplate = () => {
   //store the selected template in state
@@ -22,6 +23,9 @@ const SelectTemplate = () => {
 
   return (
     <section className="md:w-[95vw] md:mx-auto space-y-10 md:scale-95">
+      <Head>
+        <title>Choose template</title>
+      </Head>
       <div className="mt-10">
         <h1 className="text-center text-4xl">Choose a template</h1>
       </div>
@@ -33,9 +37,9 @@ const SelectTemplate = () => {
             onClick={() => handleSelectTemplate(index)}
             className={`${
               selectedTemplate === index
-                ? "border-green-500"
+                ? "border-cyan-500"
                 : "border-slate-300"
-            } max-h-[65vh]`}
+            } max-h-[60vh]`}
           >
             {template.component}
           </div>

@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useCallback } from "react";
+import React, { ChangeEvent, useCallback, useEffect } from "react";
 import { templatesData } from "@/components/templates";
 import { useRouter } from "next/router";
 import { useSelector } from "react-redux";
@@ -14,6 +14,9 @@ import Link from "next/link";
 import { NextButton, BackButton } from "@/components/buttons";
 import { useDisclosure } from "@mantine/hooks";
 import { ModalCard } from "@/components/ui components/modal";
+import localforage from "localforage";
+import { ActionTypes } from "@/states/actions-types";
+import { update } from "@/states/actions-types";
 
 const UpdateTemplate = () => {
   const router = useRouter();
@@ -31,6 +34,41 @@ const UpdateTemplate = () => {
   const updateCareerObjective = useSelector(
     (state: RootState) => state.updateTextName.objective
   );
+
+  useEffect(() => {
+    const getPersonalDetails = async () => {
+      try {
+        const value: any = await localforage.getItem(ActionTypes.UPADATE_NAME);
+
+        if (value && value.personalDetail) {
+          dispatch(updateName(value?.personalDetail));
+          dispatch(updateObjective(value?.careerObjective));
+        }
+      } catch (err) {
+        console.log(err);
+      }
+    };
+
+    getPersonalDetails();
+  }, [dispatch]);
+
+  const handleNext = async () => {
+    const personalDetails = {
+      personalDetail: updateTextUpdate.personalDetails,
+      careerObjective: updateCareerObjective,
+    };
+
+    try {
+      await localforage.setItem(ActionTypes.UPADATE_NAME, personalDetails);
+    } catch (error) {
+      console.log(error);
+    }
+
+    router.push({
+      pathname: "/custom-template/skills",
+      query: { template: selectedTemplate },
+    });
+  };
 
   return (
     <section className="md:container md:mx-auto bg-white  text-black">
@@ -60,6 +98,7 @@ const UpdateTemplate = () => {
               <input
                 type="text"
                 className="border px-4 py-3"
+                value={updateTextUpdate.personalDetails.profession ?? ""}
                 placeholder="Enter your profession"
                 onChange={(e) =>
                   dispatch(
@@ -74,6 +113,7 @@ const UpdateTemplate = () => {
               <input
                 type="text"
                 className="border px-4 py-3"
+                value={updateTextUpdate.personalDetails.state ?? ""}
                 placeholder="Enter your state"
                 onChange={(e) =>
                   dispatch(
@@ -87,6 +127,7 @@ const UpdateTemplate = () => {
               <input
                 type="text"
                 className="border px-4 py-3"
+                value={updateTextUpdate.personalDetails.country ?? ""}
                 placeholder="Enter your country"
                 onChange={(e) =>
                   dispatch(
@@ -100,6 +141,7 @@ const UpdateTemplate = () => {
               <input
                 type="text"
                 className="border px-4 py-3"
+                value={updateTextUpdate.personalDetails.email ?? ""}
                 placeholder="Enter your email address"
                 onChange={(e) =>
                   dispatch(
@@ -113,6 +155,7 @@ const UpdateTemplate = () => {
               <input
                 type="number"
                 className="border px-4 py-3"
+                value={updateTextUpdate.personalDetails.phone ?? ""}
                 placeholder="Enter your phone number"
                 onChange={(e) =>
                   dispatch(
@@ -124,7 +167,7 @@ const UpdateTemplate = () => {
                 }
               />
             </div>
-            <div className="mt-6 prose prose-li:list-disc">
+            <div className="mt-6 ">
               {/* <Tiptap /> */}
               <SunEditorFile
                 placeholder="Type your professional summary here"
@@ -137,19 +180,13 @@ const UpdateTemplate = () => {
           <div className="flex justify-between mt-4 mb-20">
             <BackButton name="Back" link="javascript:history.back()" />
 
-            <NextButton
-              name="Continue"
-              onClick={() =>
-                router.push({
-                  pathname: "/custom-template/skills",
-                  query: { template: selectedTemplate },
-                })
-              }
-            />
+            <NextButton name="Continue" onClick={handleNext} />
           </div>
         </div>
         <div className="md:w-1/2 md:flex hidden">
-          <div className="h-[70vh]">{TemplateComponent}</div>
+          <div className="h-[70vh] border-2 rounded border-cyan-600">
+            {TemplateComponent}
+          </div>
         </div>
       </div>
       <div className="h-24 md:hidden flex fixed bottom-0 z-50 w-full justify-center items-center rounded-t-[20px] bg-white drop-shadow-[0_8px_20px_rgba(0,0,0,0.20)]">

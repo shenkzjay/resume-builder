@@ -39,11 +39,11 @@ const DefaultTemplate: React.FC = () => {
             <h2 className="text-2xl font-bold leading-none">
               {updateTextName.name ? updateTextName.name : "Olajide Seun"}
             </h2>
-            <p className="font-bold text-[9px]">
+            <div className="font-bold text-[9px]">
               {updateTextName.profession
                 ? updateTextName.profession
                 : "Frontend developer"}
-            </p>
+            </div>
           </div>
 
           {/**objective summary */}
@@ -51,11 +51,11 @@ const DefaultTemplate: React.FC = () => {
             <h2 className=" font-extrabold leading-none uppercase text-[9px] my-2 text-cyan-600">
               Professional summary
             </h2>
-            <p className="text-[9px]">
+            <div className="text-[9px]">
               {updateObjective
                 ? parse(updateObjective)
                 : " A pace setter in the industry with a cos my stubborn heart always rosms to places i cannot find and sometimes i hpe it hudt dtays in a placr where i coild give it the restir deserves"}
-            </p>
+            </div>
           </div>
 
           {/**Work experience */}
@@ -69,36 +69,36 @@ const DefaultTemplate: React.FC = () => {
               {workExperience.map((item, index) => (
                 <div key={index}>
                   <div className="mt-4 mb-2">
-                    <p className="text-[11px]">
+                    <div className="text-[11px]">
                       <b>
                         {item.company_name ? item.company_name : "Company name"}
                         ,
                       </b>{" "}
                       {item.country ? item.country : "Location"} -{" "}
                       <i>{item.job_title ? item.job_title : "Job title"}</i>
-                    </p>
+                    </div>
                     {!item.checkboxstatus ? (
-                      <p className="text-[8px] uppercase">
+                      <div className="text-[8px] uppercase">
                         {item.start_month ? item.start_month : "MONTH"}{" "}
                         {item.start_year ? item.start_year : "20XX"} -{" "}
                         {item.end_month ? item.end_month : "MONTH"}{" "}
                         {item.end_year ? item.end_year : "20XX"}
-                      </p>
+                      </div>
                     ) : (
-                      <p className="text-[8px] uppercase">
+                      <div className="text-[8px] uppercase">
                         {item.start_month ? item.start_month : "MONTH"}{" "}
                         {item.start_year ? item.start_year : "20XX"} - PRESENT
-                      </p>
+                      </div>
                     )}
                   </div>
 
                   <div className="">
                     <div className="text-[9px] space-y-2 pl-3">
-                      <p className="">
+                      <div className="">
                         {item.description
                           ? parse(item.description)
                           : " Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh."}
-                      </p>
+                      </div>
                     </div>
                   </div>
                 </div>
