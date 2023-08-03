@@ -145,19 +145,19 @@ const WorkExperience = () => {
     handleInputChange(index, "checkboxstatus", checked);
   };
 
-  useEffect(() => {
-    const getWorkExpereince = async () => {
-      const storedWorkExp = await localforage.getItem(
-        ActionTypes.ADD_WORK_EXPERIENCE
-      );
+  // useEffect(() => {
+  //   const getWorkExpereince = async () => {
+  //     const storedWorkExp = await localforage.getItem(
+  //       ActionTypes.ADD_WORK_EXPERIENCE
+  //     );
 
-      if (storedWorkExp) {
-        dispatch(updateWorkExperience(storedWorkExp));
-      }
-    };
+  //     if (storedWorkExp) {
+  //       dispatch(updateWorkExperience(storedWorkExp));
+  //     }
+  //   };
 
-    getWorkExpereince();
-  }, []);
+  //   getWorkExpereince();
+  // }, []);
 
   const handleNext = async () => {
     await localforage.setItem(ActionTypes.ADD_WORK_EXPERIENCE, updateWorkExp);
