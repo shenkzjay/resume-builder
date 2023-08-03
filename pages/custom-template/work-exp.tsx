@@ -22,8 +22,6 @@ import TiptapEditor from "@/components/ui components/markdown-editor";
 import { Checkboxelement } from "@/components/ui components/checkbox";
 import Link from "next/link";
 import { BackButton, NextButton, AddButtons } from "@/components/buttons";
-import localforage from "localforage";
-import { ActionTypes } from "@/states/actions-types";
 
 const WorkExperience = () => {
   //init router
@@ -145,22 +143,7 @@ const WorkExperience = () => {
     handleInputChange(index, "checkboxstatus", checked);
   };
 
-  // useEffect(() => {
-  //   const getWorkExpereince = async () => {
-  //     const storedWorkExp = await localforage.getItem(
-  //       ActionTypes.ADD_WORK_EXPERIENCE
-  //     );
-
-  //     if (storedWorkExp) {
-  //       dispatch(updateWorkExperience(storedWorkExp));
-  //     }
-  //   };
-
-  //   getWorkExpereince();
-  // }, []);
-
   const handleNext = async () => {
-    await localforage.setItem(ActionTypes.ADD_WORK_EXPERIENCE, updateWorkExp);
     router.push({
       pathname: "/custom-template/education",
       query: { template: selectedTemplate },
