@@ -97,7 +97,7 @@ const Certification = () => {
             <div className="h-[70vh]">{TemplateComponent}</div>
           </section>
         </div>
-        <div className="h-24 md:hidden flex fixed bottom-0 z-50 w-full justify-center items-center rounded-t-[20px] bg-white drop-shadow-[0_8px_20px_rgba(0,0,0,0.20)]">
+        <div className="h-20 md:hidden flex fixed bottom-0 z-50 w-full justify-center items-center rounded-t-[20px] bg-white drop-shadow-[0_8px_20px_rgba(0,0,0,0.20)]">
           <button
             className="py-3 px-4 bg-cyan-600  text-white font-semibold rounded "
             onClick={() => open()}
