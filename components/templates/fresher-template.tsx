@@ -80,11 +80,11 @@ const FresherTemplate: React.FC = () => {
           </h2>
           <hr className="w-full border-[0.5px] border-cyan-300 mt-1 mb-2" />
           <p className="text-[9px]">
-            A pace setter in the industry with a cos my stubborn heart always
-            rosms to places i cannot find and sometimes i hpe it hudt dtays in a
-            placr where i coild give it the restir deserves
+            {updateObjective
+              ? htmr(updateObjective)
+              : " A pace setter in the industry with a cos my stubborn heart always rosms to places i cannot find and sometimes i hpe it hudt dtays in a placr where i coild give it the restir deserves"}
           </p>
-          <div className="text-[9px]">{htmr(updateObjective)}</div>
+          <div className="text-[9px]"></div>
         </div>
         {/**Skills */}
         <div>
