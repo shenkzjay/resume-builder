@@ -24,7 +24,7 @@ const EditSectionButton: React.FC = () => {
       </Menu.Target>
 
       <Menu.Dropdown>
-        <Menu.Label>Edit sections</Menu.Label>
+        <Menu.Label style={{ fontSize: 30 }}>Edit sections</Menu.Label>
         <Menu.Item icon={<IconFaceId size={14} />}>Personal details</Menu.Item>
         <Menu.Item icon={<IconBox size={14} />}>Skills</Menu.Item>
         <Menu.Item icon={<IconFileSpreadsheet size={14} />}>

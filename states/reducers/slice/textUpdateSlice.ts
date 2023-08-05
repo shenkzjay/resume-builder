@@ -6,6 +6,8 @@ import {
   updateObjectiveAction,
   editorExperienceActions,
   searchSuggestionsActions,
+  updateSocialLinksActions,
+  updateProject,
 } from "../../actions-types/action";
 import {
   update,
@@ -71,6 +73,20 @@ const initialState: update = {
       value: "",
     },
   ],
+
+  project: [
+    {
+      projectName: "",
+      projectLink: "",
+      projectDescription: "",
+    },
+  ],
+
+  socialLinks: {
+    github: "",
+    linkedIn: "",
+    twitter: "",
+  },
 };
 
 export const textUpdateSlice = createSlice({
@@ -195,10 +211,6 @@ export const textUpdateSlice = createSlice({
       action: PayloadAction<string>
     ) {
       state.objective = action.payload;
-      // return {
-      //   ...state,
-      //   objective: action.payload,
-      // };
     },
 
     search(
@@ -207,10 +219,41 @@ export const textUpdateSlice = createSlice({
     ) {
       state.searchSuggestions = action.payload;
     },
+    updateProjectState(
+      state: update,
+      action: PayloadAction<{ index: number; data: updateProject }>
+    ) {
+      const { index, data } = action.payload;
+      const updatedProject = [...state.project];
+      updatedProject[index] = data;
+      return { ...state, project: updatedProject };
+    },
+
+    addProjectState(state: update, action: PayloadAction<updateProject>) {
+      state.project.push({ ...action.payload });
+    },
+    deletedProjectState(state: update, action: PayloadAction<number>) {
+      const index = action.payload;
+      state.project.splice(index, 1);
+    },
+
+    updateSocialLinks(
+      state: update,
+      actions: PayloadAction<updateSocialLinksActions["payload"]>
+    ) {
+      return {
+        ...state,
+        socialLinks: {
+          ...state.socialLinks,
+          ...actions.payload,
+        },
+      };
+    },
   },
 });
 
 export const {
+  updateProjectState,
   updateName,
   updateSkills,
   deleteSkill,
@@ -224,6 +267,9 @@ export const {
   addCertification,
   deleteCertification,
   updateObjective,
+  addProjectState,
+  deletedProjectState,
+  updateSocialLinks,
   search,
 } = textUpdateSlice.actions;
 

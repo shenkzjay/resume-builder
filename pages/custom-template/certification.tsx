@@ -9,14 +9,29 @@ import {
   deleteCertification,
 } from "@/states/reducers/slice/textUpdateSlice";
 
-import { BackButton, NextButton, AddButtons } from "@/components/buttons";
-import { IconTrashX } from "@tabler/icons-react";
+import {
+  BackButton,
+  NextButton,
+  AddButtons,
+  InverseAddButtons,
+} from "@/components/buttons";
+import { IconPlus, IconTrashX, IconX } from "@tabler/icons-react";
 import { ModalCard } from "@/components/ui components/modal";
 import { useDisclosure } from "@mantine/hooks";
+import { useState } from "react";
 
 const Certification = () => {
   //init router
   const router = useRouter();
+
+  const [displayProject, setDisplayProject] = useState({
+    projectDisplay: false,
+    githubDisplay: false,
+    linkedIndisplay: false,
+    twitterDisplay: false,
+  });
+
+  console.log(displayProject);
 
   const [opened, { open, close }] = useDisclosure();
 
@@ -39,7 +54,7 @@ const Certification = () => {
     <section className="">
       <div className="mx-auto container">
         <div className="my-10 ">
-          <p className="font-bold text-4xl mx-6 md:mx-0">
+          <p className="font-semibold text-4xl mx-6 md:mx-0">
             Got a certification?
           </p>
         </div>
@@ -55,6 +70,7 @@ const Certification = () => {
                   <input
                     type="text"
                     value={item.value}
+                    placeholder="Enter your certification"
                     className="rounded w-full pl-4 pr-12 py-3  border"
                     onChange={(e) =>
                       dispatch(
@@ -93,8 +109,10 @@ const Certification = () => {
               />
             </div>
           </div>
-          <section className="md:w-1/2 hidden md:flex border-2 rounded border-cyan-600">
-            <div className="h-[70vh]">{TemplateComponent}</div>
+          <section className="md:w-1/2 hidden md:flex sticky top-24 max-h-[75vh] ">
+            <div className="h-[75vh] border-2 rounded border-cyan-600">
+              {TemplateComponent}
+            </div>
           </section>
         </div>
         <div className="h-20 md:hidden flex fixed bottom-0 z-50 w-full justify-center items-center rounded-t-[20px] bg-white drop-shadow-[0_8px_20px_rgba(0,0,0,0.20)]">

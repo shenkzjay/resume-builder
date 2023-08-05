@@ -58,19 +58,19 @@ details[open] summary::before {
 } */
 
 .mantine-mcm8g9 {
-  background-color: rgb(8, 116, 116);
+  background-color: #0891b2;
 }
 
 .mantine-mcm8g9:hover {
-  background-color: rgb(8, 116, 116);
+  background-color: #0891b2;
 }
 
-@layer base {
+/* @layer base {
   ul,
   ol {
     list-style: revert;
   }
-}
+} */
 
 /* .html2canvas-container {
   width: 3000px !important;
@@ -79,4 +79,8 @@ details[open] summary::before {
 
 .mantine-1q36a81 {
   padding: 0 !important;
+}
+
+.scroll::-webkit-scrollbar {
+  display: none;
 }

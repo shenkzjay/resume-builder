@@ -50,6 +50,20 @@ interface educationHistoryAction {
   };
 }
 
+export interface updateProject {
+  projectName: string;
+  projectLink: string;
+  projectDescription: string;
+}
+
+interface updateProjectActions {
+  type: ActionTypes.UPDATE_PROJECT;
+  payload: {
+    index: number;
+    data: updateProject[];
+  };
+}
+
 export const updateObjectiveAction = (content: string) => ({
   type: ActionTypes.OBJECTIVES,
   payload: content,
@@ -88,6 +102,21 @@ type AddWorkExperienceAction = {
   };
 };
 
+export interface updateLinks {
+  github: string;
+  linkedIn: string;
+  twitter: string;
+}
+
+interface updateSocialLinksActions {
+  type: ActionTypes.UPDATE_SKILL;
+  payload: {
+    github: string;
+    linkedIn: string;
+    twitter: string;
+  };
+}
+
 export type {
   UpdateAction,
   skillUpdateAction,
@@ -97,6 +126,8 @@ export type {
   editorExperienceActions,
   searchSuggestionsActions,
   AddWorkExperienceAction,
+  updateProjectActions,
+  updateSocialLinksActions,
 };
 
 export const deleteWorkExperienceAction = (index: number) => ({

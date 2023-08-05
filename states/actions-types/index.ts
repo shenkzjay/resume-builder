@@ -8,6 +8,9 @@ export enum ActionTypes {
   OBJECTIVES = "career-objective",
   AI_SEARCH = "aisearch",
   ADD_WORK_EXPERIENCE = "add-wor-experience",
+  UPDATE_PROJECT = "update-project",
+  ADD_PROJECT = "add-project",
+  SOCIAL_LINKS = "social-links",
 }
 
 interface skillUpdate {
@@ -50,9 +53,16 @@ export interface personalDetails {
   phone: string;
 }
 
-export interface trial {
-  workexperience: workExp[];
-  updateObjectives: string;
+export interface updateProject {
+  projectName: string;
+  projectLink: string;
+  projectDescription: string;
+}
+
+export interface updateSocialLinks {
+  github: string;
+  linkedIn: string;
+  twitter: string;
 }
 
 interface updateName {
@@ -64,6 +74,8 @@ interface updateName {
   objective: string;
   editorExperience: string;
   searchSuggestions: string;
+  project: updateProject[];
+  socialLinks: updateSocialLinks;
 }
 
 export type update = updateName;

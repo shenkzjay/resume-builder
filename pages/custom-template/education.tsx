@@ -86,7 +86,7 @@ const EducationHistory = () => {
   const monthsInYear = createMonths();
 
   const monthsArray = monthsInYear.map((month) => {
-    return { value: month.toLowerCase(), label: month };
+    return { value: month.toUpperCase(), label: month };
   });
 
   function countToArray() {
@@ -199,7 +199,7 @@ const EducationHistory = () => {
 
                           <DropDown
                             placeholder="Graduation year"
-                            data={monthsArray}
+                            data={yearArray}
                             onChange={(content) =>
                               handleInputChange(
                                 index,
@@ -231,7 +231,7 @@ const EducationHistory = () => {
                 name="Continue"
                 onClick={() =>
                   router.push({
-                    pathname: "/custom-template/certification",
+                    pathname: "/custom-template/projects",
                     query: { template: selectedTemplate },
                   })
                 }

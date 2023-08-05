@@ -155,7 +155,7 @@ const WorkExperience = () => {
       <div className="container mx-auto ">
         <div className="my-10 ">
           <p className="font-semibold text-4xl mx-6 md:mx-0">
-            Snapshot of Your Accomplishments
+            Snapshot of your work history
           </p>
         </div>
         <div className="flex md:flex-row flex-col gap-20 mb-48 md:mb-20 mx-6 md:mx-0">
@@ -179,6 +179,15 @@ const WorkExperience = () => {
                     <div className="flex flex-col space-y-4 mt-6">
                       <input
                         type="text"
+                        value={item.job_title}
+                        placeholder="Job title"
+                        className="border px-4 py-3"
+                        onChange={(e) =>
+                          handleInputChange(index, "job_title", e.target.value)
+                        }
+                      />
+                      <input
+                        type="text"
                         placeholder="Company name"
                         value={item.company_name}
                         className="border px-4 py-3"
@@ -199,15 +208,7 @@ const WorkExperience = () => {
                           handleInputChange(index, "country", e.target.value)
                         }
                       />
-                      <input
-                        type="text"
-                        value={item.job_title}
-                        placeholder="Job title"
-                        className="border px-4 py-3"
-                        onChange={(e) =>
-                          handleInputChange(index, "job_title", e.target.value)
-                        }
-                      />
+
                       <div className="flex gap-10">
                         <DropDown
                           placeholder="Start month"
@@ -257,19 +258,19 @@ const WorkExperience = () => {
                         />
                       </div>
 
-                      {/* <SunEditorFile
-                      placeholder="Type your work experience here"
-                      value={updateEditor}
-                      onChange={(content) =>
-                        handleInputChange(index, "description", content)
-                      }
-                    /> */}
-                      <TiptapEditor
+                      <SunEditorFile
+                        placeholder="Type your work experience here"
+                        value={item.description}
+                        onChange={(content) =>
+                          handleInputChange(index, "description", content)
+                        }
+                      />
+                      {/* <TiptapEditor
                         onUpdate={(content) =>
                           handleInputChange(index, "description", content)
                         }
                         content={item.description}
-                      />
+                      /> */}
                       {/* <button
                         onClick={() => open()}
                         className="px-4 py-3 border border-cyan-600 text-cyan-600 rounded mb-6"

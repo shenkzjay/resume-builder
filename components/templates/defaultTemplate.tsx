@@ -1,6 +1,11 @@
 import { useSelector } from "react-redux";
 import { RootState } from "@/states/store";
 import parse from "html-react-parser";
+import {
+  IconBrandGithub,
+  IconBrandLinkedin,
+  IconBrandTwitter,
+} from "@tabler/icons-react";
 
 const DefaultTemplate: React.FC = () => {
   const updateTextName = useSelector(
@@ -39,7 +44,7 @@ const DefaultTemplate: React.FC = () => {
             <h2 className="text-2xl font-bold leading-none">
               {updateTextName.name ? updateTextName.name : "Olajide Seun"}
             </h2>
-            <div className="font-bold text-[9px]">
+            <div className="font-bold text-[9px] mt-1">
               {updateTextName.profession
                 ? updateTextName.profession
                 : "Frontend developer"}
@@ -70,12 +75,10 @@ const DefaultTemplate: React.FC = () => {
                 <div key={index}>
                   <div className="mt-4 mb-2">
                     <div className="text-[11px]">
-                      <b>
-                        {item.company_name ? item.company_name : "Company name"}
-                        ,
-                      </b>{" "}
-                      {item.country ? item.country : "Location"} -{" "}
-                      <i>{item.job_title ? item.job_title : "Job title"}</i>
+                      <b>{item.job_title ? item.job_title : "Job title"},</b>{" "}
+                      {item.company_name ? item.company_name : "Company name"}{" "}
+                      -&nbsp;
+                      {item.country ? item.country : "Location"}{" "}
                     </div>
                     {!item.checkboxstatus ? (
                       <div className="text-[8px] uppercase">
@@ -94,11 +97,13 @@ const DefaultTemplate: React.FC = () => {
 
                   <div className="">
                     <div className="text-[9px] space-y-2 pl-3">
-                      <div className="">
-                        {item.description
-                          ? parse(item.description)
-                          : " Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh."}
-                      </div>
+                      <ul className="">
+                        <li>
+                          {item.description
+                            ? parse(item.description)
+                            : " Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh."}
+                        </li>
+                      </ul>
                     </div>
                   </div>
                 </div>
@@ -118,23 +123,30 @@ const DefaultTemplate: React.FC = () => {
                 <div className="mt-4 mb-2">
                   <p className="text-[11px]">
                     <b>
-                      {item.school_name ? item.school_name : "School name"},
+                      {item.school_name ? item.school_name : "School name"} -
                     </b>{" "}
-                    {item.school_location ? item.school_location : "Location"} -{" "}
-                    <i>
-                      {item.degree_program ? item.degree_program : "Degree"}
-                    </i>
+                    {item.school_location ? item.school_location : "Location"}{" "}
                   </p>
-                  <p className="text-[8px]"> MONTH 20XX - PRESENT</p>
-                </div>
+                  <div className="flex flex-col  justify-between">
+                    <p className="text-[11px]">
+                      <i>
+                        {item.degree_program ? item.degree_program : "B.Sc"} -{" "}
+                        {item.field_of_study
+                          ? item.field_of_study
+                          : "Field of study"}
+                      </i>
+                    </p>
 
-                <div>
-                  <ul className="text-[9px]">
-                    <li>
-                      Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
-                      sed diam nonummy nibh.
-                    </li>
-                  </ul>
+                    <p className="text-[11px]"></p>
+
+                    <p className="text-[9px]">
+                      {" "}
+                      {item.graduation_month
+                        ? item.graduation_month
+                        : "MONTH"}{" "}
+                      {item.graduation_year ? item.graduation_year : "20XX"}
+                    </p>
+                  </div>
                 </div>
               </div>
             ))}
@@ -199,21 +211,47 @@ const DefaultTemplate: React.FC = () => {
 
           <article>
             <div>
+              <h2 className="text-[9px] font-extrabold text-cyan-600 mt-4 mb-2 uppercase">
+                Social links
+              </h2>
+              <div>
+                <div>
+                  <div className="text-[9px]">
+                    <div className="flex gap-1">
+                      <IconBrandLinkedin size={12} />
+                      <p> Your Country, State</p>
+                    </div>
+
+                    <div className="flex gap-1">
+                      <IconBrandTwitter size={12} />
+                      <p>070XXXXXXXX</p>
+                    </div>
+
+                    <div className="flex gap-1">
+                      <IconBrandGithub size={12} />
+                      <p>no_reply@gmail.com</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article>
+            <div>
               <h2 className="text-[9px] font-extrabold text-cyan-600 mt-4 mb-2">
                 SKILLS
               </h2>
-              {updateSkills.map((skills, index) => (
-                <div key={index} className="text-[9px] flex">
-                  <ul className="flex">
-                    <li className="">
-                      {`${skills.value}${
-                        index !== updateSkills.length - 1 ? "," : ""
-                      }`}
-                      &nbsp;
-                    </li>
-                  </ul>
-                </div>
-              ))}
+              <div className="flex flex-wrap">
+                {updateSkills.map((skills, index) => (
+                  <div key={index} className="text-[9px]">
+                    {`${skills.value}${
+                      index !== updateSkills.length - 1 ? "," : ""
+                    }`}
+                    &nbsp;
+                  </div>
+                ))}
+              </div>
             </div>
           </article>
 

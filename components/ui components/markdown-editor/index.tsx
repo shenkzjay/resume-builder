@@ -7,6 +7,7 @@ import TextAlign from "@tiptap/extension-text-align";
 import Superscript from "@tiptap/extension-superscript";
 import SubScript from "@tiptap/extension-subscript";
 import Typography from "@tiptap/extension-typography";
+import HardBreak from "@tiptap/extension-hard-break";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { RootState } from "@/states/store";
@@ -33,6 +34,7 @@ function TiptapEditor({ content, onUpdate }: TipTapProps) {
       Superscript,
       Typography,
       SubScript,
+      HardBreak,
       Highlight,
       TextAlign.configure({ types: ["heading", "paragraph"] }),
     ],
@@ -44,7 +46,7 @@ function TiptapEditor({ content, onUpdate }: TipTapProps) {
 
     editorProps: {
       attributes: {
-        class: "prose prose-list-disc",
+        class: "prose prose-list-disc whitespace:pre-wrap",
       },
     },
   });

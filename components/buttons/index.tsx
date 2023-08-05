@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { IconArrowLeft } from "@tabler/icons-react";
+import { IconArrowLeft, IconPlus } from "@tabler/icons-react";
 import { IconArrowRight } from "@tabler/icons-react";
 
 interface NextButtonProps {
@@ -56,6 +56,22 @@ export const AddButtons: React.FC<AddButtonsProps> = ({ onClick, name }) => {
       <button
         onClick={onClick}
         className="px-4 py-3 bg-cyan-600 text-white rounded mb-6 font-semibold"
+      >
+        {name}
+      </button>
+    </div>
+  );
+};
+
+export const InverseAddButtons: React.FC<AddButtonsProps> = ({
+  onClick,
+  name,
+}) => {
+  return (
+    <div className="flex justify-between">
+      <button
+        onClick={onClick}
+        className="px-4 py-3 border-2 border-cyan-600 text-cyan-600 bg-white rounded mb-6 font-semibold"
       >
         {name}
       </button>

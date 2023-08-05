@@ -22,28 +22,30 @@ const SelectTemplate = () => {
   };
 
   return (
-    <section className="md:w-[95vw] md:mx-auto space-y-10 md:scale-95">
-      <Head>
-        <title>Choose template</title>
-      </Head>
-      <div className="mt-10">
-        <h1 className="text-center text-4xl">Choose a template</h1>
-      </div>
-      <div className="grid grid-cols-[repeat(auto-fit,minmax(auto,380px))] gap-20 md:gap-12 justify-center  md:scale-75 origin-top mx-6 md:mx-0">
-        {templatesData.map((template, index) => (
-          <div
-            key={index}
-            role="button"
-            onClick={() => handleSelectTemplate(index)}
-            className={`${
-              selectedTemplate === index
-                ? "border-cyan-500"
-                : "border-slate-300"
-            } max-h-[60vh]`}
-          >
-            {template.component}
-          </div>
-        ))}
+    <section className="bg-white">
+      <div className="md:w-[95vw] md:mx-auto space-y-10 md:scale-95 ">
+        <Head>
+          <title>Choose template</title>
+        </Head>
+        <div className="pt-10">
+          <h1 className="text-center text-4xl">Choose a template</h1>
+        </div>
+        <div className="grid grid-cols-[repeat(auto-fit,minmax(auto,380px))] gap-20 md:gap-12 justify-center  md:scale-75 origin-top mx-6 md:mx-0">
+          {templatesData.map((template, index) => (
+            <div
+              key={index}
+              role="button"
+              onClick={() => handleSelectTemplate(index)}
+              className={`${
+                selectedTemplate === index
+                  ? "border-cyan-500"
+                  : "border-slate-300"
+              } max-h-[60vh]`}
+            >
+              {template.component}
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );

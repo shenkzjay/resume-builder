@@ -2,6 +2,11 @@ import { RootState } from "@/states/store";
 import { useSelector } from "react-redux";
 import { useMemo } from "react";
 import htmr from "htmr";
+import {
+  IconBrandGithub,
+  IconBrandLinkedin,
+  IconBrandTwitter,
+} from "@tabler/icons-react";
 
 const FresherTemplate: React.FC = () => {
   const updateTextName = useSelector(
@@ -67,10 +72,20 @@ const FresherTemplate: React.FC = () => {
 
           {/**address */}
           <div className="text-[9px]">
-            <h2 className="font-extrabold mb-2 text-cyan-600">ADDRESS</h2>
-            <p> Your Country, State</p>
-            <p>070XXXXXXXX</p>
-            <p>no_reply@gmail.com</p>
+            <div className="flex gap-1">
+              <IconBrandLinkedin size={12} />
+              <p> Your Country, State</p>
+            </div>
+
+            <div className="flex gap-1">
+              <IconBrandTwitter size={12} />
+              <p>070XXXXXXXX</p>
+            </div>
+
+            <div className="flex gap-1">
+              <IconBrandGithub size={12} />
+              <p>no_reply@gmail.com</p>
+            </div>
           </div>
         </section>
         {/**objective summary */}
