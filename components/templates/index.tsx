@@ -20,8 +20,4 @@ export const templatesData: templateType[] = [
     name: "Indo Template",
     component: <IndoTemplate />,
   },
-  {
-    name: "Indo Template",
-    component: <IndoTemplate />,
-  },
 ];

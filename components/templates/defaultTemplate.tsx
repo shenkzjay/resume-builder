@@ -34,6 +34,16 @@ const DefaultTemplate: React.FC = () => {
     (state: RootState) => state.updateTextName.objective
   );
 
+  const updateProject = useSelector(
+    (state: RootState) => state.updateTextName.project
+  );
+
+  const socailLinks = useSelector(
+    (state: RootState) => state.updateTextName.socialLinks
+  );
+
+  const use = socailLinks;
+
   return (
     <section className=" bg-white overflow-auto template h-full hover:outline hover:outline-cyan-500 drop-shadow-[0_8px_20px_rgba(0,0,0,0.08)] ease-in-out transition rounded duration-300 hover:shadow-slate-500/10 hover:shadow-2xl">
       <div className="flex h-full">
@@ -64,143 +74,147 @@ const DefaultTemplate: React.FC = () => {
           </div>
 
           {/**Work experience */}
-          <article>
-            <div>
-              <header className="mt-4">
-                <h2 className="uppercase text-[9px] font-extrabold text-cyan-600">
-                  EXPERIENCE
-                </h2>
-              </header>
-              {workExperience.map((item, index) => (
-                <div key={index}>
-                  <div className="mt-4 mb-2">
-                    <div className="text-[11px]">
-                      <b>{item.job_title ? item.job_title : "Job title"},</b>{" "}
-                      {item.company_name ? item.company_name : "Company name"}{" "}
-                      -&nbsp;
-                      {item.country ? item.country : "Location"}{" "}
+          {workExperience.length > 0 && (
+            <article>
+              <div>
+                <header className="mt-4">
+                  <h2 className="uppercase text-[9px] font-extrabold text-cyan-600">
+                    EXPERIENCE
+                  </h2>
+                </header>
+                {workExperience.map((item, index) => (
+                  <div key={index}>
+                    <div className="mt-2 mb-2">
+                      <div className="text-[11px]">
+                        <b>{item.job_title ? item.job_title : "Job title"},</b>{" "}
+                        {item.company_name ? item.company_name : "Company name"}{" "}
+                        -&nbsp;
+                        {item.country ? item.country : "Location"}{" "}
+                      </div>
+                      {!item.checkboxstatus ? (
+                        <div className="text-[8px] uppercase">
+                          {item.start_month ? item.start_month : "MONTH"}{" "}
+                          {item.start_year ? item.start_year : "20XX"} -{" "}
+                          {item.end_month ? item.end_month : "MONTH"}{" "}
+                          {item.end_year ? item.end_year : "20XX"}
+                        </div>
+                      ) : (
+                        <div className="text-[8px] uppercase">
+                          {item.start_month ? item.start_month : "MONTH"}{" "}
+                          {item.start_year ? item.start_year : "20XX"} - PRESENT
+                        </div>
+                      )}
                     </div>
-                    {!item.checkboxstatus ? (
-                      <div className="text-[8px] uppercase">
-                        {item.start_month ? item.start_month : "MONTH"}{" "}
-                        {item.start_year ? item.start_year : "20XX"} -{" "}
-                        {item.end_month ? item.end_month : "MONTH"}{" "}
-                        {item.end_year ? item.end_year : "20XX"}
-                      </div>
-                    ) : (
-                      <div className="text-[8px] uppercase">
-                        {item.start_month ? item.start_month : "MONTH"}{" "}
-                        {item.start_year ? item.start_year : "20XX"} - PRESENT
-                      </div>
-                    )}
-                  </div>
 
-                  <div className="">
-                    <div className="text-[9px] space-y-2 pl-3">
-                      <ul className="">
-                        <li>
-                          {item.description
-                            ? parse(item.description)
-                            : " Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh."}
-                        </li>
-                      </ul>
+                    <div className="">
+                      <div className="text-[9px] space-y-2 pl-3">
+                        <ul className="">
+                          <li>
+                            {item.description
+                              ? parse(item.description)
+                              : " Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh."}
+                          </li>
+                        </ul>
+                      </div>
                     </div>
                   </div>
-                </div>
-              ))}
-            </div>
-          </article>
+                ))}
+              </div>
+            </article>
+          )}
 
           {/**Education */}
-          <article>
-            {educationHistory.map((item, index) => (
-              <div key={index}>
-                <header className="mt-4">
+          {educationHistory.length > 0 && (
+            <article>
+              <div>
+                <header className="mt-2">
                   <h2 className="text-[9px] font-extrabold text-cyan-600">
                     EDUCATION
                   </h2>
                 </header>
-                <div className="mt-4 mb-2">
-                  <p className="text-[11px]">
-                    <b>
-                      {item.school_name ? item.school_name : "School name"} -
-                    </b>{" "}
-                    {item.school_location ? item.school_location : "Location"}{" "}
-                  </p>
-                  <div className="flex flex-col  justify-between">
-                    <p className="text-[11px]">
-                      <i>
-                        {item.degree_program ? item.degree_program : "B.Sc"} -{" "}
-                        {item.field_of_study
-                          ? item.field_of_study
-                          : "Field of study"}
-                      </i>
-                    </p>
+                {educationHistory.map((item, index) => (
+                  <div className="mt-2 mb-2" key={index}>
+                    <div className="text-[11px]">
+                      <b>
+                        {item.school_name ? item.school_name : "School name"} -
+                      </b>{" "}
+                      {item.school_location ? item.school_location : "Location"}{" "}
+                    </div>
+                    <div className="flex flex-col  justify-between">
+                      <div className="text-[11px]">
+                        <i>
+                          {item.degree_program ? item.degree_program : "B.Sc"} -{" "}
+                          {item.field_of_study
+                            ? item.field_of_study
+                            : "Field of study"}
+                        </i>
+                      </div>
 
-                    <p className="text-[11px]"></p>
+                      <p className="text-[11px]"></p>
 
-                    <p className="text-[9px]">
-                      {" "}
-                      {item.graduation_month
-                        ? item.graduation_month
-                        : "MONTH"}{" "}
-                      {item.graduation_year ? item.graduation_year : "20XX"}
-                    </p>
+                      <div className="text-[9px]">
+                        {" "}
+                        {item.graduation_month
+                          ? item.graduation_month
+                          : "MONTH"}{" "}
+                        {item.graduation_year ? item.graduation_year : "20XX"}
+                      </div>
+                    </div>
                   </div>
-                </div>
+                ))}
               </div>
-            ))}
-          </article>
+            </article>
+          )}
 
           {/**Projects */}
-          <article className="space-y-2">
-            <div className="space-y-2">
-              <header>
-                <h2 className="text-[9px] font-extrabold my-4 text-cyan-600">
-                  PROJECTS
-                </h2>
-                <p className="text-[11px]">
-                  <b>Project name,</b> - <i>Description</i>
-                </p>
-              </header>
-              <div className="">
-                <ul className="text-[9px]">
-                  <li>
-                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
-                    sed diam nonummy nibh.
-                  </li>
-                </ul>
+          {updateProject.length > 0 && (
+            <article className="space-y-2">
+              <div className="space-y-2">
+                <header>
+                  <h2 className="text-[9px] font-extrabold my-2 text-cyan-600">
+                    PROJECTS
+                  </h2>
+                </header>
               </div>
-            </div>
 
-            <div>
-              <header>
-                <p className="text-[11px]">
-                  <b>Project name,</b> - <i>Description</i>
-                </p>
-              </header>
-              <div>
-                <ul className="text-[9px]">
-                  <li>
-                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit,
-                    sed diam nonummy nibh.
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </article>
+              {updateProject.map((item, index) => (
+                <div key={index}>
+                  <header>
+                    <div className="text-[11px]">
+                      <b>
+                        {item.projectName ? item.projectName : "Project name"}
+                      </b>{" "}
+                      -{" "}
+                      <i>
+                        {item.projectLink ? item.projectLink : "Project link"}
+                      </i>
+                    </div>
+                  </header>
+                  <div>
+                    <ul className="text-[9px]">
+                      <li>
+                        {item.projectDescription
+                          ? item.projectDescription
+                          : "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh."}
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              ))}
+            </article>
+          )}
         </div>
 
         {/**right section */}
-        <div className="w-1/3 py-4 px-2 bg-slate-100 h-[120vh]">
+        <div className="w-1/3 pt-4 pb-2 px-2 bg-slate-100 h-[120vh]">
           {/**Address */}
           <div className="text-[9px]">
             <h2 className="font-extrabold mb-2 text-cyan-600">ADDRESS</h2>
-            <p>
+            <div>
               {" "}
               {updateTextName.state ? updateTextName.state : "State"},
               {updateTextName.country ? updateTextName.country : "Your Country"}
-            </p>
+            </div>
             <p>{updateTextName.phone ? updateTextName.phone : "070XXXXXXXX"}</p>
             <p>
               {updateTextName.email
@@ -211,27 +225,49 @@ const DefaultTemplate: React.FC = () => {
 
           <article>
             <div>
-              <h2 className="text-[9px] font-extrabold text-cyan-600 mt-4 mb-2 uppercase">
-                Social links
-              </h2>
-              <div>
-                <div>
-                  <div className="text-[9px]">
+              {(socailLinks.github !== "" ||
+                socailLinks.linkedIn !== "" ||
+                socailLinks.twitter !== "") && (
+                <h2 className="text-[9px] font-extrabold text-cyan-600 mt-2 mb-2 uppercase">
+                  Social links
+                </h2>
+              )}
+
+              <div className="flex">
+                <div className="flex flex-col text-[8px]">
+                  {socailLinks.linkedIn !== "" && (
                     <div className="flex gap-1">
                       <IconBrandLinkedin size={12} />
-                      <p> Your Country, State</p>
+                      <p>
+                        {" "}
+                        {socailLinks.linkedIn
+                          ? socailLinks.linkedIn
+                          : "www.linkedin.com/10233324d"}
+                      </p>
                     </div>
+                  )}
 
+                  {socailLinks.twitter !== "" && (
                     <div className="flex gap-1">
                       <IconBrandTwitter size={12} />
-                      <p>070XXXXXXXX</p>
+                      <p>
+                        {socailLinks.twitter
+                          ? socailLinks.twitter
+                          : "www.twitter.com/10233324"}
+                      </p>
                     </div>
+                  )}
 
+                  {socailLinks.github !== "" && (
                     <div className="flex gap-1">
                       <IconBrandGithub size={12} />
-                      <p>no_reply@gmail.com</p>
+                      <p>
+                        {socailLinks.github
+                          ? socailLinks.github
+                          : "www.github.com/shenkzjay"}
+                      </p>
                     </div>
-                  </div>
+                  )}
                 </div>
               </div>
             </div>
@@ -239,7 +275,7 @@ const DefaultTemplate: React.FC = () => {
 
           <article>
             <div>
-              <h2 className="text-[9px] font-extrabold text-cyan-600 mt-4 mb-2">
+              <h2 className="text-[9px] font-extrabold text-cyan-600 mt-2 mb-2">
                 SKILLS
               </h2>
               <div className="flex flex-wrap">
@@ -255,17 +291,20 @@ const DefaultTemplate: React.FC = () => {
             </div>
           </article>
 
-          <article>
-            <div>
-              <h2 className="text-[9px] font-extrabold text-cyan-600 mt-4 mb-2">
-                CERTIFICATION
-              </h2>
-              <ul className="text-[9px] space-y-2 ">
-                <li>Lorem ipsum dolor</li>
-                <li>Lorem ipsum dolor</li>
-              </ul>
-            </div>
-          </article>
+          {certification.length > 0 && (
+            <article>
+              <div>
+                <h2 className="text-[9px] font-extrabold text-cyan-600 mt-2 mb-2">
+                  CERTIFICATION
+                </h2>
+                {certification.map((item, index) => (
+                  <ul className="text-[9px] space-y-1 " key={index}>
+                    <li>{item.value ? item.value : "Lorem ipsum dolor"}</li>
+                  </ul>
+                ))}
+              </div>
+            </article>
+          )}
         </div>
       </div>
     </section>

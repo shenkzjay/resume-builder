@@ -29,6 +29,7 @@ const initialState: update = {
   objective: "",
   editorExperience: "",
   searchSuggestions: "",
+  seletedTemplate: null,
 
   skills: [
     {
@@ -249,6 +250,10 @@ export const textUpdateSlice = createSlice({
         },
       };
     },
+
+    updateSeletedTemplate(state: update, action: PayloadAction<number>) {
+      state.seletedTemplate = action.payload;
+    },
   },
 });
 
@@ -270,6 +275,7 @@ export const {
   addProjectState,
   deletedProjectState,
   updateSocialLinks,
+  updateSeletedTemplate,
   search,
 } = textUpdateSlice.actions;
 

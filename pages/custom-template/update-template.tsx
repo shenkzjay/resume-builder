@@ -22,10 +22,19 @@ const UpdateTemplate = () => {
   const router = useRouter();
   const [opened, { open, close }] = useDisclosure(false);
   const dispatch = useDispatch();
-  const selectedTemplate = Number(router.query.template);
-  const TemplateComponent = templatesData[selectedTemplate]?.component ?? (
-    <div>No template selected</div>
+
+  const selected_template = useSelector(
+    (state: RootState) => state.updateTextName.seletedTemplate
   );
+  // const selectedTemplate = Number(router.query.template);
+
+  let TemplateComponent;
+
+  if (selected_template !== null) {
+    TemplateComponent = templatesData[selected_template]?.component;
+  } else {
+    TemplateComponent = <div>No template selected</div>;
+  }
 
   const updateTextUpdate = useSelector(
     (state: RootState) => state?.updateTextName
@@ -66,7 +75,6 @@ const UpdateTemplate = () => {
 
     router.push({
       pathname: "/custom-template/skills",
-      query: { template: selectedTemplate },
     });
   };
 

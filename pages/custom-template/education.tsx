@@ -27,11 +27,17 @@ const EducationHistory = () => {
   const dispatch = useDispatch();
 
   //retrieve selected template
-  const selectedTemplate = Number(router.query.template);
-
-  const TemplateComponent = templatesData[selectedTemplate]?.component ?? (
-    <div>No template selected</div>
+  const selected_template = useSelector(
+    (state: RootState) => state.updateTextName.seletedTemplate
   );
+
+  let TemplateComponent;
+
+  if (selected_template !== null) {
+    TemplateComponent = templatesData[selected_template]?.component;
+  } else {
+    TemplateComponent = <div>No template selected</div>;
+  }
 
   //retrieve updated state from store
   const updateEduHistory = useSelector(
@@ -232,7 +238,6 @@ const EducationHistory = () => {
                 onClick={() =>
                   router.push({
                     pathname: "/custom-template/projects",
-                    query: { template: selectedTemplate },
                   })
                 }
               />

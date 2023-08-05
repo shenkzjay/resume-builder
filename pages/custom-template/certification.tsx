@@ -35,11 +35,17 @@ const Certification = () => {
 
   const [opened, { open, close }] = useDisclosure();
 
-  const selectedTemplate = Number(router.query.template);
-
-  const TemplateComponent = templatesData[selectedTemplate]?.component ?? (
-    <div>No template selected</div>
+  const selected_template = useSelector(
+    (state: RootState) => state.updateTextName.seletedTemplate
   );
+
+  let TemplateComponent;
+
+  if (selected_template !== null) {
+    TemplateComponent = templatesData[selected_template]?.component;
+  } else {
+    TemplateComponent = <div>No template selected</div>;
+  }
 
   const dispatch = useDispatch();
   const updateCert = useSelector(
@@ -103,7 +109,6 @@ const Certification = () => {
                 onClick={() =>
                   router.push({
                     pathname: "/custom-template/preview",
-                    query: { template: selectedTemplate },
                   })
                 }
               />

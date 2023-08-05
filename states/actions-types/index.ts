@@ -76,6 +76,7 @@ interface updateName {
   searchSuggestions: string;
   project: updateProject[];
   socialLinks: updateSocialLinks;
+  seletedTemplate: number | null;
 }
 
 export type update = updateName;

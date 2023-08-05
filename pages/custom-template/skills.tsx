@@ -27,12 +27,20 @@ const Skills = () => {
   const dispatch = useDispatch();
 
   //convert index string to number
-  const selectedTemplate = Number(router.query.template);
+  // const selectedTemplate = Number(router.query.template);
 
   //pass the index to templateData to find the template component and save to the variable
-  const TemplateComponent = templatesData[selectedTemplate]?.component ?? (
-    <div>No template selected</div>
+  const selected_template = useSelector(
+    (state: RootState) => state.updateTextName.seletedTemplate
   );
+
+  let TemplateComponent;
+
+  if (selected_template !== null) {
+    TemplateComponent = templatesData[selected_template]?.component;
+  } else {
+    TemplateComponent = <div>No template selected</div>;
+  }
 
   //useSelector to retrieve skills from state
   const addSkills = useSelector(
@@ -65,7 +73,6 @@ const Skills = () => {
   const handleNext = async () => {
     router.push({
       pathname: "/custom-template/work-exp",
-      query: { template: selectedTemplate },
     });
   };
 

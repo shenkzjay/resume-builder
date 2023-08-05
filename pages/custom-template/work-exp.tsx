@@ -38,12 +38,17 @@ const WorkExperience = () => {
   const dispatch = useDispatch();
 
   //retrieve selected template
-  const selectedTemplate = Number(router.query.template);
-
-  const TemplateComponent = templatesData[selectedTemplate]?.component ?? (
-    <div>No template selected</div>
+  const selected_template = useSelector(
+    (state: RootState) => state.updateTextName.seletedTemplate
   );
 
+  let TemplateComponent;
+
+  if (selected_template !== null) {
+    TemplateComponent = templatesData[selected_template]?.component;
+  } else {
+    TemplateComponent = <div>No template selected</div>;
+  }
   //retrieve updated state from store
   const updateWorkExp = useSelector(
     (state: RootState) => state.updateTextName.workExperience
@@ -146,7 +151,6 @@ const WorkExperience = () => {
   const handleNext = async () => {
     router.push({
       pathname: "/custom-template/education",
-      query: { template: selectedTemplate },
     });
   };
 
@@ -257,20 +261,20 @@ const WorkExperience = () => {
                           }
                         />
                       </div>
-
+                      {/* 
                       <SunEditorFile
                         placeholder="Type your work experience here"
                         value={item.description}
                         onChange={(content) =>
                           handleInputChange(index, "description", content)
                         }
-                      />
-                      {/* <TiptapEditor
+                      /> */}
+                      <TiptapEditor
                         onUpdate={(content) =>
                           handleInputChange(index, "description", content)
                         }
                         content={item.description}
-                      /> */}
+                      />
                       {/* <button
                         onClick={() => open()}
                         className="px-4 py-3 border border-cyan-600 text-cyan-600 rounded mb-6"

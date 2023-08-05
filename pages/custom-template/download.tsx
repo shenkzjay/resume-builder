@@ -8,18 +8,29 @@ import EditSectionButton from "@/components/ui components/toggleButton/edit-sect
 import { ModalCard } from "@/components/ui components/modal";
 import { useDisclosure } from "@mantine/hooks";
 import { IconDownload } from "@tabler/icons-react";
+import { useSelector } from "react-redux";
+import { RootState } from "@/states/store";
 
 const DownloadPage = () => {
   const printRef = useRef<HTMLDivElement | null>(null);
   const [opened, { open, close }] = useDisclosure();
   const router = useRouter();
-  const selectedTemplate = Number(router.query.template);
-  const TemplateComponent = templatesData[selectedTemplate]?.component ?? (
-    <div>No template selected</div>
+
+  const selected_template = useSelector(
+    (state: RootState) => state.updateTextName.seletedTemplate
   );
 
-  const [selectTemplate, setSelectTemplate] =
-    useState<number>(selectedTemplate);
+  let TemplateComponent;
+
+  if (selected_template !== null) {
+    TemplateComponent = templatesData[selected_template]?.component;
+  } else {
+    TemplateComponent = <div>No template selected</div>;
+  }
+
+  const [selectTemplate, setSelectTemplate] = useState<number | null>(
+    selected_template
+  );
 
   const select_template = templatesData[selectTemplate]?.component ?? (
     <div>{TemplateComponent}</div>

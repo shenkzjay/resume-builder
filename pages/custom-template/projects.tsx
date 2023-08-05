@@ -36,12 +36,17 @@ const Project = () => {
 
   const [opened, { open, close }] = useDisclosure();
 
-  const selectedTemplate = Number(router.query.template);
-
-  const TemplateComponent = templatesData[selectedTemplate]?.component ?? (
-    <div>No template selected</div>
+  const selected_template = useSelector(
+    (state: RootState) => state.updateTextName.seletedTemplate
   );
 
+  let TemplateComponent;
+
+  if (selected_template !== null) {
+    TemplateComponent = templatesData[selected_template]?.component;
+  } else {
+    TemplateComponent = <div>No template selected</div>;
+  }
   const dispatch = useDispatch();
 
   const updateProject = useSelector(
@@ -56,6 +61,17 @@ const Project = () => {
 
   const handleToggleDisplay = (value: boolean, field: string) => {
     setDisplayProject({ ...displayProject, [field]: value });
+
+    // if (value === false) {
+    //   dispatch(
+    //     updateSocialLinks({
+    //       ...updatedSkill,
+    //       github: "",
+    //       twitter: "",
+    //       linkedIn: "",
+    //     })
+    //   );
+    // }
   };
 
   const handleInputClick = (index: number, field: string, value: string) => {
@@ -263,7 +279,6 @@ const Project = () => {
                 onClick={() =>
                   router.push({
                     pathname: "/custom-template/certification",
-                    query: { template: selectedTemplate },
                   })
                 }
               />

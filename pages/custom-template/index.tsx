@@ -4,6 +4,10 @@ import { useState } from "react";
 import { useRouter } from "next/router";
 import { templatesData } from "@/components/templates";
 import Head from "next/head";
+import { useDispatch } from "react-redux";
+import { updateSeletedTemplate } from "@/states/reducers/slice/textUpdateSlice";
+import { useSelector } from "react-redux";
+import { RootState } from "@/states/store";
 
 const SelectTemplate = () => {
   //store the selected template in state
@@ -11,13 +15,20 @@ const SelectTemplate = () => {
 
   const router = useRouter();
 
+  const dispatch = useDispatch();
+
   console.log(selectedTemplate);
+
+  const seleted_template = useSelector(
+    (state: RootState) => state.updateTextName.seletedTemplate
+  );
 
   const handleSelectTemplate = (index: number) => {
     setSelectedTemplate(index);
+    dispatch(updateSeletedTemplate(index));
     router.push({
       pathname: "/custom-template/update-template",
-      query: { template: index },
+      query: { template: selectedTemplate },
     });
   };
 
