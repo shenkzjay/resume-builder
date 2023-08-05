@@ -262,7 +262,7 @@ const Project = () => {
                 name="Continue"
                 onClick={() =>
                   router.push({
-                    pathname: "/custom-template/preview",
+                    pathname: "/custom-template/certification",
                     query: { template: selectedTemplate },
                   })
                 }
