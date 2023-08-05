@@ -32,11 +32,6 @@ const DownloadPage = () => {
     selected_template
   );
 
-  const select_template = templatesData[selectTemplate]?.component ?? (
-    <div>{TemplateComponent}</div>
-  );
-  console.log(select_template);
-
   const handleSelectTemplate = (index: number) => {
     setSelectTemplate(index);
   };
@@ -71,7 +66,7 @@ const DownloadPage = () => {
           className="md:h-[842px] md:w-[592px] h-[80vh] overflow-auto flex drop-shadow-[0_8px_20px_rgba(0,0,0,0.08)] pb-20 rounded mx-6 md:mx-0"
           ref={printRef}
         >
-          {select_template}
+          {TemplateComponent}
         </div>
       </div>
       {/* <div className="h-20 md:hidden flex fixed bottom-0 z-50 w-full justify-center items-center rounded-t-[20px] bg-white drop-shadow-[0_8px_20px_rgba(0,0,0,0.20)]">
