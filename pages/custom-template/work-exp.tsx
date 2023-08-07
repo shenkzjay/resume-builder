@@ -22,6 +22,8 @@ import TiptapEditor from "@/components/ui components/markdown-editor";
 import { Checkboxelement } from "@/components/ui components/checkbox";
 import Link from "next/link";
 import { BackButton, NextButton, AddButtons } from "@/components/buttons";
+import MenuBar from "../../components/ui components/markdown-editor/index";
+// import SlateEditor from "@/components/ui components/markdown-editor/slate-editor";
 
 const WorkExperience = () => {
   //init router
@@ -269,12 +271,19 @@ const WorkExperience = () => {
                           handleInputChange(index, "description", content)
                         }
                       /> */}
-                      <TiptapEditor
+                      {/* <TiptapEditor
+                        onUpdate={(content) =>
+                          handleInputChange(index, "description", content)
+                        }
+                        content={item.description}
+                      /> */}
+                      <MenuBar
                         onUpdate={(content) =>
                           handleInputChange(index, "description", content)
                         }
                         content={item.description}
                       />
+
                       {/* <button
                         onClick={() => open()}
                         className="px-4 py-3 border border-cyan-600 text-cyan-600 rounded mb-6"
@@ -343,10 +352,13 @@ const WorkExperience = () => {
       <div className="h-20 md:hidden flex fixed bottom-0 z-50 w-full justify-center items-center rounded-t-[20px] bg-white drop-shadow-[0_8px_20px_rgba(0,0,0,0.20)]">
         <button
           className="py-3 px-4 bg-cyan-600  text-white font-semibold rounded "
-          // onClick={() => open()}
+          onClick={() => open()}
         >
           Preview template
         </button>
+        <ModalCard opened={opened} close={close} open={open}>
+          <div className="h-[70vh]">{TemplateComponent}</div>
+        </ModalCard>
       </div>
     </section>
   );

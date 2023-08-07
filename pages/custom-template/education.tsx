@@ -244,8 +244,10 @@ const EducationHistory = () => {
             </div>
           </div>
 
-          <section className="md:w-1/2 hidden md:flex sticky top-24 max-h-[75vh] border-2 rounded border-cyan-600">
-            <div className="h-[70vh]">{TemplateComponent}</div>
+          <section className="md:w-1/2 hidden md:flex sticky top-24 max-h-[75vh]">
+            <div className="h-[70vh] border-2 rounded border-cyan-600">
+              {TemplateComponent}
+            </div>
           </section>
         </div>
         <div className="h-20 md:hidden flex fixed bottom-0 z-50 w-full justify-center items-center rounded-t-[20px] bg-white drop-shadow-[0_8px_20px_rgba(0,0,0,0.20)]">

@@ -28,7 +28,6 @@ const SelectTemplate = () => {
     dispatch(updateSeletedTemplate(index));
     router.push({
       pathname: "/custom-template/update-template",
-      query: { template: selectedTemplate },
     });
   };
 

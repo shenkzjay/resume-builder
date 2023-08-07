@@ -10,6 +10,7 @@ import { useDisclosure } from "@mantine/hooks";
 import { IconDownload } from "@tabler/icons-react";
 import { useSelector } from "react-redux";
 import { RootState } from "@/states/store";
+import { persistor } from "@/states/store";
 
 const DownloadPage = () => {
   const printRef = useRef<HTMLDivElement | null>(null);
@@ -47,6 +48,11 @@ const DownloadPage = () => {
       const pdfHeight = pdf.internal.pageSize.getHeight();
       pdf.addImage(imgData, "PNG", 0, 0, pdfWidth, pdfHeight);
       pdf.save("resume.pdf");
+
+      persistor.pause();
+      persistor.flush().then(() => {
+        return persistor.purge();
+      });
     } catch (error) {
       console.error("Error generating PDF:", error);
     }

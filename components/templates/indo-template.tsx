@@ -43,9 +43,9 @@ const IndoTemplate: React.FC = () => {
   );
 
   return (
-    <section className="flex bg-white rounded overflow-auto template h-full drop-shadow-[0_8px_20px_rgba(0,0,0,0.08)] transition ease-in-out hover:outline hover:outline-cyan-500 duration-300 hover:shadow-2xl hover:shadow-slate-500/10">
+    <section className="flex  bg-white rounded overflow-auto template h-full drop-shadow-[0_8px_20px_rgba(0,0,0,0.08)] transition ease-in-out hover:outline hover:outline-cyan-500 duration-300 hover:shadow-2xl hover:shadow-slate-500/10">
       {/**left section */}
-      <div className="p-4 space-y-4 w-full" role="button">
+      <div className="p-4 space-y-4" role="button">
         {/**Name section */}
         <div className="flex flex-col items-center">
           <h2 className="text-2xl font-semibold leading-none">
@@ -185,7 +185,7 @@ const IndoTemplate: React.FC = () => {
                       ,&nbsp;
                     </b>{" "}
                     {item.company_name ? item.company_name : "Company"} -{" "}
-                    <i>Location</i>
+                    <i>{item.country ? item.country : "Location"}</i>
                   </div>
                   <div className="text-[8px] uppercase">
                     {!item.checkboxstatus ? (

@@ -20,7 +20,7 @@ const DefaultTemplate: React.FC = () => {
     (state: RootState) => state.updateTextName.workExperience
   );
 
-  console.log(workExperience);
+  console.log(workExperience.map((item) => item.description));
 
   const educationHistory = useSelector(
     (state: RootState) => state.updateTextName.educationHistory
@@ -42,7 +42,7 @@ const DefaultTemplate: React.FC = () => {
     (state: RootState) => state.updateTextName.socialLinks
   );
 
-  const use = socailLinks;
+  console.log();
 
   return (
     <section className=" bg-white overflow-auto template h-full hover:outline hover:outline-cyan-500 drop-shadow-[0_8px_20px_rgba(0,0,0,0.08)] ease-in-out transition rounded duration-300 hover:shadow-slate-500/10 hover:shadow-2xl">

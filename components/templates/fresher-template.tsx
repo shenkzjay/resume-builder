@@ -60,13 +60,13 @@ const FresherTemplate: React.FC = () => {
                   ? updateTextName.profession
                   : "Frontend developer"}
               </p>
-              <p>
+              <div>
                 {" "}
                 {updateTextName.country
                   ? updateTextName.country
                   : "Your Country"}
                 ,{updateTextName.state ? updateTextName.state : "State"}
-              </p>
+              </div>
               <p>
                 {updateTextName.phone ? updateTextName.phone : "070XXXXXXXX"}
               </p>
