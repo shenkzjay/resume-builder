@@ -26,7 +26,6 @@ const UpdateTemplate = () => {
   const selected_template = useSelector(
     (state: RootState) => state.updateTextName.seletedTemplate
   );
-  // const selectedTemplate = Number(router.query.template);
 
   let TemplateComponent;
 

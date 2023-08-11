@@ -17,6 +17,7 @@ import { EditorContent, useEditor } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 import Typography from "@tiptap/extension-typography";
 import React from "react";
+
 // import HardBreak from "@tiptap/extension-hard-break";
 
 interface TipTapProps {
@@ -102,7 +103,13 @@ const MenuBar = ({ editor }: MenuBarProps) => {
   );
 };
 
-const TiptapEditorNew = ({ content, onUpdate }: TipTapProps) => {
+// const updateWorkExp = useSelector(
+//   (state: RootState) => state.updateTextName.workExperience
+// );
+
+const TiptapEditorNew = ({ onUpdate, content }: TipTapProps) => {
+  console.log("editor is rendering");
+
   const editor = useEditor({
     extensions: [
       Typography,
@@ -119,26 +126,11 @@ const TiptapEditorNew = ({ content, onUpdate }: TipTapProps) => {
           keepAttributes: false, // TODO : Making this as `false` becase marks are not preserved when I try to preserve attrs, awaiting a bit of help
         },
       }),
-      // HardBreak.extend({
-      //   addKeyboardShortcuts() {
-      //     return {
-      //       Enter: () => {
-      //         if (
-      //           this.editor.isActive("orderedList") ||
-      //           this.editor.isActive("bulletList")
-      //         ) {
-      //           return this.editor.chain().createParagraphNear().run();
-      //         }
-      //         return this.editor.commands.setHardBreak();
-      //       },
-      //     };
-      //   },
-      // }),
     ],
-    content: "",
-    autofocus: true,
-    editable: true,
-    injectCSS: false,
+    content,
+    // autofocus: true,
+    // editable: true,
+    // injectCSS: false,
     onUpdate: ({ editor }) => {
       const updatedContent = editor.getHTML().replace(/<p><\/p>/g, "<br>"); // Get the HTML content of the editor
       onUpdate(updatedContent); // Pass the updated content to the onUpdate function

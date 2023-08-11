@@ -13,6 +13,7 @@ interface SunEditorProps {
 }
 
 function SunEditorFile({ placeholder, onChange, value }: SunEditorProps) {
+  console.log("hey");
   const handleDetailInputChange = (content: string) => {
     onChange(content);
   };

@@ -29,7 +29,7 @@ const WorkExperience = () => {
   //init router
   console.log("render ");
 
-  // const { data, isLoading, error } = UseSuggestions();
+  const { data, isLoading, error } = UseSuggestions();
   // console.log("wx", data);
 
   const [opened, { open, close }] = useDisclosure(false);
@@ -60,9 +60,9 @@ const WorkExperience = () => {
   //   (state: RootState) => state.updateTextName.editorExperience
   // );
 
-  // const searchSuggestions = useSelector(
-  //   (state: RootState) => state.updateTextName.searchSuggestions
-  // );
+  const searchSuggestions = useSelector(
+    (state: RootState) => state.updateTextName.searchSuggestions
+  );
 
   //function to update text input change
   const handleInputChange = (
@@ -96,15 +96,24 @@ const WorkExperience = () => {
     dispatch(deleteWorkExperience(index));
   };
 
-  // const handleSearchInput = (content: string) => {
-  //   dispatch(search(content));
-  // };
+  const handleSearchInput = (content: string) => {
+    dispatch(search(content));
+  };
 
-  // const handleClickSuggestion = (index: number) => {
-  //   console.log(index);
+  const handleClickSuggestion = (
+    index: number,
+    item: InputItem,
+    selectedDescription: string
+  ) => {
+    if (item.description) {
+      const updatedContent = `${item.description}\n${selectedDescription}`;
+      handleInputChange(index, "description", updatedContent);
+    }
 
-  //   close();
-  // };
+    console.log("wos", updateWorkExp[index]);
+
+    close();
+  };
 
   function createMonths() {
     return [
@@ -263,8 +272,8 @@ const WorkExperience = () => {
                           }
                         />
                       </div>
-                      {/* 
-                      <SunEditorFile
+
+                      {/* <SunEditorFile
                         placeholder="Type your work experience here"
                         value={item.description}
                         onChange={(content) =>
@@ -284,12 +293,12 @@ const WorkExperience = () => {
                         content={item.description}
                       />
 
-                      {/* <button
+                      <button
                         onClick={() => open()}
                         className="px-4 py-3 border border-cyan-600 text-cyan-600 rounded mb-6"
                       >
                         ✨ AI suggestions
-                      </button> */}
+                      </button>
                     </div>
                   </details>
                 </div>
@@ -316,7 +325,7 @@ const WorkExperience = () => {
           </section>
         </div>
       </div>
-      {/* <div className="relative">
+      <div className="relative">
         <ModalCard opened={opened} close={close} open={open}>
           <input
             type="search"
@@ -334,7 +343,9 @@ const WorkExperience = () => {
               data.map((item: any, index: number) => (
                 <div
                   role="button"
-                  onClick={() => handleClickSuggestion(index)}
+                  onClick={() =>
+                    handleClickSuggestion(index, item, item.content)
+                  }
                   key={index}
                   className="flex mb-6 mt-6 bg-slate-100 justify-between item-center gap-6 p-4 rounded"
                 >
@@ -348,8 +359,8 @@ const WorkExperience = () => {
               ))}
           </div>
         </ModalCard>
-      </div> */}
-      <div className="h-20 md:hidden flex fixed bottom-0 z-50 w-full justify-center items-center rounded-t-[20px] bg-white drop-shadow-[0_8px_20px_rgba(0,0,0,0.20)]">
+      </div>
+      {/* <div className="h-20 md:hidden flex fixed bottom-0 z-50 w-full justify-center items-center rounded-t-[20px] bg-white drop-shadow-[0_8px_20px_rgba(0,0,0,0.20)]">
         <button
           className="py-3 px-4 bg-cyan-600  text-white font-semibold rounded "
           onClick={() => open()}
@@ -359,7 +370,7 @@ const WorkExperience = () => {
         <ModalCard opened={opened} close={close} open={open}>
           <div className="h-[70vh]">{TemplateComponent}</div>
         </ModalCard>
-      </div>
+      </div> */}
     </section>
   );
 };
