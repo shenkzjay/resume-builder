@@ -61,7 +61,12 @@ const DownloadPage = () => {
   };
 
   const handlePDF = async () => {
-    await axios.get("/api/downladpdf");
+    // await axios.get("/api/downladpdf");
+    // await axios.get("/api/downloadpdf", {
+    //   params: {
+    //     url: "http://localhost:3000/custom-template/preview",
+    //   },
+    // });
   };
 
   return (

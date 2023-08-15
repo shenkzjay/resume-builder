@@ -1,4 +1,4 @@
-import { IconArrowBackUpDouble } from "@tabler/icons-react";
+import { IconArrowBackUp, IconArrowBackUpDouble } from "@tabler/icons-react";
 import { IconArrowUpRightCircle } from "@tabler/icons-react";
 import {
   IconBlockquote,
@@ -17,6 +17,7 @@ import { EditorContent, useEditor } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 import Typography from "@tiptap/extension-typography";
 import React from "react";
+import { IconArrowForwardUp } from "@tabler/icons-react";
 
 // import HardBreak from "@tiptap/extension-hard-break";
 
@@ -36,7 +37,7 @@ const MenuBar = ({ editor }: MenuBarProps) => {
   }
 
   return (
-    <section className="Proser bg-slate-100 p-2 ">
+    <section className=" space-x-4 bg-slate-100 p-2 flex flex-wrap">
       <button
         onClick={() => editor.chain().focus().toggleBold().run()}
         disabled={!editor.can().chain().focus().toggleBold().run()}
@@ -84,20 +85,20 @@ const MenuBar = ({ editor }: MenuBarProps) => {
         <IconBlockquote size={18} />
       </button>
 
-      <button onClick={() => editor.chain().focus().setHardBreak().run()}>
+      {/* <button onClick={() => editor.chain().focus().setHardBreak().run()}>
         <IconPageBreak size={18} />
-      </button>
+      </button> */}
       <button
         onClick={() => editor.chain().focus().undo().run()}
         disabled={!editor.can().chain().focus().undo().run()}
       >
-        <IconArrowBackUpDouble size={18} />
+        <IconArrowBackUp size={18} />
       </button>
       <button
         onClick={() => editor.chain().focus().redo().run()}
         disabled={!editor.can().chain().focus().redo().run()}
       >
-        <IconArrowUpRightCircle size={18} />
+        <IconArrowForwardUp size={18} />
       </button>
     </section>
   );

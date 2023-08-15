@@ -248,7 +248,7 @@ const EducationHistory = () => {
         </div>
         <div className="h-20 md:hidden flex fixed bottom-0 z-50 w-full justify-center items-center rounded-t-[20px] bg-white drop-shadow-[0_8px_20px_rgba(0,0,0,0.20)]">
           <button
-            className="py-3 px-4 bg-primaryButton  text-white font-semibold rounded "
+            className="py-3 px-4 border-2 border-primaryButton  text-primaryButton font-semibold rounded "
             onClick={() => open()}
           >
             Preview template
