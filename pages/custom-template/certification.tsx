@@ -19,6 +19,7 @@ import { IconPlus, IconTrashX, IconX } from "@tabler/icons-react";
 import { ModalCard } from "@/components/ui components/modal";
 import { useDisclosure } from "@mantine/hooks";
 import { useState } from "react";
+import Navbar from "@/components/navbar";
 
 const Certification = () => {
   //init router
@@ -59,8 +60,9 @@ const Certification = () => {
   return (
     <section className="">
       <div className="mx-auto container">
+        <Navbar />
         <div className="my-10 ">
-          <p className="font-semibold text-4xl mx-6 md:mx-0">
+          <p className="font-extrabold text-4xl mx-6 md:mx-0">
             Got a certification?
           </p>
         </div>
@@ -115,7 +117,7 @@ const Certification = () => {
             </div>
           </div>
           <section className="md:w-1/2 hidden md:flex sticky top-24 max-h-[75vh] ">
-            <div className="h-[75vh] border-2 rounded border-cyan-600">
+            <div className="h-[75vh] border-2 rounded border-cyan-600 w-full">
               {TemplateComponent}
             </div>
           </section>

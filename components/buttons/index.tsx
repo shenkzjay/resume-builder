@@ -21,7 +21,7 @@ interface AddButtonsProps {
 export const NextButton: React.FC<NextButtonProps> = ({ onClick, name }) => {
   return (
     <div
-      className="flex item-center justify-center mt-4  bg-cyan-600 rounded px-4 py-3"
+      className="flex item-center justify-center mt-4  bg-primaryButton rounded px-4 py-3"
       onClick={onClick}
       role="button"
     >
@@ -36,13 +36,13 @@ export const NextButton: React.FC<NextButtonProps> = ({ onClick, name }) => {
 export const BackButton: React.FC<BackButtonProps> = ({ name, link }) => {
   return (
     <div
-      className=" flex item-center justify-center mt-4 border-2 border-cyan-600 rounded px-4 py-3"
+      className=" flex item-center justify-center mt-4 border-2 border-primaryButton rounded px-4 py-3"
       role="button"
     >
       <button className="flex items-center gap-2">
         {" "}
         {/* <IconArrowLeft size={18} color="blue" /> */}
-        <Link href={link} className="font-semibold text-cyan-600">
+        <Link href={link} className="font-semibold text-primaryButton">
           {name}
         </Link>
       </button>
@@ -55,7 +55,7 @@ export const AddButtons: React.FC<AddButtonsProps> = ({ onClick, name }) => {
     <div className="flex justify-between">
       <button
         onClick={onClick}
-        className="px-4 py-3 bg-cyan-600 text-white rounded mb-6 font-semibold"
+        className=" text-primaryButton rounded mb-6 font-semibold"
       >
         {name}
       </button>

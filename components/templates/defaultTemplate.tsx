@@ -84,7 +84,7 @@ const DefaultTemplate: React.FC = () => {
                 </header>
                 {workExperience.map((item, index) => (
                   <div key={index}>
-                    <div className="mt-2 mb-2">
+                    <div className="my-2">
                       <div className="text-[11px]">
                         <b>{item.job_title ? item.job_title : "Job title"},</b>{" "}
                         {item.company_name ? item.company_name : "Company name"}{" "}
@@ -107,7 +107,7 @@ const DefaultTemplate: React.FC = () => {
                     </div>
 
                     <div className="">
-                      <div className="text-[9px] space-y-2 pl-3">
+                      <div className="text-[9px] space-y-1 pl-3">
                         <ul className="">
                           <li>
                             {item.description

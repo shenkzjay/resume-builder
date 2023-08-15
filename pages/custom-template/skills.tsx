@@ -16,6 +16,7 @@ import { ModalCard } from "@/components/ui components/modal";
 import { useDisclosure } from "@mantine/hooks";
 import localforage from "localforage";
 import { ActionTypes } from "@/states/actions-types";
+import Navbar from "@/components/navbar";
 
 const Skills = () => {
   //init router
@@ -83,8 +84,9 @@ const Skills = () => {
   return (
     <section>
       <div className="mx-auto container">
-        <div className="mt-10 mb-6 space-y-4 ">
-          <p className="font-semibold text-4xl mx-6 md:mx-0">
+        <Navbar />
+        <div className="mt-10 mb-10 space-y-4 ">
+          <p className="font-extrabold text-4xl mx-6 md:mx-0">
             Lets talk skills
           </p>
         </div>
@@ -124,8 +126,10 @@ const Skills = () => {
               <NextButton name="Continue" onClick={handleNext} />
             </div>
           </div>
-          <div className="md:w-1/2 hidden md:flex h-[70vh] border-2 rounded border-cyan-600">
-            {TemplateComponent}
+          <div className="md:w-1/2 hidden md:flex max-h-[70vh] sticky top-24">
+            <div className="h-[70vh] border-2 rounded border-cyan-600 w-full">
+              {TemplateComponent}
+            </div>
           </div>
         </div>
         <div className="h-20 md:hidden flex fixed bottom-0 z-50 w-full justify-center items-center rounded-t-[20px] bg-white drop-shadow-[0_8px_20px_rgba(0,0,0,0.20)]">

@@ -43,7 +43,7 @@ const IndoTemplate: React.FC = () => {
   );
 
   return (
-    <section className="flex  bg-white rounded overflow-auto template h-full drop-shadow-[0_8px_20px_rgba(0,0,0,0.08)] transition ease-in-out hover:outline hover:outline-cyan-500 duration-300 hover:shadow-2xl hover:shadow-slate-500/10">
+    <section className=" bg-white rounded overflow-auto template h-full drop-shadow-[0_8px_20px_rgba(0,0,0,0.08)] transition ease-in-out hover:outline hover:outline-cyan-500 duration-300 hover:shadow-2xl hover:shadow-slate-500/10">
       {/**left section */}
       <div className="p-4 space-y-4" role="button">
         {/**Name section */}

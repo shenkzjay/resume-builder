@@ -17,6 +17,7 @@ import { BackButton, NextButton, AddButtons } from "@/components/buttons";
 import { ModalCard } from "@/components/ui components/modal";
 
 import { useDisclosure } from "@mantine/hooks";
+import Navbar from "@/components/navbar";
 
 const EducationHistory = () => {
   //init router
@@ -115,8 +116,9 @@ const EducationHistory = () => {
   return (
     <section className="">
       <div className="mx-auto container">
+        <Navbar />
         <div className="my-10 ">
-          <p className="font-semibold text-4xl mx-6 md:mx-0">
+          <p className="font-extrabold text-4xl mx-6 md:mx-0">
             Your educational journey
           </p>
         </div>
@@ -124,102 +126,96 @@ const EducationHistory = () => {
           <div className="md:w-1/2 flex justify-between flex-col">
             <div>
               {updateEduHistory.map((item, index) => (
-                <>
-                  <div className="flex mb-6 p-4 border rounded" key={index}>
-                    <details className="w-full">
-                      <summary className="relative">
-                        <span>Add your educational history</span>
-                        <button
-                          onClick={() => handleDeleteEducationHistory(index)}
-                          className="absolute top-0 bottom-0 right-0"
-                        >
-                          <IconTrashX color="red" size={20} />
-                        </button>
-                      </summary>
-                      <div className="flex flex-col space-y-4 mt-4">
-                        <input
-                          type="text"
-                          value={item.school_name}
-                          placeholder="School name"
-                          className="border px-4 py-3 rounded"
-                          onChange={(e) =>
+                <div className="flex mb-6 p-4 border rounded" key={index}>
+                  <details className="w-full">
+                    <summary className="relative">
+                      <span>Add your educational history</span>
+                      <button
+                        onClick={() => handleDeleteEducationHistory(index)}
+                        className="absolute top-0 bottom-0 right-0"
+                      >
+                        <IconTrashX color="red" size={20} />
+                      </button>
+                    </summary>
+                    <div className="flex flex-col space-y-4 mt-4">
+                      <input
+                        type="text"
+                        value={item.school_name}
+                        placeholder="School name"
+                        className="border px-4 py-3 rounded"
+                        onChange={(e) =>
+                          handleInputChange(
+                            index,
+                            "school_name",
+                            e.target.value
+                          )
+                        }
+                      />
+                      <input
+                        type="text"
+                        placeholder="School location"
+                        value={item.school_location}
+                        className="border px-4 py-3 rounded"
+                        onChange={(e) =>
+                          handleInputChange(
+                            index,
+                            "school_location",
+                            e.target.value
+                          )
+                        }
+                      />
+                      <input
+                        type="text"
+                        placeholder="Degree / Program"
+                        value={item.degree_program}
+                        className="border px-4 py-3 rounded"
+                        onChange={(e) =>
+                          handleInputChange(
+                            index,
+                            "degree_program",
+                            e.target.value
+                          )
+                        }
+                      />
+                      <input
+                        type="text"
+                        placeholder="Field of study"
+                        value={item.field_of_study}
+                        className="border px-4 py-3 rounded"
+                        onChange={(e) =>
+                          handleInputChange(
+                            index,
+                            "field_of_study",
+                            e.target.value
+                          )
+                        }
+                      />
+                      <div className="flex gap-10">
+                        <DropDown
+                          placeholder="Graduation month"
+                          data={monthsArray}
+                          onChange={(content) =>
                             handleInputChange(
                               index,
-                              "school_name",
-                              e.target.value
+                              "graduation_month",
+                              content
                             )
                           }
+                          value={item.graduation_month}
                         />
-                        <input
-                          type="text"
-                          placeholder="School location"
-                          value={item.school_location}
-                          className="border px-4 py-3 rounded"
-                          onChange={(e) =>
-                            handleInputChange(
-                              index,
-                              "school_location",
-                              e.target.value
-                            )
-                          }
-                        />
-                        <input
-                          type="text"
-                          placeholder="Degree / Program"
-                          value={item.degree_program}
-                          className="border px-4 py-3 rounded"
-                          onChange={(e) =>
-                            handleInputChange(
-                              index,
-                              "degree_program",
-                              e.target.value
-                            )
-                          }
-                        />
-                        <input
-                          type="text"
-                          placeholder="Field of study"
-                          value={item.field_of_study}
-                          className="border px-4 py-3 rounded"
-                          onChange={(e) =>
-                            handleInputChange(
-                              index,
-                              "field_of_study",
-                              e.target.value
-                            )
-                          }
-                        />
-                        <div className="flex gap-10">
-                          <DropDown
-                            placeholder="Graduation month"
-                            data={monthsArray}
-                            onChange={(content) =>
-                              handleInputChange(
-                                index,
-                                "graduation_month",
-                                content
-                              )
-                            }
-                            value={item.graduation_month}
-                          />
 
-                          <DropDown
-                            placeholder="Graduation year"
-                            data={yearArray}
-                            onChange={(content) =>
-                              handleInputChange(
-                                index,
-                                "graduation_year",
-                                content
-                              )
-                            }
-                            value={item.graduation_year}
-                          />
-                        </div>
+                        <DropDown
+                          placeholder="Graduation year"
+                          data={yearArray}
+                          onChange={(content) =>
+                            handleInputChange(index, "graduation_year", content)
+                          }
+                          value={item.graduation_year}
+                        />
                       </div>
-                    </details>
-                  </div>
-                </>
+                    </div>
+                  </details>
+                </div>
               ))}
 
               <div>
@@ -245,14 +241,14 @@ const EducationHistory = () => {
           </div>
 
           <section className="md:w-1/2 hidden md:flex sticky top-24 max-h-[75vh]">
-            <div className="h-[70vh] border-2 rounded border-cyan-600">
+            <div className="h-[70vh] border-2 rounded border-cyan-600 w-full">
               {TemplateComponent}
             </div>
           </section>
         </div>
         <div className="h-20 md:hidden flex fixed bottom-0 z-50 w-full justify-center items-center rounded-t-[20px] bg-white drop-shadow-[0_8px_20px_rgba(0,0,0,0.20)]">
           <button
-            className="py-3 px-4 bg-cyan-600  text-white font-semibold rounded "
+            className="py-3 px-4 bg-primaryButton  text-white font-semibold rounded "
             onClick={() => open()}
           >
             Preview template

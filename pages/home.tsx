@@ -1,24 +1,40 @@
 import { useRouter } from "next/router";
+import { HeroImage } from "@/components/svg/hero-image";
+import Navbar from "@/components/navbar";
 
 const Home = () => {
   //init router hook
   const router = useRouter();
   return (
-    <main className="bg-white h-screen text-black">
+    <main className="flex flex-col bg-white h-screen text-black md:mx-auto md:container">
       {/**Body */}
-      <section className="flex flex-col justify-center items-center md:mx-auto md:container">
-        <div className=" flex flex-col items-center justify-center mx-6">
-          <div className="flex md:flex-row flex-col md:text-7xl text-6xl font-extrabold mt-32 text-center">
-            <span>Select.</span>
-            <span>Customize.</span>
-            <span>Download.</span>
+      <div className=" mx-6 md:mx-0">
+        <Navbar />
+      </div>
+      <section className="flex justify-between mt-12 mx-6 md:mx-0">
+        <div className=" flex flex-col justify-center">
+          <div className="flex flex-col md:text-7xl text-6xl font-extrabold space-y-1">
+            <span>Select</span>
+            <span>Customize</span>
+            <span>Download</span>
           </div>
-          <button
-            className="mt-10 py-4 px-3 bg-cyan-600 font-semibold text-white rounded"
-            onClick={() => router.push({ pathname: "/custom-template" })}
-          >
-            Start building your resume
-          </button>
+          <div className="flex my-10">
+            <p>
+              Easy-to-use resume builder tool to save time and hassle on resume
+              writing and formatting.
+            </p>
+          </div>
+          <div className="">
+            <button
+              className=" py-4 px-3 bg-[#F05E0C] font-semibold text-white rounded"
+              onClick={() => router.push({ pathname: "/custom-template" })}
+            >
+              Start building your resume
+            </button>
+          </div>
+        </div>
+        <div className="md:flex hidden ">
+          <HeroImage />
         </div>
       </section>
     </main>

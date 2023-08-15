@@ -14,7 +14,7 @@ export function ModalCard({ opened, close, open, children }: ModalProps) {
 
   return (
     <div className="max-h-24">
-      <Modal opened={opened} onClose={close} title="Authentication" centered>
+      <Modal opened={opened} onClose={close} title="Preview template" centered>
         {children}
       </Modal>
 

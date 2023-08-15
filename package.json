@@ -52,6 +52,7 @@
     "next": "13.4.10",
     "npm": "^9.8.1",
     "postcss": "8.4.26",
+    "puppeteer": "^21.0.3",
     "react": "18.2.0",
     "react-beautiful-dnd": "^13.1.1",
     "react-dom": "18.2.0",

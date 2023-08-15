@@ -11,6 +11,8 @@ import { IconDownload } from "@tabler/icons-react";
 import { useSelector } from "react-redux";
 import { RootState } from "@/states/store";
 import { persistor } from "@/states/store";
+import Link from "next/link";
+import axios from "axios";
 
 const DownloadPage = () => {
   const printRef = useRef<HTMLDivElement | null>(null);
@@ -58,21 +60,28 @@ const DownloadPage = () => {
     }
   };
 
+  const handlePDF = async () => {
+    await axios.get("/api/downladpdf");
+  };
+
   return (
     <section className="md:mx-auto md:w-[90vw]">
       <div className="my-10 flex flex-col md:flex-row justify-between mx-6 md:mx-0">
         <p className="font-bold text-4xl">RESUME</p>
         <div className="flex gap-10 ">
           <ExportButton onClick={handleDownloadPDF} />
+          <button onClick={handlePDF}>Click to download</button>
+          <a href="/api/downladpdf" download="resume.pdf">
+            Click to download
+          </a>
         </div>
       </div>
       <div className="flex justify-center gap-20">
         {/* <div className="w-1/2">{TemplateComponent}</div> */}
-        <div
-          className="md:h-[842px] md:w-[592px] h-[80vh] overflow-auto flex drop-shadow-[0_8px_20px_rgba(0,0,0,0.08)] pb-20 rounded mx-6 md:mx-0"
-          ref={printRef}
-        >
-          {TemplateComponent}
+        <div className="md:h-[842px] md:w-[592px] h-[80vh] overflow-auto flex drop-shadow-[0_8px_20px_rgba(0,0,0,0.08)] pb-20 rounded mx-6 md:mx-0">
+          <div ref={printRef} className="w-full">
+            {TemplateComponent}
+          </div>
         </div>
       </div>
       {/* <div className="h-20 md:hidden flex fixed bottom-0 z-50 w-full justify-center items-center rounded-t-[20px] bg-white drop-shadow-[0_8px_20px_rgba(0,0,0,0.20)]">

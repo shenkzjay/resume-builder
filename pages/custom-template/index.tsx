@@ -1,5 +1,4 @@
 import React from "react";
-import localForage from "localforage";
 import { useState } from "react";
 import { useRouter } from "next/router";
 import { templatesData } from "@/components/templates";
@@ -8,6 +7,7 @@ import { useDispatch } from "react-redux";
 import { updateSeletedTemplate } from "@/states/reducers/slice/textUpdateSlice";
 import { useSelector } from "react-redux";
 import { RootState } from "@/states/store";
+import Navbar from "@/components/navbar";
 
 const SelectTemplate = () => {
   //store the selected template in state
@@ -33,14 +33,18 @@ const SelectTemplate = () => {
 
   return (
     <section className="bg-white">
-      <div className="md:w-[95vw] md:mx-auto space-y-10 md:scale-95 ">
-        <Head>
-          <title>Choose template</title>
-        </Head>
-        <div className="pt-10">
-          <h1 className="text-center text-4xl">Choose a template</h1>
+      <Head>
+        <title>Choose template</title>
+      </Head>
+      <div className="md:container md:mx-auto space-y-10 pb-20 md:pb-0">
+        <Navbar />
+
+        <div className="">
+          <h1 className=" text-4xl font-extrabold mx-6 md:mx-0">
+            Select a template
+          </h1>
         </div>
-        <div className="grid grid-cols-[repeat(auto-fit,minmax(auto,380px))] gap-20 md:gap-12 justify-center  md:scale-75 origin-top mx-6 md:mx-0">
+        <div className="grid md:grid-cols-[repeat(auto-fit,minmax(auto,314px))] gap-20 md:gap-10 w-full">
           {templatesData.map((template, index) => (
             <div
               key={index}
@@ -50,7 +54,7 @@ const SelectTemplate = () => {
                 selectedTemplate === index
                   ? "border-cyan-500"
                   : "border-slate-300"
-              } max-h-[60vh]`}
+              } max-h-[50vh] mx-6 md:mx-0`}
             >
               {template.component}
             </div>

@@ -6,13 +6,12 @@ import { MantineProvider } from "@mantine/core";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { persistor, store } from "@/states/store";
 import { PersistGate } from "redux-persist/integration/react";
+// import Navbar from "@/components/navbar";
 
 export default function App({ Component, pageProps }: AppProps) {
   const queryClient = new QueryClient();
   return (
     <MantineProvider
-      withGlobalStyles
-      withNormalizeCSS
       theme={{
         /** Put your mantine theme override here */
         colorScheme: "light",
@@ -21,6 +20,7 @@ export default function App({ Component, pageProps }: AppProps) {
       <QueryClientProvider client={queryClient}>
         <Provider store={store}>
           <PersistGate loading={null} persistor={persistor}>
+            {/* <Navbar /> */}
             <Component {...pageProps} />
           </PersistGate>
         </Provider>

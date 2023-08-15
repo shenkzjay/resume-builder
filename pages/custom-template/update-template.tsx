@@ -14,9 +14,9 @@ import Link from "next/link";
 import { NextButton, BackButton } from "@/components/buttons";
 import { useDisclosure } from "@mantine/hooks";
 import { ModalCard } from "@/components/ui components/modal";
-import localforage from "localforage";
 import { ActionTypes } from "@/states/actions-types";
 import { update } from "@/states/actions-types";
+import Navbar from "@/components/navbar";
 
 const UpdateTemplate = () => {
   const router = useRouter();
@@ -43,34 +43,11 @@ const UpdateTemplate = () => {
     (state: RootState) => state.updateTextName.objective
   );
 
-  useEffect(() => {
-    const getPersonalDetails = async () => {
-      try {
-        const value: any = await localforage.getItem(ActionTypes.UPADATE_NAME);
-
-        if (value && value.personalDetail) {
-          dispatch(updateName(value?.personalDetail));
-          dispatch(updateObjective(value?.careerObjective));
-        }
-      } catch (err) {
-        console.log(err);
-      }
-    };
-
-    getPersonalDetails();
-  }, [dispatch]);
-
   const handleNext = async () => {
     const personalDetails = {
       personalDetail: updateTextUpdate.personalDetails,
       careerObjective: updateCareerObjective,
     };
-
-    try {
-      await localforage.setItem(ActionTypes.UPADATE_NAME, personalDetails);
-    } catch (error) {
-      console.log(error);
-    }
 
     router.push({
       pathname: "/custom-template/skills",
@@ -79,9 +56,10 @@ const UpdateTemplate = () => {
 
   return (
     <section className="bg-white ">
-      <div className="md:container md:mx-auto  text-black">
+      <div className="md:w-[80vw] lg:container md:mx-auto  text-black">
+        <Navbar />
         <div className="py-10 ">
-          <p className="font-semibold text-4xl mx-6 md:mx-0">
+          <p className=" text-4xl font-extrabold mx-6 md:mx-0">
             Tell us a little about yourself
           </p>
         </div>
@@ -192,14 +170,14 @@ const UpdateTemplate = () => {
             </div>
           </div>
           <div className="md:w-1/2 md:flex hidden">
-            <div className="h-[70vh] border-2 rounded border-cyan-600">
+            <div className="max-h-[80vh] w-full border-2 rounded border-cyan-600">
               {TemplateComponent}
             </div>
           </div>
         </div>
         <div className="h-20 md:hidden flex fixed bottom-0 z-50 w-full justify-center items-center rounded-t-[20px] bg-white drop-shadow-[0_8px_20px_rgba(0,0,0,0.20)]">
           <button
-            className="py-3 px-4 bg-cyan-600  text-white font-semibold rounded "
+            className="py-3 px-4 bg-primaryButton  text-white font-semibold rounded "
             onClick={() => open()}
           >
             Preview template

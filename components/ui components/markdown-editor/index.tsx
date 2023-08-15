@@ -22,7 +22,7 @@ import React from "react";
 
 interface TipTapProps {
   content: string;
-  onUpdate: (content: any) => void;
+  onUpdated: (content: any) => void;
 }
 
 type Editor = import("@tiptap/react").Editor;
@@ -107,13 +107,13 @@ const MenuBar = ({ editor }: MenuBarProps) => {
 //   (state: RootState) => state.updateTextName.workExperience
 // );
 
-const TiptapEditorNew = ({ onUpdate, content }: TipTapProps) => {
+const TiptapEditorNew = ({ onUpdated, content }: TipTapProps) => {
   console.log("editor is rendering");
 
   const editor = useEditor({
     extensions: [
       Typography,
-      ListItem,
+
       Color.configure({ types: [TextStyle.name, ListItem.name] }),
       // TextStyle.configure({ types: [ListItem.name] }),
       StarterKit.configure({
@@ -133,7 +133,7 @@ const TiptapEditorNew = ({ onUpdate, content }: TipTapProps) => {
     // injectCSS: false,
     onUpdate: ({ editor }) => {
       const updatedContent = editor.getHTML().replace(/<p><\/p>/g, "<br>"); // Get the HTML content of the editor
-      onUpdate(updatedContent); // Pass the updated content to the onUpdate function
+      onUpdated(updatedContent); // Pass the updated content to the onUpdate function
     },
   });
 
@@ -143,6 +143,7 @@ const TiptapEditorNew = ({ onUpdate, content }: TipTapProps) => {
       <EditorContent
         editor={editor}
         className="prose list-inside list-decimal"
+        placeholder={content || "hippie"}
       />
     </div>
   );

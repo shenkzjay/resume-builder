@@ -23,6 +23,7 @@ import { Checkboxelement } from "@/components/ui components/checkbox";
 import Link from "next/link";
 import { BackButton, NextButton, AddButtons } from "@/components/buttons";
 import MenuBar from "../../components/ui components/markdown-editor/index";
+import Navbar from "@/components/navbar";
 // import SlateEditor from "@/components/ui components/markdown-editor/slate-editor";
 
 const WorkExperience = () => {
@@ -54,6 +55,11 @@ const WorkExperience = () => {
   //retrieve updated state from store
   const updateWorkExp = useSelector(
     (state: RootState) => state.updateTextName.workExperience
+  );
+
+  console.log(
+    "updateWork",
+    updateWorkExp.map((item) => item.description)
   );
 
   // const updateEditor = useSelector(
@@ -105,12 +111,24 @@ const WorkExperience = () => {
     item: InputItem,
     selectedDescription: string
   ) => {
-    if (item.description) {
-      const updatedContent = `${item.description}\n${selectedDescription}`;
-      handleInputChange(index, "description", updatedContent);
-    }
+    console.log("Item:", item);
+    // const currentContent = updateWorkExp[index].description; // Get current Tiptap editor content
+    // const updatedContent = currentContent
+    //   ? `${currentContent}\n${selectedDescription}`
+    //   : selectedDescription; // If no current content, use only selected description
 
-    console.log("wos", updateWorkExp[index]);
+    // handleInputChange(index, "description", updatedContent);
+
+    const currentContent = updateWorkExp[index].description;
+    const updatedContent = currentContent
+      ? `${currentContent}\n${selectedDescription}`
+      : selectedDescription;
+
+    const updatedWorkExp = [...updateWorkExp];
+    updatedWorkExp[index].description = updatedContent;
+
+    handleInputChange(index, "description", updatedContent);
+    console.log("wos", updatedContent);
 
     close();
   };
@@ -168,8 +186,9 @@ const WorkExperience = () => {
   return (
     <section className="">
       <div className="container mx-auto ">
+        <Navbar />
         <div className="my-10 ">
-          <p className="font-semibold text-4xl mx-6 md:mx-0">
+          <p className="font-extrabold text-4xl mx-6 md:mx-0">
             Snapshot of your work history
           </p>
         </div>
@@ -280,18 +299,18 @@ const WorkExperience = () => {
                           handleInputChange(index, "description", content)
                         }
                       /> */}
-                      {/* <TiptapEditor
+                      <TiptapEditor
+                        onUpdated={(content) =>
+                          handleInputChange(index, "description", content)
+                        }
+                        content={item.description}
+                      />
+                      {/* <MenuBar
                         onUpdate={(content) =>
                           handleInputChange(index, "description", content)
                         }
                         content={item.description}
                       /> */}
-                      <MenuBar
-                        onUpdate={(content) =>
-                          handleInputChange(index, "description", content)
-                        }
-                        content={item.description}
-                      />
 
                       <button
                         onClick={() => open()}
@@ -319,13 +338,13 @@ const WorkExperience = () => {
           </div>
 
           <section className="md:w-1/2 hidden md:flex max-h-[70vh] sticky top-24">
-            <div className="h-[70vh] border-2 rounded border-cyan-600">
+            <div className="h-[70vh] border-2 rounded border-cyan-600 w-full">
               {TemplateComponent}
             </div>
           </section>
         </div>
       </div>
-      <div className="relative">
+      {/* <div className="relative">
         <ModalCard opened={opened} close={close} open={open}>
           <input
             type="search"
@@ -339,30 +358,33 @@ const WorkExperience = () => {
             color="#e2e2e2"
           />
           <div>
+            {isLoading && <div>...Loading</div>}
             {data &&
-              data.map((item: any, index: number) => (
-                <div
-                  role="button"
-                  onClick={() =>
-                    handleClickSuggestion(index, item, item.content)
-                  }
-                  key={index}
-                  className="flex mb-6 mt-6 bg-slate-100 justify-between item-center gap-6 p-4 rounded"
-                >
-                  <div className="flex items-center rounded-full">
-                    <span className="bg-teal-300 p-2 rounded-full">
-                      <IconPlus size={16} color="white" />
-                    </span>
+              data.map((item: any, index: number) => {
+                return (
+                  <div
+                    role="button"
+                    onClick={() =>
+                      handleClickSuggestion(index, item, item.content)
+                    }
+                    key={index}
+                    className="flex mb-6 mt-6 bg-slate-100 justify-between item-center gap-6 p-4 rounded"
+                  >
+                    <div className="flex items-center rounded-full">
+                      <span className="bg-teal-300 p-2 rounded-full">
+                        <IconPlus size={16} color="white" />
+                      </span>
+                    </div>
+                    <div className="space-y-4 text-[12px]">{item.content}</div>
                   </div>
-                  <div className="space-y-4 text-[12px]">{item.content}</div>
-                </div>
-              ))}
+                );
+              })}
           </div>
         </ModalCard>
-      </div>
-      {/* <div className="h-20 md:hidden flex fixed bottom-0 z-50 w-full justify-center items-center rounded-t-[20px] bg-white drop-shadow-[0_8px_20px_rgba(0,0,0,0.20)]">
+      </div> */}
+      <div className="h-20 md:hidden flex fixed bottom-0 z-50 w-full justify-center items-center rounded-t-[20px] bg-white drop-shadow-[0_8px_20px_rgba(0,0,0,0.20)]">
         <button
-          className="py-3 px-4 bg-cyan-600  text-white font-semibold rounded "
+          className="py-3 px-4 bg-primaryButton  text-white font-semibold rounded "
           onClick={() => open()}
         >
           Preview template
@@ -370,7 +392,7 @@ const WorkExperience = () => {
         <ModalCard opened={opened} close={close} open={open}>
           <div className="h-[70vh]">{TemplateComponent}</div>
         </ModalCard>
-      </div> */}
+      </div>
     </section>
   );
 };
