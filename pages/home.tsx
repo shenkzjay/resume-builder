@@ -1,10 +1,9 @@
 import { useRouter } from "next/router";
 import { HeroImage } from "@/components/svg/hero-image";
 import Navbar from "@/components/navbar";
+import Link from "next/link";
 
 const Home = () => {
-  //init router hook
-  const router = useRouter();
   return (
     <main className="flex flex-col bg-white h-screen text-black md:mx-auto md:container">
       {/**Body */}
@@ -25,12 +24,11 @@ const Home = () => {
             </p>
           </div>
           <div className="">
-            <button
-              className=" py-4 px-3 bg-[#F05E0C] font-semibold text-white rounded"
-              onClick={() => router.push({ pathname: "/custom-template" })}
-            >
-              Start building your resume
-            </button>
+            <Link href="/custom-template">
+              <button className=" py-4 px-3 bg-[#F05E0C] font-semibold text-white rounded">
+                Start building your resume
+              </button>
+            </Link>
           </div>
         </div>
         <div className="md:flex hidden ">
