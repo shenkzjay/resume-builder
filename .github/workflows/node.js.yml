@@ -27,18 +27,18 @@ jobs:
           cache: "npm"
       - name: Install dependencies 😀
         run: |
-          cd resume-builder
+          cd resum
           npm ci
       - name: Run component build ⏳
         run: |
-          cd resume-builder
+          cd resum
           npm run build
       - name: Run component test ✨
         run: |
-          cd resume-builder
+          cd resum
           npm test
       - name: Start the app 😇
         run: |
-          cd resume-builder
+          cd resum
           npm run dev &
           npx wait-on --timeout 60000
