@@ -5,15 +5,16 @@ import axios from "axios";
 const SavePDF = async (url: string) => {
   // const browser = await puppeteer.launch({ headless: "new" });
 
-  // const browser = await puppeteer.launch({
-  //   executablePath: "/usr/bin/chromium-browser",
-  //   headless: false,
-  // });
-
   const browser = await puppeteer.launch({
+    executablePath:
+      "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
     headless: false,
-    args: ["--no-sandbox"],
   });
+
+  // const browser = await puppeteer.launch({
+  //   headless: false,
+  //   args: ["--no-sandbox"],
+  // });
 
   const page = await browser.newPage();
 
