@@ -32,7 +32,7 @@ jobs:
       - name: Run component build ⏳
         run: |
           cd resume-builder
-          npm run build --if-present
+          npm run build
       - name: Run component test ✨
         run: |
           cd resume-builder
