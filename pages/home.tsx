@@ -7,7 +7,7 @@ const Home = () => {
   return (
     <main className="flex flex-col bg-white h-screen text-black md:mx-auto md:container">
       {/**Body */}
-      <div className=" mx-6 md:mx-0">
+      <div className="">
         <Navbar />
       </div>
       <section className="flex justify-between mt-12 mx-6 md:mx-0">
