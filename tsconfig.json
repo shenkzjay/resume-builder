@@ -22,7 +22,8 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "components/ui components/checkbox/index.js"
+    "components/ui components/checkbox/index.js",
+    "__test__/index.test.js"
   ],
   "exclude": ["node_modules"]
 }

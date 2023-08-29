@@ -18,12 +18,12 @@ export default function App({ Component, pageProps }: AppProps) {
       }}
     >
       <QueryClientProvider client={queryClient}>
-        <Provider store={store}>
-          <PersistGate loading={null} persistor={persistor}>
-            {/* <Navbar /> */}
+        <PersistGate loading={null} persistor={persistor}>
+          {/* <Navbar /> */}
+          <Provider store={store}>
             <Component {...pageProps} />
-          </PersistGate>
-        </Provider>
+          </Provider>
+        </PersistGate>
       </QueryClientProvider>
     </MantineProvider>
   );

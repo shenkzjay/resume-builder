@@ -180,3 +180,21 @@ details[open] summary::before {
 .ProseMirror ul {
   list-style-type: disc !important;
 }
+
+@media print {
+  /* Adjust fonts, colors, and layout for print */
+  body {
+    font-size: 12px;
+    color: black;
+  }
+
+  /* Hide non-printable elements */
+  .non-printable {
+    display: none;
+  }
+}
+
+.wrap {
+  display: flex;
+  justify-content: space-between;
+}

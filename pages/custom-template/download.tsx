@@ -13,6 +13,12 @@ import { RootState } from "@/states/store";
 import { persistor } from "@/states/store";
 import Link from "next/link";
 import axios from "axios";
+import { templateType } from "@/components/templates";
+import ReactDOMServer from "react-dom/server";
+import Dummy from "@/components/dummy";
+
+//@ts-ignore
+import html2pdf from "html2pdf.js";
 
 const DownloadPage = () => {
   const printRef = useRef<HTMLDivElement | null>(null);
@@ -23,7 +29,7 @@ const DownloadPage = () => {
     (state: RootState) => state.updateTextName.seletedTemplate
   );
 
-  let TemplateComponent;
+  let TemplateComponent: templateType["component"];
 
   if (selected_template !== null) {
     TemplateComponent = templatesData[selected_template]?.component;
@@ -42,13 +48,13 @@ const DownloadPage = () => {
   const handleDownloadPDF = async () => {
     try {
       if (!printRef.current) return;
-      const canvas = await html2canvas(printRef.current);
-      const imgData = canvas.toDataURL("image/png");
+      const canvas = await html2canvas(printRef.current, { scale: 5 });
+      const imgData = canvas.toDataURL("image/jpeg");
 
       const pdf = new jsPDF("p", "mm", "a4");
       const pdfWidth = pdf.internal.pageSize.getWidth();
       const pdfHeight = pdf.internal.pageSize.getHeight();
-      pdf.addImage(imgData, "PNG", 0, 0, pdfWidth, pdfHeight);
+      pdf.addImage(imgData, "JPEG", 0, 0, pdfWidth, pdfHeight, "", "SLOW");
       pdf.save("resume.pdf");
 
       persistor.pause();
@@ -61,30 +67,39 @@ const DownloadPage = () => {
   };
 
   const handlePDF = async () => {
-    // await axios.get("/api/downladpdf");
-    const res = await axios.get("/api/downloadpdf", {
-      params: {
-        url: "http://localhost:3000/custom-template/download",
-      },
-    });
-    console.log(res);
+    try {
+      const templateHTML = ReactDOMServer.renderToString(<Dummy />);
+
+      console.log(templateHTML);
+
+      const response = await axios.post("/api/generate-pdf", {
+        templateComponent: templateHTML,
+      });
+
+      const pdfUrl = response.data.pdfUrl;
+
+      console.log("pdf", pdfUrl);
+
+      window.open(pdfUrl, "_blank"); // Open the PDF in a new tab
+    } catch (error) {
+      console.error("Error generating PDF:", error);
+    }
   };
 
   return (
     <section className="md:mx-auto md:w-[90vw]">
-      <div className="my-10 flex flex-col md:flex-row justify-between mx-6 md:mx-0">
+      <div className="non-printable my-10 flex flex-col md:flex-row justify-between mx-6 md:mx-0">
         <p className="font-bold text-4xl">RESUME</p>
         <div className="flex gap-10 ">
           <ExportButton onClick={handleDownloadPDF} />
-          <button onClick={handlePDF}>Click to download</button>
+          <button onClick={handlePDF}>Click here to download</button>
           <a href="/api/downladpdf" download="resume.pdf">
             Click to download
           </a>
         </div>
       </div>
       <div className="flex justify-center gap-20">
-        {/* <div className="w-1/2">{TemplateComponent}</div> */}
-        <div className="md:h-[842px] md:w-[592px] h-[80vh] overflow-auto flex drop-shadow-[0_8px_20px_rgba(0,0,0,0.08)] pb-20 rounded mx-6 md:mx-0">
+        <div className="md:h-[842px] md:w-[600px] h-[80vh] overflow-auto flex drop-shadow-[0_8px_20px_rgba(0,0,0,0.08)] pb-20 rounded mx-6 md:mx-0">
           <div ref={printRef} className="w-full">
             {TemplateComponent}
           </div>

@@ -44,13 +44,16 @@ const SelectTemplate = () => {
             Select a template
           </h1>
         </div>
-        <div className="grid md:grid-cols-[repeat(auto-fit,minmax(auto,314px))] gap-20 md:gap-10 w-full">
+        <div
+          className="grid md:grid-cols-[repeat(auto-fit,minmax(auto,314px))] gap-20 md:gap-10 w-full"
+          data-testid="templates"
+        >
           {templatesData.map((template, index) => (
             <div
               key={index}
               role="button"
               onClick={() => handleSelectTemplate(index)}
-              className={`${
+              className={`templar${
                 selectedTemplate === index
                   ? "border-cyan-500"
                   : "border-slate-300"

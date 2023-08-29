@@ -18,7 +18,7 @@ export const HeroImage = () => {
             rx="206.296"
             ry="205.556"
             fill="#F0CE24"
-            fill-opacity="0.2"
+            fillOpacity="0.2"
           />
           <g filter="url(#filter0_d_29_467)">
             <rect
@@ -38,7 +38,7 @@ export const HeroImage = () => {
             height="116.595"
             transform="rotate(130.882 474.063 276.413)"
             fill="#F0CE24"
-            fill-opacity="0.4"
+            fillOpacity="0.4"
           />
           <rect
             x="444.751"
@@ -47,7 +47,7 @@ export const HeroImage = () => {
             height="116.595"
             transform="rotate(130.882 444.751 304.78)"
             fill="#F0CE24"
-            fill-opacity="0.4"
+            fillOpacity="0.4"
           />
           <rect
             x="431.299"
@@ -56,7 +56,7 @@ export const HeroImage = () => {
             height="67.7316"
             transform="rotate(130.882 431.299 249.108)"
             fill="#F0CE24"
-            fill-opacity="0.4"
+            fillOpacity="0.4"
           />
           <rect
             x="421.833"
@@ -65,7 +65,7 @@ export const HeroImage = () => {
             height="43.2373"
             transform="rotate(130.882 421.833 266.663)"
             fill="#F0CE24"
-            fill-opacity="0.4"
+            fillOpacity="0.4"
           />
           <rect
             x="401.986"
@@ -74,7 +74,7 @@ export const HeroImage = () => {
             height="67.7316"
             transform="rotate(130.882 401.986 277.474)"
             fill="#F0CE24"
-            fill-opacity="0.4"
+            fillOpacity="0.4"
           />
           <rect
             x="457.972"
@@ -83,7 +83,7 @@ export const HeroImage = () => {
             height="43.2373"
             transform="rotate(130.882 457.972 187.301)"
             fill="#F0CE24"
-            fill-opacity="0.4"
+            fillOpacity="0.4"
           />
           <rect
             x="451.146"
@@ -92,7 +92,7 @@ export const HeroImage = () => {
             height="43.2373"
             transform="rotate(130.882 451.146 238.296)"
             fill="#F0CE24"
-            fill-opacity="0.4"
+            fillOpacity="0.4"
           />
           <rect
             x="448.731"
@@ -101,7 +101,7 @@ export const HeroImage = () => {
             height="42.9902"
             transform="rotate(130.882 448.731 197.579)"
             fill="#F0CE24"
-            fill-opacity="0.4"
+            fillOpacity="0.4"
           />
           <rect
             x="429.466"
@@ -110,7 +110,7 @@ export const HeroImage = () => {
             height="23.8827"
             transform="rotate(130.882 429.466 189.892)"
             fill="#F0CE24"
-            fill-opacity="0.4"
+            fillOpacity="0.4"
           />
           <g filter="url(#filter1_d_29_467)">
             <rect
@@ -128,7 +128,7 @@ export const HeroImage = () => {
             height="39.2297"
             transform="rotate(48.6465 134.543 265.925)"
             fill="#F05E0C"
-            fill-opacity="0.3"
+            fillOpacity="0.3"
           />
           <rect
             x="163.052"
@@ -137,7 +137,7 @@ export const HeroImage = () => {
             height="39.2297"
             transform="rotate(48.6465 163.052 297.647)"
             fill="#F05E0C"
-            fill-opacity="0.3"
+            fillOpacity="0.3"
           />
           <rect
             x="194.48"
@@ -146,7 +146,7 @@ export const HeroImage = () => {
             height="106.773"
             transform="rotate(48.6465 194.48 231.279)"
             fill="#F05E0C"
-            fill-opacity="0.3"
+            fillOpacity="0.3"
           />
           <rect
             x="222.989"
@@ -155,7 +155,7 @@ export const HeroImage = () => {
             height="106.773"
             transform="rotate(48.6465 222.989 263.001)"
             fill="#F05E0C"
-            fill-opacity="0.3"
+            fillOpacity="0.3"
           />
           <rect
             x="177.05"
@@ -164,7 +164,7 @@ export const HeroImage = () => {
             height="76.0641"
             transform="rotate(48.6465 177.05 257.592)"
             fill="#F05E0C"
-            fill-opacity="0.3"
+            fillOpacity="0.3"
           />
           <rect
             x="205.559"
@@ -173,7 +173,7 @@ export const HeroImage = () => {
             height="76.0641"
             transform="rotate(48.6465 205.559 289.313)"
             fill="#F05E0C"
-            fill-opacity="0.3"
+            fillOpacity="0.3"
           />
           <rect
             x="129.061"
@@ -182,7 +182,7 @@ export const HeroImage = () => {
             height="88.6292"
             transform="rotate(48.6465 129.061 167.836)"
             fill="#F05E0C"
-            fill-opacity="0.3"
+            fillOpacity="0.3"
           />
           <rect
             x="106.033"
@@ -191,7 +191,7 @@ export const HeroImage = () => {
             height="39.2297"
             transform="rotate(48.6465 106.033 236.211)"
             fill="#F05E0C"
-            fill-opacity="0.3"
+            fillOpacity="0.3"
           />
           <rect
             x="120.317"
@@ -200,7 +200,7 @@ export const HeroImage = () => {
             height="40.2471"
             transform="rotate(48.6465 120.317 193.299)"
             fill="#F05E0C"
-            fill-opacity="0.3"
+            fillOpacity="0.3"
           />
           <rect
             x="165.97"
@@ -209,7 +209,7 @@ export const HeroImage = () => {
             height="106.773"
             transform="rotate(48.6465 165.97 201.565)"
             fill="#F05E0C"
-            fill-opacity="0.3"
+            fillOpacity="0.3"
           />
           <rect
             x="148.54"
@@ -218,7 +218,7 @@ export const HeroImage = () => {
             height="76.0641"
             transform="rotate(48.6465 148.54 227.878)"
             fill="#F05E0C"
-            fill-opacity="0.3"
+            fillOpacity="0.3"
           />
           <g filter="url(#filter2_d_29_467)">
             <rect
@@ -236,7 +236,7 @@ export const HeroImage = () => {
             width="74.6861"
             height="263.811"
             fill="#0891B2"
-            fill-opacity="0.3"
+            fillOpacity="0.3"
           />
           <rect
             x="311.888"
@@ -244,7 +244,7 @@ export const HeroImage = () => {
             width="59.0262"
             height="11.2431"
             fill="#0891B2"
-            fill-opacity="0.3"
+            fillOpacity="0.3"
           />
           <rect
             x="311.888"
@@ -252,7 +252,7 @@ export const HeroImage = () => {
             width="59.0262"
             height="11.2431"
             fill="#0891B2"
-            fill-opacity="0.3"
+            fillOpacity="0.3"
           />
           <rect
             x="311.888"
@@ -260,7 +260,7 @@ export const HeroImage = () => {
             width="59.0262"
             height="11.2431"
             fill="#0891B2"
-            fill-opacity="0.3"
+            fillOpacity="0.3"
           />
           <rect
             x="311.888"
@@ -268,7 +268,7 @@ export const HeroImage = () => {
             width="59.0262"
             height="11.2431"
             fill="#0891B2"
-            fill-opacity="0.3"
+            fillOpacity="0.3"
           />
           <rect
             x="311.888"
@@ -276,7 +276,7 @@ export const HeroImage = () => {
             width="59.0262"
             height="11.2431"
             fill="#0891B2"
-            fill-opacity="0.3"
+            fillOpacity="0.3"
           />
           <rect
             x="198.654"
@@ -305,7 +305,7 @@ export const HeroImage = () => {
             width="76.2923"
             height="3.61385"
             fill="#0891B2"
-            fill-opacity="0.3"
+            fillOpacity="0.3"
           />
           <rect
             x="294.622"
@@ -313,7 +313,7 @@ export const HeroImage = () => {
             width="76.2923"
             height="3.61385"
             fill="#0891B2"
-            fill-opacity="0.3"
+            fillOpacity="0.3"
           />
           <rect
             x="294.622"
@@ -321,7 +321,7 @@ export const HeroImage = () => {
             width="76.2923"
             height="3.61385"
             fill="#0891B2"
-            fill-opacity="0.3"
+            fillOpacity="0.3"
           />
           <rect
             x="294.622"
@@ -329,7 +329,7 @@ export const HeroImage = () => {
             width="76.2923"
             height="3.61385"
             fill="#0891B2"
-            fill-opacity="0.3"
+            fillOpacity="0.3"
           />
           <rect
             x="294.622"
@@ -337,7 +337,7 @@ export const HeroImage = () => {
             width="76.2923"
             height="3.61385"
             fill="#0891B2"
-            fill-opacity="0.3"
+            fillOpacity="0.3"
           />
           <rect
             x="294.622"
@@ -345,7 +345,7 @@ export const HeroImage = () => {
             width="76.2923"
             height="3.61385"
             fill="#0891B2"
-            fill-opacity="0.3"
+            fillOpacity="0.3"
           />
           <rect
             x="294.622"
@@ -353,7 +353,7 @@ export const HeroImage = () => {
             width="76.2923"
             height="3.61385"
             fill="#0891B2"
-            fill-opacity="0.3"
+            fillOpacity="0.3"
           />
           <rect
             x="317.108"
@@ -361,7 +361,7 @@ export const HeroImage = () => {
             width="53.8061"
             height="3.61385"
             fill="#0891B2"
-            fill-opacity="0.3"
+            fillOpacity="0.3"
           />
           <rect
             x="317.108"
@@ -369,7 +369,7 @@ export const HeroImage = () => {
             width="53.8061"
             height="3.61385"
             fill="#0891B2"
-            fill-opacity="0.3"
+            fillOpacity="0.3"
           />
           <rect
             x="317.108"
@@ -377,7 +377,7 @@ export const HeroImage = () => {
             width="53.8061"
             height="3.61385"
             fill="#0891B2"
-            fill-opacity="0.3"
+            fillOpacity="0.3"
           />
           <rect
             x="317.108"
@@ -385,7 +385,7 @@ export const HeroImage = () => {
             width="53.8061"
             height="3.61385"
             fill="#0891B2"
-            fill-opacity="0.3"
+            fillOpacity="0.3"
           />
           <rect
             x="317.108"
@@ -393,7 +393,7 @@ export const HeroImage = () => {
             width="53.8061"
             height="3.61385"
             fill="#0891B2"
-            fill-opacity="0.3"
+            fillOpacity="0.3"
           />
           <rect
             x="317.108"
@@ -401,7 +401,7 @@ export const HeroImage = () => {
             width="53.8061"
             height="3.61385"
             fill="#0891B2"
-            fill-opacity="0.3"
+            fillOpacity="0.3"
           />
           <rect
             x="198.654"
@@ -447,8 +447,8 @@ export const HeroImage = () => {
           />
           <g filter="url(#filter3_d_29_467)">
             <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
+              fillRule="evenodd"
+              clipRule="evenodd"
               d="M368.869 26.14C360.701 26.14 354.081 32.7609 354.081 40.9283V77.8988C354.081 86.0661 360.701 92.6871 368.869 92.6871H371.407L366.218 104.089L384.872 92.6871H519.709C527.876 92.6871 534.497 86.0661 534.497 77.8988V40.9282C534.497 32.7609 527.876 26.14 519.709 26.14H368.869Z"
               fill="white"
             />
@@ -461,7 +461,7 @@ export const HeroImage = () => {
             height="14.7882"
             rx="7.39412"
             fill="#F0CE24"
-            fill-opacity="0.2"
+            fillOpacity="0.2"
           />
           <path
             d="M435.29 50.2902C435.29 51.4735 435.062 52.4766 434.607 53.2993C434.152 54.122 433.536 54.747 432.759 55.1741C431.985 55.6012 431.117 55.8148 430.154 55.8148C429.188 55.8148 428.318 55.5995 427.544 55.1688C426.77 54.7382 426.156 54.1133 425.701 53.294C425.249 52.4713 425.023 51.47 425.023 50.2902C425.023 49.1068 425.249 48.1038 425.701 47.2811C426.156 46.4583 426.77 45.8334 427.544 45.4063C428.318 44.9792 429.188 44.7656 430.154 44.7656C431.117 44.7656 431.985 44.9792 432.759 45.4063C433.536 45.8334 434.152 46.4583 434.607 47.2811C435.062 48.1038 435.29 49.1068 435.29 50.2902ZM432.633 50.2902C432.633 49.59 432.533 48.9983 432.333 48.5152C432.137 48.032 431.854 47.6662 431.483 47.4176C431.115 47.169 430.672 47.0448 430.154 47.0448C429.639 47.0448 429.196 47.169 428.825 47.4176C428.454 47.6662 428.169 48.032 427.969 48.5152C427.773 48.9983 427.675 49.59 427.675 50.2902C427.675 50.9904 427.773 51.5821 427.969 52.0652C428.169 52.5483 428.454 52.9142 428.825 53.1628C429.196 53.4113 429.639 53.5356 430.154 53.5356C430.672 53.5356 431.115 53.4113 431.483 53.1628C431.854 52.9142 432.137 52.5483 432.333 52.0652C432.533 51.5821 432.633 50.9904 432.633 50.2902ZM439.376 44.9126V55.6677H436.808V44.9126H439.376ZM443.284 55.8043C442.769 55.8043 442.312 55.7185 441.913 55.5469C441.518 55.3719 441.204 55.1093 440.973 54.7592C440.746 54.4056 440.632 53.9627 440.632 53.4306C440.632 52.9825 440.711 52.6043 440.868 52.2963C441.026 51.9882 441.243 51.7378 441.519 51.5453C441.796 51.3527 442.115 51.2074 442.475 51.1094C442.836 51.0079 443.221 50.9396 443.631 50.9046C444.089 50.8626 444.459 50.8188 444.739 50.7733C445.019 50.7243 445.222 50.656 445.348 50.5685C445.477 50.4775 445.542 50.3497 445.542 50.1852V50.1589C445.542 49.8893 445.449 49.681 445.264 49.534C445.078 49.3869 444.828 49.3134 444.513 49.3134C444.173 49.3134 443.9 49.3869 443.694 49.534C443.487 49.681 443.356 49.8841 443.3 50.1431L440.931 50.0591C441.001 49.569 441.182 49.1314 441.472 48.7462C441.766 48.3576 442.169 48.053 442.68 47.8325C443.195 47.6084 443.813 47.4964 444.534 47.4964C445.048 47.4964 445.523 47.5577 445.957 47.6802C446.391 47.7992 446.769 47.9743 447.091 48.2053C447.413 48.4329 447.662 48.713 447.837 49.0456C448.016 49.3782 448.105 49.758 448.105 50.1852V55.6677H445.689V54.5439H445.626C445.483 54.817 445.299 55.048 445.075 55.2371C444.854 55.4262 444.593 55.5679 444.292 55.6625C443.995 55.757 443.659 55.8043 443.284 55.8043ZM444.077 54.1238C444.354 54.1238 444.602 54.0678 444.823 53.9557C445.047 53.8437 445.225 53.6897 445.358 53.4936C445.491 53.294 445.558 53.063 445.558 52.8004V52.0337C445.484 52.0722 445.395 52.1072 445.29 52.1387C445.188 52.1702 445.076 52.2 444.954 52.228C444.831 52.256 444.705 52.2805 444.576 52.3015C444.446 52.3225 444.322 52.3418 444.203 52.3593C443.961 52.3978 443.755 52.4573 443.583 52.5378C443.415 52.6184 443.286 52.7234 443.195 52.8529C443.107 52.979 443.063 53.1295 443.063 53.3045C443.063 53.5706 443.158 53.7737 443.347 53.9137C443.54 54.0538 443.783 54.1238 444.077 54.1238ZM449.675 47.6014H452.243V56.0038C452.243 56.669 452.106 57.1977 451.833 57.5898C451.564 57.9819 451.182 58.2637 450.689 58.4353C450.195 58.6068 449.612 58.6926 448.94 58.6926C448.849 58.6926 448.763 58.6908 448.682 58.6873C448.602 58.6838 448.514 58.6803 448.42 58.6768V56.7285C448.483 56.7355 448.539 56.7408 448.588 56.7443C448.637 56.7478 448.686 56.7495 448.735 56.7495C449.089 56.7495 449.334 56.683 449.47 56.55C449.607 56.4204 449.675 56.2209 449.675 55.9513V47.6014ZM450.956 46.6614C450.596 46.6614 450.286 46.5424 450.027 46.3043C449.768 46.0627 449.638 45.7721 449.638 45.4325C449.638 45.0964 449.768 44.8094 450.027 44.5713C450.286 44.3297 450.596 44.2089 450.956 44.2089C451.32 44.2089 451.63 44.3297 451.886 44.5713C452.145 44.8094 452.275 45.0964 452.275 45.4325C452.275 45.7721 452.145 46.0627 451.886 46.3043C451.63 46.5424 451.32 46.6614 450.956 46.6614ZM453.878 55.6677V47.6014H456.446V55.6677H453.878ZM455.164 46.6614C454.804 46.6614 454.494 46.5424 454.235 46.3043C453.976 46.0627 453.846 45.7721 453.846 45.4325C453.846 45.0964 453.976 44.8094 454.235 44.5713C454.494 44.3297 454.804 44.2089 455.164 44.2089C455.528 44.2089 455.838 44.3297 456.094 44.5713C456.353 44.8094 456.482 45.0964 456.482 45.4325C456.482 45.7721 456.353 46.0627 456.094 46.3043C455.838 46.5424 455.528 46.6614 455.164 46.6614ZM461.026 55.7833C460.431 55.7833 459.89 55.6292 459.403 55.3211C458.917 55.013 458.528 54.5509 458.238 53.9347C457.947 53.3186 457.802 52.5536 457.802 51.6398C457.802 50.6911 457.952 49.9103 458.253 49.2977C458.554 48.685 458.948 48.2316 459.435 47.9375C459.925 47.6434 460.452 47.4964 461.016 47.4964C461.439 47.4964 461.802 47.5699 462.103 47.7169C462.404 47.8605 462.652 48.046 462.848 48.2736C463.044 48.5012 463.193 48.7375 463.295 48.9826H463.347V44.9126H465.915V55.6677H463.374V54.3601H463.295C463.186 54.6087 463.032 54.8415 462.833 55.0586C462.633 55.2756 462.383 55.4507 462.082 55.5837C461.784 55.7167 461.432 55.7833 461.026 55.7833ZM461.919 53.7824C462.23 53.7824 462.497 53.6949 462.717 53.5199C462.938 53.3413 463.107 53.091 463.227 52.7689C463.346 52.4468 463.405 52.0687 463.405 51.6346C463.405 51.1934 463.346 50.8136 463.227 50.495C463.111 50.1764 462.941 49.9313 462.717 49.7598C462.497 49.5882 462.23 49.5025 461.919 49.5025C461.6 49.5025 461.331 49.59 461.11 49.765C460.89 49.9401 460.722 50.1869 460.606 50.5055C460.494 50.8241 460.438 51.2004 460.438 51.6346C460.438 52.0687 460.496 52.4468 460.611 52.7689C460.727 53.091 460.893 53.3413 461.11 53.5199C461.331 53.6949 461.6 53.7824 461.919 53.7824ZM471.31 55.82C470.466 55.82 469.738 55.6537 469.125 55.3211C468.516 54.985 468.047 54.5071 467.718 53.8875C467.392 53.2643 467.229 52.5238 467.229 51.6661C467.229 50.8328 467.394 50.1046 467.723 49.4815C468.052 48.8548 468.516 48.3681 469.115 48.0215C469.713 47.6714 470.419 47.4964 471.231 47.4964C471.805 47.4964 472.33 47.5857 472.807 47.7642C473.283 47.9428 473.694 48.2071 474.041 48.5572C474.387 48.9073 474.657 49.3397 474.849 49.8543C475.042 50.3655 475.138 50.9519 475.138 51.6136V52.2542H468.127V50.7628H472.749C472.745 50.4897 472.681 50.2464 472.555 50.0329C472.428 49.8193 472.255 49.653 472.035 49.534C471.818 49.4114 471.567 49.3502 471.284 49.3502C470.997 49.3502 470.739 49.4149 470.512 49.5445C470.284 49.6705 470.104 49.8438 469.971 50.0644C469.838 50.2814 469.768 50.5283 469.761 50.8048V52.3225C469.761 52.6516 469.825 52.9404 469.955 53.189C470.085 53.4341 470.268 53.6249 470.506 53.7614C470.744 53.898 471.028 53.9662 471.357 53.9662C471.585 53.9662 471.791 53.9347 471.977 53.8717C472.162 53.8087 472.322 53.7159 472.455 53.5934C472.588 53.4708 472.688 53.3203 472.754 53.1418L475.112 53.21C475.014 53.7387 474.799 54.1991 474.466 54.5912C474.137 54.9798 473.705 55.2826 473.169 55.4997C472.633 55.7132 472.014 55.82 471.31 55.82ZM485.44 48.1371C485.405 47.752 485.25 47.4526 484.973 47.2391C484.7 47.022 484.31 46.9135 483.802 46.9135C483.466 46.9135 483.186 46.9572 482.962 47.0448C482.738 47.1323 482.57 47.2531 482.458 47.4071C482.345 47.5577 482.288 47.731 482.284 47.927C482.277 48.0881 482.309 48.2298 482.379 48.3524C482.452 48.4749 482.557 48.5834 482.694 48.678C482.834 48.769 483.002 48.8495 483.198 48.9195C483.394 48.9896 483.615 49.0508 483.86 49.1033L484.784 49.3134C485.316 49.4289 485.785 49.583 486.191 49.7755C486.601 49.9681 486.944 50.1974 487.221 50.4635C487.501 50.7296 487.713 51.0359 487.856 51.3825C488 51.7291 488.073 52.1177 488.077 52.5483C488.073 53.2275 487.902 53.8104 487.562 54.2971C487.222 54.7837 486.734 55.1566 486.097 55.4157C485.463 55.6747 484.698 55.8043 483.802 55.8043C482.902 55.8043 482.118 55.6695 481.449 55.3999C480.781 55.1303 480.261 54.7207 479.89 54.171C479.518 53.6214 479.328 52.9264 479.317 52.0862H481.806C481.827 52.4328 481.92 52.7216 482.085 52.9527C482.249 53.1838 482.475 53.3588 482.762 53.4778C483.053 53.5969 483.389 53.6564 483.77 53.6564C484.121 53.6564 484.418 53.6091 484.663 53.5146C484.912 53.4201 485.103 53.2888 485.236 53.1207C485.369 52.9527 485.437 52.7601 485.44 52.5431C485.437 52.34 485.374 52.1667 485.251 52.0232C485.129 51.8761 484.94 51.7501 484.684 51.6451C484.432 51.5365 484.11 51.4368 483.718 51.3457L482.594 51.0832C481.663 50.8696 480.929 50.5248 480.394 50.0486C479.858 49.569 479.592 48.9213 479.595 48.1056C479.592 47.4404 479.771 46.8575 480.131 46.3568C480.492 45.8562 480.991 45.4658 481.628 45.1857C482.265 44.9056 482.991 44.7656 483.807 44.7656C484.64 44.7656 485.363 44.9074 485.976 45.191C486.592 45.4711 487.07 45.8649 487.41 46.3726C487.749 46.8802 487.923 47.4684 487.93 48.1371H485.44ZM493.16 55.82C492.316 55.82 491.588 55.6537 490.975 55.3211C490.366 54.985 489.897 54.5071 489.568 53.8875C489.242 53.2643 489.08 52.5238 489.08 51.6661C489.08 50.8328 489.244 50.1046 489.573 49.4815C489.902 48.8548 490.366 48.3681 490.965 48.0215C491.564 47.6714 492.269 47.4964 493.081 47.4964C493.655 47.4964 494.181 47.5857 494.657 47.7642C495.133 47.9428 495.544 48.2071 495.891 48.5572C496.237 48.9073 496.507 49.3397 496.7 49.8543C496.892 50.3655 496.988 50.9519 496.988 51.6136V52.2542H489.978V50.7628H494.599C494.596 50.4897 494.531 50.2464 494.405 50.0329C494.279 49.8193 494.105 49.653 493.885 49.534C493.668 49.4114 493.417 49.3502 493.134 49.3502C492.847 49.3502 492.589 49.4149 492.362 49.5445C492.134 49.6705 491.954 49.8438 491.821 50.0644C491.688 50.2814 491.618 50.5283 491.611 50.8048V52.3225C491.611 52.6516 491.676 52.9404 491.805 53.189C491.935 53.4341 492.119 53.6249 492.357 53.7614C492.595 53.898 492.878 53.9662 493.207 53.9662C493.435 53.9662 493.641 53.9347 493.827 53.8717C494.013 53.8087 494.172 53.7159 494.305 53.5934C494.438 53.4708 494.538 53.3203 494.604 53.1418L496.962 53.21C496.864 53.7387 496.649 54.1991 496.316 54.5912C495.987 54.9798 495.555 55.2826 495.019 55.4997C494.483 55.7132 493.864 55.82 493.16 55.82ZM503.504 52.186V47.6014H506.067V55.6677H503.62V54.1658H503.536C503.357 54.6594 503.053 55.0515 502.622 55.3421C502.195 55.6292 501.678 55.7728 501.073 55.7728C500.523 55.7728 500.04 55.6467 499.623 55.3946C499.207 55.1426 498.883 54.7907 498.652 54.3391C498.421 53.884 498.303 53.3518 498.3 52.7426V47.6014H500.868V52.2385C500.871 52.6761 500.987 53.021 501.215 53.273C501.442 53.5251 501.752 53.6511 502.144 53.6511C502.4 53.6511 502.629 53.5951 502.832 53.4831C503.039 53.3676 503.201 53.2013 503.32 52.9842C503.443 52.7636 503.504 52.4976 503.504 52.186ZM510.269 51.0674V55.6677H507.702V47.6014H510.143V49.0823H510.233C510.411 48.5887 510.716 48.2018 511.146 47.9218C511.577 47.6382 512.09 47.4964 512.685 47.4964C513.252 47.4964 513.744 47.6242 514.161 47.8797C514.581 48.1318 514.907 48.4854 515.138 48.9405C515.372 49.3922 515.488 49.9208 515.484 50.5265V55.6677H512.916V51.0306C512.92 50.5825 512.806 50.2324 512.575 49.9803C512.347 49.7283 512.03 49.6022 511.624 49.6022C511.355 49.6022 511.117 49.6618 510.91 49.7808C510.707 49.8963 510.55 50.0626 510.438 50.2797C510.329 50.4967 510.273 50.7593 510.269 51.0674Z"
@@ -550,7 +550,7 @@ export const HeroImage = () => {
           <path
             d="M103.579 416.796C105.584 416.796 107.21 415.17 107.21 413.165C107.21 411.16 105.584 409.535 103.579 409.535H98.4715C96.4663 409.535 94.8408 411.16 94.8408 413.165C94.8408 415.17 96.4663 416.796 98.4715 416.796H103.579Z"
             fill="#C4C4C4"
-            fill-opacity="0.66"
+            fillOpacity="0.66"
           />
           <g filter="url(#filter10_i_29_467)">
             <path
@@ -624,9 +624,9 @@ export const HeroImage = () => {
               width="307.671"
               height="314.524"
               filterUnits="userSpaceOnUse"
-              color-interpolation-filters="sRGB"
+              colorInterpolationFilters="sRGB"
             >
-              <feFlood flood-opacity="0" result="BackgroundImageFix" />
+              <feFlood floodOpacity="0" result="BackgroundImageFix" />
               <feColorMatrix
                 in="SourceAlpha"
                 type="matrix"
@@ -665,9 +665,9 @@ export const HeroImage = () => {
               width="307.671"
               height="314.524"
               filterUnits="userSpaceOnUse"
-              color-interpolation-filters="sRGB"
+              colorInterpolationFilters="sRGB"
             >
-              <feFlood flood-opacity="0" result="BackgroundImageFix" />
+              <feFlood floodOpacity="0" result="BackgroundImageFix" />
               <feColorMatrix
                 in="SourceAlpha"
                 type="matrix"
@@ -706,9 +706,9 @@ export const HeroImage = () => {
               width="288.999"
               height="380.149"
               filterUnits="userSpaceOnUse"
-              color-interpolation-filters="sRGB"
+              colorInterpolationFilters="sRGB"
             >
-              <feFlood flood-opacity="0" result="BackgroundImageFix" />
+              <feFlood floodOpacity="0" result="BackgroundImageFix" />
               <feColorMatrix
                 in="SourceAlpha"
                 type="matrix"
@@ -747,9 +747,9 @@ export const HeroImage = () => {
               width="246.964"
               height="144.496"
               filterUnits="userSpaceOnUse"
-              color-interpolation-filters="sRGB"
+              colorInterpolationFilters="sRGB"
             >
-              <feFlood flood-opacity="0" result="BackgroundImageFix" />
+              <feFlood floodOpacity="0" result="BackgroundImageFix" />
               <feColorMatrix
                 in="SourceAlpha"
                 type="matrix"
@@ -796,9 +796,9 @@ export const HeroImage = () => {
               width="252.879"
               height="133.094"
               filterUnits="userSpaceOnUse"
-              color-interpolation-filters="sRGB"
+              colorInterpolationFilters="sRGB"
             >
-              <feFlood flood-opacity="0" result="BackgroundImageFix" />
+              <feFlood floodOpacity="0" result="BackgroundImageFix" />
               <feColorMatrix
                 in="SourceAlpha"
                 type="matrix"
@@ -837,9 +837,9 @@ export const HeroImage = () => {
               width="22.9512"
               height="33.9296"
               filterUnits="userSpaceOnUse"
-              color-interpolation-filters="sRGB"
+              colorInterpolationFilters="sRGB"
             >
-              <feFlood flood-opacity="0" result="BackgroundImageFix" />
+              <feFlood floodOpacity="0" result="BackgroundImageFix" />
               <feBlend
                 mode="normal"
                 in="SourceGraphic"
@@ -877,9 +877,9 @@ export const HeroImage = () => {
               width="13.8053"
               height="23.187"
               filterUnits="userSpaceOnUse"
-              color-interpolation-filters="sRGB"
+              colorInterpolationFilters="sRGB"
             >
-              <feFlood flood-opacity="0" result="BackgroundImageFix" />
+              <feFlood floodOpacity="0" result="BackgroundImageFix" />
               <feBlend
                 mode="normal"
                 in="SourceGraphic"
@@ -898,9 +898,9 @@ export const HeroImage = () => {
               width="11.38"
               height="7.08606"
               filterUnits="userSpaceOnUse"
-              color-interpolation-filters="sRGB"
+              colorInterpolationFilters="sRGB"
             >
-              <feFlood flood-opacity="0" result="BackgroundImageFix" />
+              <feFlood floodOpacity="0" result="BackgroundImageFix" />
               <feBlend
                 mode="normal"
                 in="SourceGraphic"
@@ -938,9 +938,9 @@ export const HeroImage = () => {
               width="11.1583"
               height="7.26582"
               filterUnits="userSpaceOnUse"
-              color-interpolation-filters="sRGB"
+              colorInterpolationFilters="sRGB"
             >
-              <feFlood flood-opacity="0" result="BackgroundImageFix" />
+              <feFlood floodOpacity="0" result="BackgroundImageFix" />
               <feBlend
                 mode="normal"
                 in="SourceGraphic"
@@ -978,9 +978,9 @@ export const HeroImage = () => {
               width="8.38661"
               height="3.64565"
               filterUnits="userSpaceOnUse"
-              color-interpolation-filters="sRGB"
+              colorInterpolationFilters="sRGB"
             >
-              <feFlood flood-opacity="0" result="BackgroundImageFix" />
+              <feFlood floodOpacity="0" result="BackgroundImageFix" />
               <feBlend
                 mode="normal"
                 in="SourceGraphic"
@@ -999,9 +999,9 @@ export const HeroImage = () => {
               width="12.7386"
               height="7.63106"
               filterUnits="userSpaceOnUse"
-              color-interpolation-filters="sRGB"
+              colorInterpolationFilters="sRGB"
             >
-              <feFlood flood-opacity="0" result="BackgroundImageFix" />
+              <feFlood floodOpacity="0" result="BackgroundImageFix" />
               <feBlend
                 mode="normal"
                 in="SourceGraphic"
@@ -1039,9 +1039,9 @@ export const HeroImage = () => {
               width="10.0365"
               height="3.64565"
               filterUnits="userSpaceOnUse"
-              color-interpolation-filters="sRGB"
+              colorInterpolationFilters="sRGB"
             >
-              <feFlood flood-opacity="0" result="BackgroundImageFix" />
+              <feFlood floodOpacity="0" result="BackgroundImageFix" />
               <feBlend
                 mode="normal"
                 in="SourceGraphic"
@@ -1060,9 +1060,9 @@ export const HeroImage = () => {
               width="12.6839"
               height="7.47163"
               filterUnits="userSpaceOnUse"
-              color-interpolation-filters="sRGB"
+              colorInterpolationFilters="sRGB"
             >
-              <feFlood flood-opacity="0" result="BackgroundImageFix" />
+              <feFlood floodOpacity="0" result="BackgroundImageFix" />
               <feBlend
                 mode="normal"
                 in="SourceGraphic"
@@ -1100,9 +1100,9 @@ export const HeroImage = () => {
               width="9.31923"
               height="4.91188"
               filterUnits="userSpaceOnUse"
-              color-interpolation-filters="sRGB"
+              colorInterpolationFilters="sRGB"
             >
-              <feFlood flood-opacity="0" result="BackgroundImageFix" />
+              <feFlood floodOpacity="0" result="BackgroundImageFix" />
               <feBlend
                 mode="normal"
                 in="SourceGraphic"
@@ -1121,9 +1121,9 @@ export const HeroImage = () => {
               width="10.5807"
               height="4.91188"
               filterUnits="userSpaceOnUse"
-              color-interpolation-filters="sRGB"
+              colorInterpolationFilters="sRGB"
             >
-              <feFlood flood-opacity="0" result="BackgroundImageFix" />
+              <feFlood floodOpacity="0" result="BackgroundImageFix" />
               <feBlend
                 mode="normal"
                 in="SourceGraphic"
@@ -1142,9 +1142,9 @@ export const HeroImage = () => {
               width="5.33681"
               height="11.5852"
               filterUnits="userSpaceOnUse"
-              color-interpolation-filters="sRGB"
+              colorInterpolationFilters="sRGB"
             >
-              <feFlood flood-opacity="0" result="BackgroundImageFix" />
+              <feFlood floodOpacity="0" result="BackgroundImageFix" />
               <feBlend
                 mode="normal"
                 in="SourceGraphic"
@@ -1164,8 +1164,8 @@ export const HeroImage = () => {
               y2="419.387"
               gradientUnits="userSpaceOnUse"
             >
-              <stop stop-color="#FFCA44" />
-              <stop offset="1" stop-color="#F8A528" />
+              <stop stopColor="#FFCA44" />
+              <stop offset="1" stopColor="#F8A528" />
             </linearGradient>
             <radialGradient
               id="paint1_radial_29_467"
@@ -1175,8 +1175,8 @@ export const HeroImage = () => {
               gradientUnits="userSpaceOnUse"
               gradientTransform="translate(99.2775 391.406) rotate(141.116) scale(6.10672 18.0237)"
             >
-              <stop stop-color="#FFE34C" />
-              <stop offset="1" stop-color="#FFE34C" stop-opacity="0" />
+              <stop stopColor="#FFE34C" />
+              <stop offset="1" stopColor="#FFE34C" stopOpacity="0" />
             </radialGradient>
             <radialGradient
               id="paint2_radial_29_467"
@@ -1186,8 +1186,8 @@ export const HeroImage = () => {
               gradientUnits="userSpaceOnUse"
               gradientTransform="translate(88.1594 404.713) rotate(125.191) scale(9.04655 6.55346)"
             >
-              <stop stop-color="#FFCA2E" />
-              <stop offset="1" stop-color="#FFCA2E" stop-opacity="0" />
+              <stop stopColor="#FFCA2E" />
+              <stop offset="1" stopColor="#FFCA2E" stopOpacity="0" />
             </radialGradient>
             <radialGradient
               id="paint3_radial_29_467"
@@ -1197,8 +1197,8 @@ export const HeroImage = () => {
               gradientUnits="userSpaceOnUse"
               gradientTransform="translate(97.9745 407.582) rotate(146.743) scale(19.7128 34.498)"
             >
-              <stop offset="0.681" stop-color="#E18E3F" stop-opacity="0" />
-              <stop offset="1" stop-color="#E18E3F" />
+              <stop offset="0.681" stopColor="#E18E3F" stopOpacity="0" />
+              <stop offset="1" stopColor="#E18E3F" />
             </radialGradient>
             <linearGradient
               id="paint4_linear_29_467"
@@ -1208,8 +1208,8 @@ export const HeroImage = () => {
               y2="422.84"
               gradientUnits="userSpaceOnUse"
             >
-              <stop stop-color="#D8796F" stop-opacity="0" />
-              <stop offset="1" stop-color="#D8796F" />
+              <stop stopColor="#D8796F" stopOpacity="0" />
+              <stop offset="1" stopColor="#D8796F" />
             </linearGradient>
             <linearGradient
               id="paint5_linear_29_467"
@@ -1219,8 +1219,8 @@ export const HeroImage = () => {
               y2="416.487"
               gradientUnits="userSpaceOnUse"
             >
-              <stop stop-color="#D1730B" />
-              <stop offset="1" stop-color="#E27D47" />
+              <stop stopColor="#D1730B" />
+              <stop offset="1" stopColor="#E27D47" />
             </linearGradient>
             <linearGradient
               id="paint6_linear_29_467"
@@ -1230,8 +1230,8 @@ export const HeroImage = () => {
               y2="402.114"
               gradientUnits="userSpaceOnUse"
             >
-              <stop stop-color="#FFDB44" />
-              <stop offset="1" stop-color="#F9A928" />
+              <stop stopColor="#FFDB44" />
+              <stop offset="1" stopColor="#F9A928" />
             </linearGradient>
             <radialGradient
               id="paint7_radial_29_467"
@@ -1241,8 +1241,8 @@ export const HeroImage = () => {
               gradientUnits="userSpaceOnUse"
               gradientTransform="translate(96.7745 405.255) rotate(-142.633) scale(2.82603 1.89166)"
             >
-              <stop stop-color="#D98320" />
-              <stop offset="1" stop-color="#D98320" stop-opacity="0" />
+              <stop stopColor="#D98320" />
+              <stop offset="1" stopColor="#D98320" stopOpacity="0" />
             </radialGradient>
             <linearGradient
               id="paint8_linear_29_467"
@@ -1252,8 +1252,8 @@ export const HeroImage = () => {
               y2="418.192"
               gradientUnits="userSpaceOnUse"
             >
-              <stop stop-color="#FFDB44" />
-              <stop offset="1" stop-color="#F9A928" />
+              <stop stopColor="#FFDB44" />
+              <stop offset="1" stopColor="#F9A928" />
             </linearGradient>
             <radialGradient
               id="paint9_radial_29_467"
@@ -1263,8 +1263,8 @@ export const HeroImage = () => {
               gradientUnits="userSpaceOnUse"
               gradientTransform="translate(97.0265 421.641) scale(8.90442 3.38745)"
             >
-              <stop stop-color="#F29545" />
-              <stop offset="1" stop-color="#F29545" stop-opacity="0" />
+              <stop stopColor="#F29545" />
+              <stop offset="1" stopColor="#F29545" stopOpacity="0" />
             </radialGradient>
             <radialGradient
               id="paint10_radial_29_467"
@@ -1274,8 +1274,8 @@ export const HeroImage = () => {
               gradientUnits="userSpaceOnUse"
               gradientTransform="translate(96.5992 415.955) scale(9.03035 2.42407)"
             >
-              <stop stop-color="#DA810B" />
-              <stop offset="1" stop-color="#FFB610" stop-opacity="0" />
+              <stop stopColor="#DA810B" />
+              <stop offset="1" stopColor="#FFB610" stopOpacity="0" />
             </radialGradient>
             <linearGradient
               id="paint11_linear_29_467"
@@ -1285,8 +1285,8 @@ export const HeroImage = () => {
               y2="420.121"
               gradientUnits="userSpaceOnUse"
             >
-              <stop stop-color="#DC7C6A" />
-              <stop offset="1" stop-color="#DC7C6A" stop-opacity="0" />
+              <stop stopColor="#DC7C6A" />
+              <stop offset="1" stopColor="#DC7C6A" stopOpacity="0" />
             </linearGradient>
             <radialGradient
               id="paint12_radial_29_467"
@@ -1296,8 +1296,8 @@ export const HeroImage = () => {
               gradientUnits="userSpaceOnUse"
               gradientTransform="translate(93.4126 418.192) scale(6.82215 10.2549)"
             >
-              <stop stop-color="#E38811" />
-              <stop offset="1" stop-color="#E38811" stop-opacity="0" />
+              <stop stopColor="#E38811" />
+              <stop offset="1" stopColor="#E38811" stopOpacity="0" />
             </radialGradient>
             <linearGradient
               id="paint13_linear_29_467"
@@ -1307,8 +1307,8 @@ export const HeroImage = () => {
               y2="417.288"
               gradientUnits="userSpaceOnUse"
             >
-              <stop stop-color="#FFF166" />
-              <stop offset="1" stop-color="#FFF166" stop-opacity="0" />
+              <stop stopColor="#FFF166" />
+              <stop offset="1" stopColor="#FFF166" stopOpacity="0" />
             </linearGradient>
             <linearGradient
               id="paint14_linear_29_467"
@@ -1318,8 +1318,8 @@ export const HeroImage = () => {
               y2="413.165"
               gradientUnits="userSpaceOnUse"
             >
-              <stop stop-color="#FFDB44" />
-              <stop offset="1" stop-color="#F9A928" />
+              <stop stopColor="#FFDB44" />
+              <stop offset="1" stopColor="#F9A928" />
             </linearGradient>
             <radialGradient
               id="paint15_radial_29_467"
@@ -1329,8 +1329,8 @@ export const HeroImage = () => {
               gradientUnits="userSpaceOnUse"
               gradientTransform="translate(97.3462 416.796) scale(10.2092 3.56698)"
             >
-              <stop stop-color="#F29545" />
-              <stop offset="1" stop-color="#F29545" stop-opacity="0" />
+              <stop stopColor="#F29545" />
+              <stop offset="1" stopColor="#F29545" stopOpacity="0" />
             </radialGradient>
             <radialGradient
               id="paint16_radial_29_467"
@@ -1340,8 +1340,8 @@ export const HeroImage = () => {
               gradientUnits="userSpaceOnUse"
               gradientTransform="translate(96.8555 410.809) scale(10.3536 2.55254)"
             >
-              <stop stop-color="#DA810B" />
-              <stop offset="1" stop-color="#FFB610" stop-opacity="0" />
+              <stop stopColor="#DA810B" />
+              <stop offset="1" stopColor="#FFB610" stopOpacity="0" />
             </radialGradient>
             <linearGradient
               id="paint17_linear_29_467"
@@ -1351,8 +1351,8 @@ export const HeroImage = () => {
               y2="412.576"
               gradientUnits="userSpaceOnUse"
             >
-              <stop stop-color="#FFF166" />
-              <stop offset="1" stop-color="#FFF166" stop-opacity="0" />
+              <stop stopColor="#FFF166" />
+              <stop offset="1" stopColor="#FFF166" stopOpacity="0" />
             </linearGradient>
             <linearGradient
               id="paint18_linear_29_467"
@@ -1362,8 +1362,8 @@ export const HeroImage = () => {
               y2="407.667"
               gradientUnits="userSpaceOnUse"
             >
-              <stop stop-color="#FFDB44" />
-              <stop offset="1" stop-color="#F9A928" />
+              <stop stopColor="#FFDB44" />
+              <stop offset="1" stopColor="#F9A928" />
             </linearGradient>
             <radialGradient
               id="paint19_radial_29_467"
@@ -1373,8 +1373,8 @@ export const HeroImage = () => {
               gradientUnits="userSpaceOnUse"
               gradientTransform="translate(97.388 410.359) scale(6.69727 2.9811)"
             >
-              <stop stop-color="#F29545" />
-              <stop offset="1" stop-color="#F29545" stop-opacity="0" />
+              <stop stopColor="#F29545" />
+              <stop offset="1" stopColor="#F29545" stopOpacity="0" />
             </radialGradient>
             <radialGradient
               id="paint20_radial_29_467"
@@ -1384,8 +1384,8 @@ export const HeroImage = () => {
               gradientUnits="userSpaceOnUse"
               gradientTransform="translate(89.655 391.404) rotate(90) scale(7.74369 2.87513)"
             >
-              <stop stop-color="#F3A52A" />
-              <stop offset="1" stop-color="#F3A52A" stop-opacity="0" />
+              <stop stopColor="#F3A52A" />
+              <stop offset="1" stopColor="#F3A52A" stopOpacity="0" />
             </radialGradient>
             <radialGradient
               id="paint21_radial_29_467"
@@ -1395,8 +1395,8 @@ export const HeroImage = () => {
               gradientUnits="userSpaceOnUse"
               gradientTransform="translate(87.394 396.503) rotate(42.9975) scale(3.87867 5.86908)"
             >
-              <stop stop-color="#CDA25E" />
-              <stop offset="1" stop-color="#CDA25E" stop-opacity="0" />
+              <stop stopColor="#CDA25E" />
+              <stop offset="1" stopColor="#CDA25E" stopOpacity="0" />
             </radialGradient>
             <radialGradient
               id="paint22_radial_29_467"
@@ -1406,8 +1406,8 @@ export const HeroImage = () => {
               gradientUnits="userSpaceOnUse"
               gradientTransform="translate(91.42 390.925) rotate(-168.366) scale(1.9961 4.35694)"
             >
-              <stop offset="0.55" stop-color="#CCB28B" stop-opacity="0" />
-              <stop offset="1" stop-color="#CCB28B" />
+              <stop offset="0.55" stopColor="#CCB28B" stopOpacity="0" />
+              <stop offset="1" stopColor="#CCB28B" />
             </radialGradient>
             <linearGradient
               id="paint23_linear_29_467"
@@ -1417,8 +1417,8 @@ export const HeroImage = () => {
               y2="400.378"
               gradientUnits="userSpaceOnUse"
             >
-              <stop stop-color="#FFF166" />
-              <stop offset="1" stop-color="#FFF166" stop-opacity="0" />
+              <stop stopColor="#FFF166" />
+              <stop offset="1" stopColor="#FFF166" stopOpacity="0" />
             </linearGradient>
             <linearGradient
               id="paint24_linear_29_467"
@@ -1428,8 +1428,8 @@ export const HeroImage = () => {
               y2="405.827"
               gradientUnits="userSpaceOnUse"
             >
-              <stop stop-color="#FFF166" />
-              <stop offset="1" stop-color="#FFF166" stop-opacity="0" />
+              <stop stopColor="#FFF166" />
+              <stop offset="1" stopColor="#FFF166" stopOpacity="0" />
             </linearGradient>
             <linearGradient
               id="paint25_linear_29_467"
@@ -1439,8 +1439,8 @@ export const HeroImage = () => {
               y2="391.965"
               gradientUnits="userSpaceOnUse"
             >
-              <stop stop-color="#FFF166" />
-              <stop offset="1" stop-color="#FFF166" stop-opacity="0" />
+              <stop stopColor="#FFF166" />
+              <stop offset="1" stopColor="#FFF166" stopOpacity="0" />
             </linearGradient>
             <image
               id="image0_29_467"

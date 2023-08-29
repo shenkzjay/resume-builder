@@ -1,3 +1,5 @@
+"use client";
+
 import { RootState } from "@/states/store";
 import { useSelector } from "react-redux";
 import { useMemo } from "react";

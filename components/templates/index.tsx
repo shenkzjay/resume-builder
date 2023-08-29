@@ -1,8 +1,10 @@
+import { Provider } from "react-redux";
 import DefaultTemplate from "./defaultTemplate";
 import FresherTemplate from "./fresher-template";
 import IndoTemplate from "./indo-template";
+import { store } from "@/states/store";
 
-interface templateType {
+export interface templateType {
   name: string;
   component: React.ReactElement;
   image: string;
@@ -25,3 +27,13 @@ export const templatesData: templateType[] = [
     image: "/A4.jpg",
   },
 ];
+
+// export default function TemplateIndex() {
+//   return (
+//     <Provider store={store}>
+//       <IndoTemplate />
+//       <FresherTemplate />
+//       <DefaultTemplate />
+//     </Provider>
+//   );
+// }

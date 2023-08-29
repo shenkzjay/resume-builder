@@ -17,32 +17,50 @@ import { ModalCard } from "@/components/ui components/modal";
 import { ActionTypes } from "@/states/actions-types";
 import { update } from "@/states/actions-types";
 import Navbar from "@/components/navbar";
+import Skills from "./skills";
+import WorkExperience from "./work-exp";
+import EducationHistory from "./education";
+import Project from "./projects";
+import Certification from "./certification";
+import PreviewTemplate from "./preview";
+import DownloadPage from "./download";
 
 const UpdateTemplate = () => {
+  //init router
   const router = useRouter();
+
+  //define useDisclosure hook from mantine ui
   const [opened, { open, close }] = useDisclosure(false);
+
+  //init dispatch from redux actionscreators
   const dispatch = useDispatch();
 
+  //request current selected template from redux store and store value in variable
   const selected_template = useSelector(
     (state: RootState) => state.updateTextName.seletedTemplate
   );
 
+  //define template variable
   let TemplateComponent;
 
+  //check if selected template is null
   if (selected_template !== null) {
     TemplateComponent = templatesData[selected_template]?.component;
   } else {
     TemplateComponent = <div>No template selected</div>;
   }
 
+  //request current updateTextUpdate from redux store and store value in variable
   const updateTextUpdate = useSelector(
     (state: RootState) => state?.updateTextName
   );
 
+  //request current updateTextUpdate from redux store and store value in variable
   const updateCareerObjective = useSelector(
     (state: RootState) => state.updateTextName.objective
   );
 
+  //function to navigate to next page
   const handleNext = async () => {
     const personalDetails = {
       personalDetail: updateTextUpdate.personalDetails,
