@@ -35,6 +35,12 @@ const WorkExperience = () => {
 
   const [opened, { open, close }] = useDisclosure(false);
 
+  //animate add experience button
+  const [addBtnAnimation, setAddBtnAnimation] = useState(false);
+
+  const [deleteBtnAnimation, setDeleteBtnAnimation] = useState(false);
+  console.log(deleteBtnAnimation);
+
   const router = useRouter();
 
   //init
@@ -82,6 +88,9 @@ const WorkExperience = () => {
 
   //function to add a new work experience object
   const handleAddWorkExp = () => {
+    setAddBtnAnimation(true);
+    setDeleteBtnAnimation(false);
+
     dispatch(
       addWorkExperience({
         job_title: "",
@@ -94,12 +103,14 @@ const WorkExperience = () => {
         end_year: "",
         state: "",
         checkboxstatus: false,
+        isDeleting: false,
       })
     );
   };
 
   const handleDeleteWorkExperience = (index: number) => {
     dispatch(deleteWorkExperience(index));
+    setAddBtnAnimation(false);
   };
 
   const handleSearchInput = (content: string) => {
@@ -197,10 +208,14 @@ const WorkExperience = () => {
             <div>
               {updateWorkExp.map((item, index) => (
                 <div
-                  className="flex mb-6 rounded justify-between p-4 border"
+                  className={`flex mb-6 rounded justify-between p-4 border ${
+                    addBtnAnimation && index === updateWorkExp.length - 1
+                      ? "fade-in"
+                      : ""
+                  } ${deleteBtnAnimation && index ? "fade-out" : ""} `}
                   key={index}
                 >
-                  <details className="w-full ">
+                  <details className={`w-full`}>
                     <summary className="relative">
                       <span>Add details of work experience</span>
                       <button

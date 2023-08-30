@@ -30,6 +30,7 @@ const initialState: update = {
   editorExperience: "",
   searchSuggestions: "",
   seletedTemplate: null,
+  addBtnAnimation: false,
 
   skills: [
     {
@@ -55,6 +56,7 @@ const initialState: update = {
       end_year: "",
       description: "",
       checkboxstatus: false,
+      isDeleting: false,
     },
   ],
 
@@ -157,7 +159,7 @@ export const textUpdateSlice = createSlice({
       action: PayloadAction<number>
     ) {
       const index = action.payload;
-      state.workExperience.splice(index, 1);
+      state.workExperience = state.workExperience.filter((_, i) => i !== index);
     },
 
     updateEducationHistory(

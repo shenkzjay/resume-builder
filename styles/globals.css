@@ -198,3 +198,36 @@ details[open] summary::before {
   display: flex;
   justify-content: space-between;
 }
+
+/* Add experience button animation */
+
+.fade-in {
+  animation: fade-in 0.5s forwards;
+}
+
+@keyframes fade-in {
+  0% {
+    transform-origin: top; /* Set the origin to the top */
+    transform: scaleY(0); /* Start with zero height */
+    opacity: 0;
+  }
+
+  100% {
+    transform-origin: top; /* Maintain origin at the top */
+    transform: scaleY(1); /* End with full height */
+    opacity: 1;
+  }
+}
+
+/* delete experience button animation */
+
+.fade-out {
+  animation: fade-out 1s forwards;
+}
+
+@keyframes fade-out {
+  100% {
+    opacity: 0;
+    transform: skewX(50deg) translateX(-25vw);
+  }
+}

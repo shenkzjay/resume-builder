@@ -29,6 +29,7 @@ export interface workExp {
   end_year: string;
   description: string;
   checkboxstatus: boolean;
+  isDeleting: boolean;
 }
 
 export interface eduHistory {
@@ -77,6 +78,7 @@ interface updateName {
   project: updateProject[];
   socialLinks: updateSocialLinks;
   seletedTemplate: number | null;
+  addBtnAnimation: boolean;
 }
 
 export type update = updateName;
