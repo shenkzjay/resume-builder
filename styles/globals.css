@@ -231,3 +231,22 @@ details[open] summary::before {
     transform: skewX(50deg) translateX(-25vw);
   }
 }
+
+.floating-input label {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  padding: 0.75rem 1rem;
+  color: #868e96;
+}
+
+.floating-input input:focus ~ label,
+input:not(:placeholder-shown) ~ label {
+  color: black;
+  background: white;
+  bottom: 2.5rem;
+  left: 0.5rem;
+  padding: 0.1rem;
+  font-size: 14px;
+  transition: bottom 300ms ease-out;
+}

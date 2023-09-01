@@ -8,12 +8,12 @@ import {
   updateName,
   updateObjective,
 } from "@/states/reducers/slice/textUpdateSlice";
-import Tiptap from "@/components/ui components/markdown-editor";
-import SunEditorFile from "@/components/ui components/markdown-editor/sun-editor";
+import Tiptap from "@/components/ui-components/markdown-editor";
+import SunEditorFile from "@/components/ui-components/markdown-editor/sun-editor";
 import Link from "next/link";
 import { NextButton, BackButton } from "@/components/buttons";
 import { useDisclosure } from "@mantine/hooks";
-import { ModalCard } from "@/components/ui components/modal";
+import { ModalCard } from "@/components/ui-components/modal";
 import { ActionTypes } from "@/states/actions-types";
 import { update } from "@/states/actions-types";
 import Navbar from "@/components/navbar";
@@ -85,91 +85,125 @@ const UpdateTemplate = () => {
           <div className="md:w-1/2 mx-6 md:mx-0">
             <div className="w-full">
               <div className="flex flex-col space-y-6">
-                <input
-                  type="text"
-                  value={updateTextUpdate.personalDetails.name ?? ""}
-                  className="border px-4 py-3"
-                  onChange={(e) =>
-                    dispatch(
-                      updateName({
-                        ...updateTextUpdate.personalDetails,
-                        name: e.target.value,
-                      })
-                    )
-                  }
-                  placeholder="Enter full name"
-                />
-                <input
-                  type="text"
-                  className="border px-4 py-3"
-                  value={updateTextUpdate.personalDetails.profession ?? ""}
-                  placeholder="Enter your profession"
-                  onChange={(e) =>
-                    dispatch(
-                      updateName({
-                        ...updateTextUpdate.personalDetails,
-                        profession: e.target.value,
-                      })
-                    )
-                  }
-                />
+                <div className="floating-input relative">
+                  <input
+                    type="text"
+                    value={updateTextUpdate.personalDetails.name ?? ""}
+                    id="Enter full name"
+                    className="border px-4 py-3 cursor-text w-full rounded-[6px]"
+                    onChange={(e) =>
+                      dispatch(
+                        updateName({
+                          ...updateTextUpdate.personalDetails,
+                          name: e.target.value,
+                        })
+                      )
+                    }
+                    placeholder=""
+                  />
+                  <label htmlFor="Enter full name">Enter full name</label>
+                </div>
 
-                <input
-                  type="text"
-                  className="border px-4 py-3"
-                  value={updateTextUpdate.personalDetails.state ?? ""}
-                  placeholder="Enter your state"
-                  onChange={(e) =>
-                    dispatch(
-                      updateName({
-                        ...updateTextUpdate.personalDetails,
-                        state: e.target.value,
-                      })
-                    )
-                  }
-                />
-                <input
-                  type="text"
-                  className="border px-4 py-3"
-                  value={updateTextUpdate.personalDetails.country ?? ""}
-                  placeholder="Enter your country"
-                  onChange={(e) =>
-                    dispatch(
-                      updateName({
-                        ...updateTextUpdate.personalDetails,
-                        country: e.target.value,
-                      })
-                    )
-                  }
-                />
-                <input
-                  type="text"
-                  className="border px-4 py-3"
-                  value={updateTextUpdate.personalDetails.email ?? ""}
-                  placeholder="Enter your email address"
-                  onChange={(e) =>
-                    dispatch(
-                      updateName({
-                        ...updateTextUpdate.personalDetails,
-                        email: e.target.value,
-                      })
-                    )
-                  }
-                />
-                <input
-                  type="number"
-                  className="border px-4 py-3"
-                  value={updateTextUpdate.personalDetails.phone ?? ""}
-                  placeholder="Enter your phone number"
-                  onChange={(e) =>
-                    dispatch(
-                      updateName({
-                        ...updateTextUpdate.personalDetails,
-                        phone: e.target.value,
-                      })
-                    )
-                  }
-                />
+                <div className="floating-input relative">
+                  <input
+                    type="text"
+                    className="border px-4 py-3 w-full cursor-text rounded-[6px]"
+                    value={updateTextUpdate.personalDetails.profession ?? ""}
+                    placeholder=""
+                    id="Enter your profession"
+                    onChange={(e) =>
+                      dispatch(
+                        updateName({
+                          ...updateTextUpdate.personalDetails,
+                          profession: e.target.value,
+                        })
+                      )
+                    }
+                  />
+                  <label htmlFor="Enter your profession">
+                    Enter your profession
+                  </label>
+                </div>
+
+                <div className="floating-input relative">
+                  <input
+                    type="text"
+                    className="border px-4 py-3 w-full rounded-[6px]"
+                    value={updateTextUpdate.personalDetails.state ?? ""}
+                    placeholder=""
+                    id="Enter your state"
+                    onChange={(e) =>
+                      dispatch(
+                        updateName({
+                          ...updateTextUpdate.personalDetails,
+                          state: e.target.value,
+                        })
+                      )
+                    }
+                  />
+                  <label htmlFor="Enter your state">Enter your state</label>
+                </div>
+
+                <div className="floating-input relative">
+                  <input
+                    type="text"
+                    className="border px-4 py-3 w-full rounded-[6px]"
+                    value={updateTextUpdate.personalDetails.country ?? ""}
+                    placeholder=""
+                    id="Enter your country"
+                    onChange={(e) =>
+                      dispatch(
+                        updateName({
+                          ...updateTextUpdate.personalDetails,
+                          country: e.target.value,
+                        })
+                      )
+                    }
+                  />
+                  <label htmlFor="Enter your country">Enter your country</label>
+                </div>
+
+                <div className="floating-input relative">
+                  <input
+                    type="text"
+                    className="border px-4 py-3 w-full rounded-[6px]"
+                    value={updateTextUpdate.personalDetails.email ?? ""}
+                    placeholder=""
+                    id="Enter your email address"
+                    onChange={(e) =>
+                      dispatch(
+                        updateName({
+                          ...updateTextUpdate.personalDetails,
+                          email: e.target.value,
+                        })
+                      )
+                    }
+                  />
+                  <label htmlFor="Enter your email address">
+                    Enter your email address
+                  </label>
+                </div>
+
+                <div className="floating-input relative">
+                  <input
+                    type="number"
+                    className="border px-4 py-3 w-full rounded-[6px]"
+                    value={updateTextUpdate.personalDetails.phone ?? ""}
+                    placeholder=""
+                    id="Enter your phone number"
+                    onChange={(e) =>
+                      dispatch(
+                        updateName({
+                          ...updateTextUpdate.personalDetails,
+                          phone: e.target.value,
+                        })
+                      )
+                    }
+                  />
+                  <label htmlFor="Enter your phone number">
+                    Enter your phone number
+                  </label>
+                </div>
               </div>
               <div className="mt-6 ">
                 {/* <Tiptap /> */}

@@ -11,25 +11,25 @@ import {
 import { workExp as InputItem } from "@/states/actions-types";
 import { useRouter } from "next/router";
 import { templatesData } from "@/components/templates";
-import SunEditorFile from "@/components/ui components/markdown-editor/sun-editor";
-import DropDown from "@/components/ui components/dropdown";
-import { ModalCard } from "@/components/ui components/modal";
+import SunEditorFile from "@/components/ui-components/markdown-editor/sun-editor";
+import DropDown from "@/components/ui-components/dropdown";
+import { ModalCard } from "@/components/ui-components/modal";
 import { useDisclosure } from "@mantine/hooks";
 import { IconSearch, IconTrashX } from "@tabler/icons-react";
 import UseSuggestions from "@/hooks/useSuggestions";
 import { IconPlus } from "@tabler/icons-react";
-import TiptapEditor from "@/components/ui components/markdown-editor";
-import { Checkboxelement } from "@/components/ui components/checkbox";
+import TiptapEditor from "@/components/ui-components/markdown-editor";
+import { Checkboxelement } from "@/components/ui-components/checkbox";
 import Link from "next/link";
 import { BackButton, NextButton, AddButtons } from "@/components/buttons";
-import MenuBar from "../../components/ui components/markdown-editor/index";
+import MenuBar from "../../components/ui-components/markdown-editor/index";
 import Navbar from "@/components/navbar";
-// import SlateEditor from "@/components/ui components/markdown-editor/slate-editor";
+import { YearGenerator } from "@/utils/month-year-generator";
+import { MonthGenerator } from "@/utils/month-year-generator";
+import { GenerateId } from "@/utils/generateId";
+import Dropthatdown from "@/components/ui-components/toggleButton/dropthatdown";
 
 const WorkExperience = () => {
-  //init router
-  console.log("render ");
-
   const { data, isLoading, error } = UseSuggestions();
   // console.log("wx", data);
 
@@ -40,6 +40,10 @@ const WorkExperience = () => {
 
   const [deleteBtnAnimation, setDeleteBtnAnimation] = useState(false);
   console.log(deleteBtnAnimation);
+
+  const { yearArray } = YearGenerator();
+
+  const { monthsArray } = MonthGenerator();
 
   const router = useRouter();
 
@@ -103,7 +107,6 @@ const WorkExperience = () => {
         end_year: "",
         state: "",
         checkboxstatus: false,
-        isDeleting: false,
       })
     );
   };
@@ -144,46 +147,6 @@ const WorkExperience = () => {
     close();
   };
 
-  function createMonths() {
-    return [
-      "January",
-      "February",
-      "March",
-      "April",
-      "May",
-      "June",
-      "July",
-      "August",
-      "September",
-      "October",
-      "November",
-      "December",
-    ];
-  }
-
-  const monthsInYear = createMonths();
-
-  const monthsArray = monthsInYear.map((month) => {
-    return { value: month.toLowerCase(), label: month };
-  });
-
-  function countToArray() {
-    let num = 2023;
-    let resultArray = [];
-
-    for (let i = num; i >= 1990; i--) {
-      resultArray.push(i.toString());
-    }
-
-    return resultArray;
-  }
-
-  const result = countToArray();
-
-  const yearArray = result.map((year) => {
-    return { value: year, label: year };
-  });
-
   const handleCheckboxChange = (index: number, checked: boolean) => {
     handleInputChange(index, "checkboxstatus", checked);
   };
@@ -193,6 +156,10 @@ const WorkExperience = () => {
       pathname: "/custom-template/education",
     });
   };
+
+  const generateJobTitle = (index: number) => `jobtitle-${index}`;
+  const generateCompanyName = (index: number) => `companyname-${index}`;
+  const generateCountry = (index: number) => `country-${index}`;
 
   return (
     <section className="">
@@ -226,37 +193,60 @@ const WorkExperience = () => {
                       </button>
                     </summary>
                     <div className="flex flex-col space-y-4 mt-6">
-                      <input
-                        type="text"
-                        value={item.job_title}
-                        placeholder="Job title"
-                        className="border px-4 py-3"
-                        onChange={(e) =>
-                          handleInputChange(index, "job_title", e.target.value)
-                        }
-                      />
-                      <input
-                        type="text"
-                        placeholder="Company name"
-                        value={item.company_name}
-                        className="border px-4 py-3"
-                        onChange={(e) =>
-                          handleInputChange(
-                            index,
-                            "company_name",
-                            e.target.value
-                          )
-                        }
-                      />
-                      <input
-                        type="text"
-                        placeholder="Country"
-                        value={item.country}
-                        className="border px-4 py-3"
-                        onChange={(e) =>
-                          handleInputChange(index, "country", e.target.value)
-                        }
-                      />
+                      <div className="floating-input relative">
+                        <input
+                          type="text"
+                          value={item.job_title}
+                          placeholder=""
+                          id={`${GenerateId(index, "job-title")}`}
+                          className="border px-4 py-3 w-full rounded-[6px]"
+                          onChange={(e) =>
+                            handleInputChange(
+                              index,
+                              "job_title",
+                              e.target.value
+                            )
+                          }
+                        />
+                        <label htmlFor={`${GenerateId(index, "job-title")}`}>
+                          Job title
+                        </label>
+                      </div>
+                      <div className="floating-input relative">
+                        <input
+                          type="text"
+                          placeholder=""
+                          id={`${GenerateId(index, "company")}`}
+                          value={item.company_name}
+                          className="border px-4 py-3 w-full rounded-[6px]"
+                          onChange={(e) =>
+                            handleInputChange(
+                              index,
+                              "company_name",
+                              e.target.value
+                            )
+                          }
+                        />
+                        <label htmlFor={`${GenerateId(index, "company")}`}>
+                          Company name
+                        </label>
+                      </div>
+
+                      <div className="floating-input relative">
+                        <input
+                          type="text"
+                          placeholder=""
+                          id={`${GenerateId(index, "country")}`}
+                          value={item.country}
+                          className="border px-4 py-3 w-full rounded-[6px]"
+                          onChange={(e) =>
+                            handleInputChange(index, "country", e.target.value)
+                          }
+                        />
+                        <label htmlFor={`${GenerateId(index, "country")}`}>
+                          Country
+                        </label>
+                      </div>
 
                       <div className="flex gap-10">
                         <DropDown
@@ -408,6 +398,7 @@ const WorkExperience = () => {
           <div className="h-[70vh]">{TemplateComponent}</div>
         </ModalCard>
       </div>
+      <Dropthatdown />
     </section>
   );
 };

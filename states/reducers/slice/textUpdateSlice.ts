@@ -56,7 +56,6 @@ const initialState: update = {
       end_year: "",
       description: "",
       checkboxstatus: false,
-      isDeleting: false,
     },
   ],
 

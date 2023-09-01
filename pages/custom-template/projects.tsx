@@ -17,10 +17,11 @@ import {
   InverseAddButtons,
 } from "@/components/buttons";
 import { IconPlus, IconTrashX, IconX } from "@tabler/icons-react";
-import { ModalCard } from "@/components/ui components/modal";
+import { ModalCard } from "@/components/ui-components/modal";
 import { useDisclosure } from "@mantine/hooks";
 import { useState } from "react";
 import Navbar from "@/components/navbar";
+import { GenerateId } from "@/utils/generateId";
 
 const Project = () => {
   //init router
@@ -121,24 +122,37 @@ const Project = () => {
                     </button>
                   </summary>
                   <div className="flex flex-col space-y-4 mt-4">
-                    <input
-                      type="text"
-                      placeholder="Project name"
-                      className="border px-4 py-3 rounded"
-                      value={item.projectName}
-                      onChange={(e) =>
-                        handleInputClick(index, "projectName", e.target.value)
-                      }
-                    />
-                    <input
-                      type="text"
-                      placeholder="Project link: https://www.example.com"
-                      className="border px-4 py-3 rounded"
-                      value={item.projectLink}
-                      onChange={(e) =>
-                        handleInputClick(index, "projectLink", e.target.value)
-                      }
-                    />
+                    <div className="floating-input relative">
+                      <input
+                        type="text"
+                        placeholder=""
+                        id={`${GenerateId(index, "projectName")}`}
+                        className="border px-4 py-3 rounded-[6px] w-full "
+                        value={item.projectName}
+                        onChange={(e) =>
+                          handleInputClick(index, "projectName", e.target.value)
+                        }
+                      />
+                      <label htmlFor={`${GenerateId(index, "projectName")}`}>
+                        Project name
+                      </label>
+                    </div>
+
+                    <div className="floating-input relative">
+                      <input
+                        type="text"
+                        placeholder=""
+                        id={`${GenerateId(index, "projectLink")}`}
+                        className="border px-4 py-3 rounded-[6px] w-full"
+                        value={item.projectLink}
+                        onChange={(e) =>
+                          handleInputClick(index, "projectLink", e.target.value)
+                        }
+                      />
+                      <label htmlFor={`${GenerateId(index, "projectLink")}`}>
+                        Project link: https://www.example.com
+                      </label>
+                    </div>
 
                     <textarea
                       rows={5}
@@ -166,22 +180,28 @@ const Project = () => {
               <div className="flex flex-col gap-6">
                 {displayProject.githubDisplay && (
                   <div className="relative">
-                    <input
-                      type="text"
-                      placeholder="Enter Github link"
-                      value={updatedSkill.github}
-                      onChange={(e) =>
-                        dispatch(
-                          updateSocialLinks({
-                            ...updatedSkill,
-                            github: e.target.value,
-                          })
-                        )
-                      }
-                      className="border px-4 py-3 rounded w-full"
-                    />
+                    <div className="floating-input relative">
+                      <input
+                        type="text"
+                        placeholder=""
+                        id="Enter Github link"
+                        value={updatedSkill.github}
+                        onChange={(e) =>
+                          dispatch(
+                            updateSocialLinks({
+                              ...updatedSkill,
+                              github: e.target.value,
+                            })
+                          )
+                        }
+                        className="border px-4 py-3 rounded-[6px] w-full"
+                      />
+                      <label htmlFor="Enter Github link">
+                        Enter Github link
+                      </label>
+                    </div>
                     <div
-                      className="absolute top-3  right-3"
+                      className="absolute top-3 right-3"
                       role="button"
                       onClick={() =>
                         handleToggleDisplay(false, "githubDisplay")
@@ -194,20 +214,26 @@ const Project = () => {
 
                 {displayProject.twitterDisplay && (
                   <div className="relative">
-                    <input
-                      type="text"
-                      placeholder="Enter Twitter link"
-                      value={updatedSkill.twitter}
-                      onChange={(e) =>
-                        dispatch(
-                          updateSocialLinks({
-                            ...updatedSkill,
-                            twitter: e.target.value,
-                          })
-                        )
-                      }
-                      className="border px-4 py-3 rounded w-full"
-                    />
+                    <div className="floating-input relative">
+                      <input
+                        type="text"
+                        placeholder=""
+                        value={updatedSkill.twitter}
+                        id="Enter Twitter link"
+                        onChange={(e) =>
+                          dispatch(
+                            updateSocialLinks({
+                              ...updatedSkill,
+                              twitter: e.target.value,
+                            })
+                          )
+                        }
+                        className="border px-4 py-3 rounded-[6px] w-full"
+                      />
+                      <label htmlFor="Enter Twitter link">
+                        Enter Twitter link
+                      </label>
+                    </div>
                     <div
                       className="absolute top-3  right-3"
                       role="button"
@@ -222,20 +248,27 @@ const Project = () => {
 
                 {displayProject.linkedIndisplay && (
                   <div className="relative">
-                    <input
-                      type="text"
-                      placeholder="Enter LinkedIn link"
-                      value={updatedSkill.linkedIn}
-                      onChange={(e) =>
-                        dispatch(
-                          updateSocialLinks({
-                            ...updatedSkill,
-                            linkedIn: e.target.value,
-                          })
-                        )
-                      }
-                      className="border px-4 py-3 rounded w-full"
-                    />
+                    <div className="relative floating-input">
+                      <input
+                        type="text"
+                        placeholder=""
+                        value={updatedSkill.linkedIn}
+                        id="Enter LinkedIn link"
+                        onChange={(e) =>
+                          dispatch(
+                            updateSocialLinks({
+                              ...updatedSkill,
+                              linkedIn: e.target.value,
+                            })
+                          )
+                        }
+                        className="border px-4 py-3 rounded-[6px] w-full"
+                      />
+                      <label htmlFor="Enter LinkedIn link">
+                        Enter LinkedIn link
+                      </label>
+                    </div>
+
                     <div
                       className="absolute top-3  right-3"
                       role="button"

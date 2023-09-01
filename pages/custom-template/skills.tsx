@@ -12,7 +12,7 @@ import {
 } from "@/states/reducers/slice/textUpdateSlice";
 import Link from "next/link";
 import { NextButton, BackButton } from "@/components/buttons";
-import { ModalCard } from "@/components/ui components/modal";
+import { ModalCard } from "@/components/ui-components/modal";
 import { useDisclosure } from "@mantine/hooks";
 import localforage from "localforage";
 import { ActionTypes } from "@/states/actions-types";

@@ -29,7 +29,6 @@ export interface workExp {
   end_year: string;
   description: string;
   checkboxstatus: boolean;
-  isDeleting: boolean;
 }
 
 export interface eduHistory {

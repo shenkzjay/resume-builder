@@ -11,13 +11,16 @@ import { eduHistory as InputItem } from "@/states/actions-types";
 import { useRouter } from "next/router";
 import { templatesData } from "@/components/templates";
 import { IconTrashX } from "@tabler/icons-react";
-import DropDown from "@/components/ui components/dropdown";
+import DropDown from "@/components/ui-components/dropdown";
 import Link from "next/link";
 import { BackButton, NextButton, AddButtons } from "@/components/buttons";
-import { ModalCard } from "@/components/ui components/modal";
+import { ModalCard } from "@/components/ui-components/modal";
 
 import { useDisclosure } from "@mantine/hooks";
 import Navbar from "@/components/navbar";
+import { MonthGenerator } from "@/utils/month-year-generator";
+import { YearGenerator } from "@/utils/month-year-generator";
+import { GenerateId } from "@/utils/generateId";
 
 const EducationHistory = () => {
   //init router
@@ -31,6 +34,10 @@ const EducationHistory = () => {
   const selected_template = useSelector(
     (state: RootState) => state.updateTextName.seletedTemplate
   );
+
+  const { monthsArray } = MonthGenerator();
+
+  const { yearArray } = YearGenerator();
 
   let TemplateComponent;
 
@@ -73,46 +80,6 @@ const EducationHistory = () => {
     dispatch(deleteEducationHistory(index));
   };
 
-  function createMonths() {
-    return [
-      "January",
-      "February",
-      "March",
-      "April",
-      "May",
-      "June",
-      "July",
-      "August",
-      "September",
-      "October",
-      "November",
-      "December",
-    ];
-  }
-
-  const monthsInYear = createMonths();
-
-  const monthsArray = monthsInYear.map((month) => {
-    return { value: month.toUpperCase(), label: month };
-  });
-
-  function countToArray() {
-    let num = 2023;
-    let resultArray = [];
-
-    for (let i = num; i >= 1990; i--) {
-      resultArray.push(i.toString());
-    }
-
-    return resultArray;
-  }
-
-  const result = countToArray();
-
-  const yearArray = result.map((year) => {
-    return { value: year, label: year };
-  });
-
   return (
     <section className="">
       <div className="mx-auto container">
@@ -138,58 +105,91 @@ const EducationHistory = () => {
                       </button>
                     </summary>
                     <div className="flex flex-col space-y-4 mt-4">
-                      <input
-                        type="text"
-                        value={item.school_name}
-                        placeholder="School name"
-                        className="border px-4 py-3 rounded"
-                        onChange={(e) =>
-                          handleInputChange(
-                            index,
-                            "school_name",
-                            e.target.value
-                          )
-                        }
-                      />
-                      <input
-                        type="text"
-                        placeholder="School location"
-                        value={item.school_location}
-                        className="border px-4 py-3 rounded"
-                        onChange={(e) =>
-                          handleInputChange(
-                            index,
-                            "school_location",
-                            e.target.value
-                          )
-                        }
-                      />
-                      <input
-                        type="text"
-                        placeholder="Degree / Program"
-                        value={item.degree_program}
-                        className="border px-4 py-3 rounded"
-                        onChange={(e) =>
-                          handleInputChange(
-                            index,
-                            "degree_program",
-                            e.target.value
-                          )
-                        }
-                      />
-                      <input
-                        type="text"
-                        placeholder="Field of study"
-                        value={item.field_of_study}
-                        className="border px-4 py-3 rounded"
-                        onChange={(e) =>
-                          handleInputChange(
-                            index,
-                            "field_of_study",
-                            e.target.value
-                          )
-                        }
-                      />
+                      <div className="floating-input relative">
+                        <input
+                          type="text"
+                          value={item.school_name}
+                          placeholder=""
+                          id={`${GenerateId(index, "SchoolName")}`}
+                          className="border px-4 py-3 rounded-[6px] w-full"
+                          onChange={(e) =>
+                            handleInputChange(
+                              index,
+                              "school_name",
+                              e.target.value
+                            )
+                          }
+                        />
+                        <label htmlFor={`${GenerateId(index, "SchoolName")}`}>
+                          School name
+                        </label>
+                      </div>
+
+                      <div className="floating-input relative">
+                        <input
+                          type="text"
+                          placeholder=""
+                          value={item.school_location}
+                          id={`${GenerateId(index, "school_location")}`}
+                          className="border px-4 py-3 rounded-[6px] w-full"
+                          onChange={(e) =>
+                            handleInputChange(
+                              index,
+                              "school_location",
+                              e.target.value
+                            )
+                          }
+                        />
+                        <label
+                          htmlFor={`${GenerateId(index, "school_location")}`}
+                        >
+                          School location
+                        </label>
+                      </div>
+
+                      <div className="floating-input relative">
+                        <input
+                          type="text"
+                          placeholder=""
+                          id={`${GenerateId(index, "degree_program")}`}
+                          value={item.degree_program}
+                          className="border px-4 py-3 rounded-[6px] w-full"
+                          onChange={(e) =>
+                            handleInputChange(
+                              index,
+                              "degree_program",
+                              e.target.value
+                            )
+                          }
+                        />
+                        <label
+                          htmlFor={`${GenerateId(index, "degree_program")}`}
+                        >
+                          Degree / Program
+                        </label>
+                      </div>
+
+                      <div className="floating-input relative">
+                        <input
+                          type="text"
+                          placeholder=""
+                          id={`${GenerateId(index, "field_of_study")}`}
+                          value={item.field_of_study}
+                          className="border px-4 py-3 rounded-[6px] w-full"
+                          onChange={(e) =>
+                            handleInputChange(
+                              index,
+                              "field_of_study",
+                              e.target.value
+                            )
+                          }
+                        />
+                        <label
+                          htmlFor={`${GenerateId(index, "field_of_study")}`}
+                        >
+                          Field of study
+                        </label>
+                      </div>
                       <div className="flex gap-10">
                         <DropDown
                           placeholder="Graduation month"

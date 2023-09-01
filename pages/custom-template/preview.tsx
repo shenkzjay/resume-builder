@@ -1,11 +1,11 @@
 import React, { useState, useRef } from "react";
 import { templatesData } from "@/components/templates";
 import { useRouter } from "next/router";
-import ExportButton from "@/components/ui components/toggleButton/export-button";
+import ExportButton from "@/components/ui-components/toggleButton/export-button";
 import html2canvas from "html2canvas";
 import { jsPDF } from "jspdf";
-import EditSectionButton from "@/components/ui components/toggleButton/edit-section";
-import { ModalCard } from "@/components/ui components/modal";
+import EditSectionButton from "@/components/ui-components/toggleButton/edit-section";
+import { ModalCard } from "@/components/ui-components/modal";
 import { useDisclosure } from "@mantine/hooks";
 import { IconDownload } from "@tabler/icons-react";
 import { useSelector } from "react-redux";

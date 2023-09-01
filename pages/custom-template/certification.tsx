@@ -16,10 +16,11 @@ import {
   InverseAddButtons,
 } from "@/components/buttons";
 import { IconPlus, IconTrashX, IconX } from "@tabler/icons-react";
-import { ModalCard } from "@/components/ui components/modal";
+import { ModalCard } from "@/components/ui-components/modal";
 import { useDisclosure } from "@mantine/hooks";
 import { useState } from "react";
 import Navbar from "@/components/navbar";
+import { GenerateId } from "@/utils/generateId";
 
 const Certification = () => {
   //init router
@@ -75,17 +76,23 @@ const Certification = () => {
                   key={index}
                   tabIndex={0}
                 >
-                  <input
-                    type="text"
-                    value={item.value}
-                    placeholder="Enter your certification"
-                    className="rounded w-full pl-4 pr-12 py-3  border"
-                    onChange={(e) =>
-                      dispatch(
-                        updateCertification({ index, value: e.target.value })
-                      )
-                    }
-                  />
+                  <div className="floating-input relative w-full">
+                    <input
+                      type="text"
+                      value={item.value}
+                      placeholder=""
+                      id={`${GenerateId(index, "certificate")}`}
+                      className="rounded w-full pl-4 pr-12 py-3  border"
+                      onChange={(e) =>
+                        dispatch(
+                          updateCertification({ index, value: e.target.value })
+                        )
+                      }
+                    />
+                    <label htmlFor={`${GenerateId(index, "certificate")}`}>
+                      Enter your certification
+                    </label>
+                  </div>
                   <button
                     onClick={() => handleDeleteCertification(index)}
                     className="mx-4 absolute top-3 right-0"
