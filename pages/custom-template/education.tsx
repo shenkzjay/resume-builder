@@ -94,7 +94,7 @@ const EducationHistory = () => {
             <div>
               {updateEduHistory.map((item, index) => (
                 <div className="flex mb-6 p-4 border rounded" key={index}>
-                  <details className="w-full">
+                  <details className="w-full edu">
                     <summary className="relative">
                       <span>Add your educational history</span>
                       <button

@@ -52,6 +52,8 @@ details[open] summary::before {
   padding-left: 3px;
 }
 
+/* Open state */
+
 /* .scales {
   --scale: 0.5;
 
@@ -249,4 +251,47 @@ input:not(:placeholder-shown) ~ label {
   padding: 0.1rem;
   font-size: 14px;
   transition: bottom 300ms ease-out;
+}
+
+.linkedIn {
+  display: flex;
+}
+
+.anime {
+  transition: height 1s ease-in-out;
+  overflow: hidden;
+}
+
+.anime:not([open]) {
+  height: 1.5em;
+}
+
+.anime[open] {
+  height: 31em;
+}
+
+.pro {
+  transition: height 1s ease-in-out;
+  overflow: hidden;
+}
+
+.pro:not([open]) {
+  height: 3.5em;
+}
+
+.pro[open] {
+  height: 22em;
+}
+
+.edu {
+  transition: height 1s ease-in-out;
+  overflow: hidden;
+}
+
+.edu:not([open]) {
+  height: 1.5em;
+}
+
+.edu[open] {
+  height: 22em;
 }

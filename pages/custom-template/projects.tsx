@@ -109,7 +109,7 @@ const Project = () => {
             <div>
               {updateProject.map((item, index) => (
                 <details
-                  className="w-full flex mb-6 p-4 border rounded"
+                  className="w-full pro flex mb-6 p-4 border rounded"
                   key={index}
                 >
                   <summary className="relative">

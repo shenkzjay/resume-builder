@@ -182,7 +182,7 @@ const WorkExperience = () => {
                   } ${deleteBtnAnimation && index ? "fade-out" : ""} `}
                   key={index}
                 >
-                  <details className={`w-full`}>
+                  <details className={`w-full anime`}>
                     <summary className="relative">
                       <span>Add details of work experience</span>
                       <button

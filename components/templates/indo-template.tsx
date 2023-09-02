@@ -96,7 +96,7 @@ const IndoTemplate: React.FC = () => {
                   <div className="flex gap-3 text-[8px]">
                     {socailLinks.linkedIn !== "" && (
                       <div className="flex gap-1">
-                        <IconBrandLinkedin size={10} />
+                        <div className="font-semibold">LinkedIn:</div>
                         <p>
                           {" "}
                           {socailLinks.linkedIn
@@ -108,7 +108,7 @@ const IndoTemplate: React.FC = () => {
 
                     {socailLinks.twitter !== "" && (
                       <div className="flex gap-1">
-                        <IconBrandTwitter size={10} />
+                        <div className="font-semibold">Twitter:</div>
                         <p>
                           {socailLinks.twitter
                             ? socailLinks.twitter
@@ -119,7 +119,7 @@ const IndoTemplate: React.FC = () => {
 
                     {socailLinks.github !== "" && (
                       <div className="flex gap-1">
-                        <IconBrandGithub size={10} />
+                        <div className="font-semibold">Github:</div>
                         <p>
                           {socailLinks.github
                             ? socailLinks.github

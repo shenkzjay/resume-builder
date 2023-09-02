@@ -237,7 +237,9 @@ const DefaultTemplate: React.FC = () => {
                 <div className="flex flex-col text-[8px]">
                   {socailLinks.linkedIn !== "" && (
                     <div className="flex gap-1">
-                      <IconBrandLinkedin size={12} />
+                      <div className="font-semibold text-cyan-600">
+                        LinkedIn:
+                      </div>
                       <p>
                         {" "}
                         {socailLinks.linkedIn
@@ -249,18 +251,20 @@ const DefaultTemplate: React.FC = () => {
 
                   {socailLinks.twitter !== "" && (
                     <div className="flex gap-1">
-                      <IconBrandTwitter size={12} />
-                      <p>
+                      <div className="font-semibold text-cyan-600">
+                        Twitter:
+                      </div>
+                      <div>
                         {socailLinks.twitter
                           ? socailLinks.twitter
                           : "www.twitter.com/10233324"}
-                      </p>
+                      </div>
                     </div>
                   )}
 
                   {socailLinks.github !== "" && (
                     <div className="flex gap-1">
-                      <IconBrandGithub size={12} />
+                      <div className="font-semibold text-cyan-600">Github:</div>
                       <p>
                         {socailLinks.github
                           ? socailLinks.github

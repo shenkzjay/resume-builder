@@ -54,7 +54,7 @@ const DownloadPage = () => {
       const pdf = new jsPDF("p", "mm", "a4");
       const pdfWidth = pdf.internal.pageSize.getWidth();
       const pdfHeight = pdf.internal.pageSize.getHeight();
-      pdf.addImage(imgData, "JPEG", 0, 0, pdfWidth, pdfHeight, "", "SLOW");
+      pdf.addImage(imgData, "JPEG", 0, 0, pdfWidth, pdfHeight, "", "FAST");
       pdf.save("resume.pdf");
 
       persistor.pause();
@@ -99,7 +99,7 @@ const DownloadPage = () => {
         </div>
       </div>
       <div className="flex justify-center gap-20">
-        <div className="md:h-[842px] md:w-[600px] h-[80vh] overflow-auto flex drop-shadow-[0_8px_20px_rgba(0,0,0,0.08)] pb-20 rounded mx-6 md:mx-0">
+        <div className="md:h-[892px] md:w-[592px] h-[80vh] overflow-auto flex drop-shadow-[0_8px_20px_rgba(0,0,0,0.08)] pb-20 rounded mx-6 md:mx-0">
           <div ref={printRef} className="w-full">
             {TemplateComponent}
           </div>
