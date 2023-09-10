@@ -299,7 +299,7 @@ input:not(:placeholder-shown) ~ label {
 .animate-circle {
   opacity: 0;
   animation: animate-circle 1s forwards;
-  animation-delay: 9s;
+  animation-delay: 6s;
 }
 
 @keyframes animate-circle {
@@ -315,35 +315,35 @@ input:not(:placeholder-shown) ~ label {
 
 .name {
   opacity: 0;
-  animation: software 1s 7s forwards;
+  animation: software 1s 4s forwards;
 }
 
 .name-text {
   opacity: 0;
-  animation: software 1s 7s forwards;
+  animation: software 1s 4s forwards;
 }
 
 .name-card-bg {
   opacity: 0;
-  animation: software 1s 7s forwards;
+  animation: software 1s 4s forwards;
 }
 
 .thumbs-up-text {
   opacity: 0;
   animation: thumb 1s forwards;
-  animation-delay: 8s;
+  animation-delay: 5s;
 }
 
 .thumb-up-bg {
   opacity: 0;
   animation: thumb 1s forwards;
-  animation-delay: 8s;
+  animation-delay: 5s;
 }
 
 .thumb-up {
   opacity: 0;
   animation: thumb 1s forwards;
-  animation-delay: 8s;
+  animation-delay: 5s;
 }
 
 @keyframes thumb {
@@ -364,12 +364,12 @@ input:not(:placeholder-shown) ~ label {
 
 .name-subtext {
   opacity: 0;
-  animation: software 1s 7s forwards;
+  animation: software 1s 4s forwards;
 }
 
 .guy-avatar {
   opacity: 0;
-  animation: software 1s 7s forwards;
+  animation: software 1s 4s forwards;
 }
 
 @keyframes software {
@@ -396,7 +396,7 @@ input:not(:placeholder-shown) ~ label {
 
 .right-card-words {
   opacity: 0;
-  animation: right-words 2.5s 4s forwards;
+  animation: right-words 2.5s 3s forwards;
 }
 
 @keyframes right-card {
@@ -427,7 +427,7 @@ input:not(:placeholder-shown) ~ label {
 
 .left-card-words {
   opacity: 0;
-  animation: left-words 3.5s 5s forwards;
+  animation: left-words 3.5s 3s forwards;
 }
 
 @keyframes left-card {
@@ -444,7 +444,7 @@ input:not(:placeholder-shown) ~ label {
 @keyframes left-words {
   100% {
     opacity: 1;
-    transition: opacity 4s ease-in-out;
+    transition: opacity 3s ease-in-out;
   }
 }
 
