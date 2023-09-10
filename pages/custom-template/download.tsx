@@ -46,20 +46,44 @@ const DownloadPage = () => {
   };
 
   const handleDownloadPDF = async () => {
+    // try {
+    //   if (!printRef.current) return;
+    //   const canvas = await html2canvas(printRef.current, { scale: 5 });
+    //   const imgData = canvas.toDataURL("image/jpeg");
+
+    //   const pdf = new jsPDF("p", "mm", "a4");
+    //   const pdfWidth = pdf.internal.pageSize.getWidth();
+    //   const pdfHeight = pdf.internal.pageSize.getHeight();
+    //   const canvasHeight = canvas.height;
+    //   pdf.addImage(imgData, "JPEG", 0, 0, pdfWidth, pdfHeight, "", "FAST");
+    //   if (canvasHeight > pdfHeight) {
+    //     pdf.addPage();
+    //   }
+
+    //   pdf.save("resume.pdf");
+
+    //   // persistor.pause();
+    //   // persistor.flush().then(() => {
+    //   //   return persistor.purge();
+    //   // });
+    // } catch (error) {
+    //   console.error("Error generating PDF:", error);
+    // }
+
     try {
       if (!printRef.current) return;
-      const canvas = await html2canvas(printRef.current, { scale: 5 });
-      const imgData = canvas.toDataURL("image/jpeg");
 
-      const pdf = new jsPDF("p", "mm", "a4");
-      const pdfWidth = pdf.internal.pageSize.getWidth();
-      const pdfHeight = pdf.internal.pageSize.getHeight();
-      pdf.addImage(imgData, "JPEG", 0, 0, pdfWidth, pdfHeight, "", "FAST");
-      pdf.save("resume.pdf");
+      html2canvas(printRef.current, { scale: 5 }).then((canvas) => {
+        const imgData = canvas.toDataURL("image/jpeg");
 
-      persistor.pause();
-      persistor.flush().then(() => {
-        return persistor.purge();
+        const contentHeight = canvas.height;
+        const pdf = new jsPDF("p", "mm", [210, contentHeight]);
+        const pdfWidth = pdf.internal.pageSize.getWidth();
+        const pdfHeight = pdf.internal.pageSize.getHeight();
+
+        pdf.addImage(imgData, "JPEG", 0, 0, pdfWidth, pdfHeight, "", "FAST");
+
+        pdf.save("resume.pdf");
       });
     } catch (error) {
       console.error("Error generating PDF:", error);

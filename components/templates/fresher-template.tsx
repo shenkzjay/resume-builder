@@ -119,23 +119,28 @@ const FresherTemplate: React.FC = () => {
         </section>
         {/**objective summary */}
         <div>
-          <h2 className=" font-extrabold leading-none uppercase text-[9px] text-cyan-600 underline-offset-4 underline decoration-[2.5px]">
+          <h2 className="summary font-extrabold leading-none uppercase text-[9px] text-cyan-600">
             Professional summary
           </h2>
-          <hr className="w-full border-[0.5px] border-cyan-300 mt-1 mb-2" />
+          <div className="relative mt-[12px] mb-1">
+            <div className="w-32 h-1 bg-cyan-600 absolute bottom-0 "></div>
+            <hr className="w-full border-[.5px] border-cyan-600" />
+          </div>
           <p className="text-[9px]">
             {updateObjective
               ? htmr(updateObjective)
               : " A pace setter in the industry with a cos my stubborn heart always rosms to places i cannot find and sometimes i hpe it hudt dtays in a placr where i coild give it the restir deserves"}
           </p>
-          <div className="text-[9px]"></div>
         </div>
         {/**Skills */}
         <div>
-          <h2 className=" font-extrabold leading-none uppercase text-[9px] text-cyan-600 underline-offset-4 underline decoration-[2.5px]">
+          <h2 className=" font-extrabold leading-none uppercase text-[9px] text-cyan-600">
             Skills
           </h2>
-          <hr className="w-full border-[0.5px] border-cyan-300 mt-1 mb-2" />
+          <div className="relative mt-[12px] mb-1">
+            <div className="w-[34px] h-1 bg-cyan-600 absolute bottom-0 "></div>
+            <hr className="w-full border-[.5px] border-cyan-600" />
+          </div>
           <div className="flex  flex-wrap">
             {updateSkills.map((skills, index) => (
               <div key={index} className="text-[9px]">
@@ -152,14 +157,17 @@ const FresherTemplate: React.FC = () => {
         {/**Work experience */}
         {workExperience.length > 0 && (
           <div>
-            <h2 className="uppercase text-[9px] font-extrabold text-cyan-600 underline-offset-4 underline decoration-[2.5px]">
+            <h2 className="uppercase text-[9px] font-extrabold text-cyan-600">
               WORK EXPERIENCE
             </h2>
-            <hr className="w-full border-[0.5px] border-cyan-300 mt-[1.5px] mb-2" />
+            <div className="relative mt-[12px] mb-1">
+              <div className="w-[93px] h-1 bg-cyan-600 absolute bottom-0 "></div>
+              <hr className="w-full border-[.5px] border-cyan-600" />
+            </div>
             {workExperience.map((item, index) => (
               <div key={index}>
                 <header className="">
-                  <div className="mt-2 mb-2 flex justify-between items-center">
+                  <div className="my-2 flex justify-between items-center">
                     <div className="text-[11px]">
                       <b>
                         {item.job_title ? item.job_title : "JobTitle"},&nbsp;
@@ -198,10 +206,13 @@ const FresherTemplate: React.FC = () => {
         {/**Education history */}
         {educationHistory.length > 0 && (
           <div>
-            <h2 className="text-[9px] font-extrabold text-cyan-600 underline-offset-4 underline decoration-[2.5px]">
+            <h2 className="text-[9px] font-extrabold text-cyan-600 ">
               EDUCATION
             </h2>
-            <hr className="w-full border-[0.5px] border-cyan-300 mt-[2px] mb-2" />
+            <div className="relative mt-[12px] mb-1">
+              <div className="w-[56px] h-1 bg-cyan-600 absolute bottom-0 "></div>
+              <hr className="w-full border-[.5px] border-cyan-600" />
+            </div>
             {educationHistory.map((item, index) => (
               <div key={index}>
                 <div className="mt-2 mb-1 flex justify-between items-start">
@@ -253,6 +264,10 @@ const FresherTemplate: React.FC = () => {
                 <h2 className="text-[9px] font-extrabold my-2 text-cyan-600">
                   PROJECTS
                 </h2>
+                <div className="relative mt-[12px] mb-1">
+                  <div className="w-[50px] h-1 bg-cyan-600 absolute bottom-0 "></div>
+                  <hr className="w-full border-[.5px] border-cyan-600" />
+                </div>
               </header>
             </div>
 
@@ -285,10 +300,13 @@ const FresherTemplate: React.FC = () => {
 
         {/**certification */}
         <div>
-          <h2 className="text-[9px] font-extrabold text-cyan-600 mt-4 underline-offset-4 underline decoration-[2.5px]">
+          <h2 className="text-[9px] font-extrabold text-cyan-600 mt-4">
             CERTIFICATION
           </h2>
-          <hr className="w-full border-[0.5px] border-cyan-300 mt-[1.5px] mb-2 " />
+          <div className="relative mt-[12px] mb-1">
+            <div className="w-[74px] h-1 bg-cyan-600 absolute bottom-0 "></div>
+            <hr className="w-full border-[.5px] border-cyan-600" />
+          </div>
           {certification.map((item, index) => (
             <div key={index}>
               <ul className="text-[9px] space-y-2 ml-0">

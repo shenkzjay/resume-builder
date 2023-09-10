@@ -54,7 +54,7 @@ const DefaultTemplate: React.FC = () => {
             <h2 className="text-2xl font-bold leading-none">
               {updateTextName.name ? updateTextName.name : "Olajide Seun"}
             </h2>
-            <div className="font-bold text-[9px] mt-1">
+            <div className="font-bold text-[9px] mt-2">
               {updateTextName.profession
                 ? updateTextName.profession
                 : "Frontend developer"}
@@ -63,8 +63,8 @@ const DefaultTemplate: React.FC = () => {
 
           {/**objective summary */}
           <div>
-            <h2 className=" font-extrabold leading-none uppercase text-[9px] my-2 text-cyan-600">
-              Professional summary
+            <h2 className=" font-extrabold leading-none text-[9px] my-2 text-cyan-600">
+              PROFESSIONAL SUMMARY
             </h2>
             <div className="text-[9px]">
               {updateObjective
@@ -228,8 +228,8 @@ const DefaultTemplate: React.FC = () => {
               {(socailLinks.github !== "" ||
                 socailLinks.linkedIn !== "" ||
                 socailLinks.twitter !== "") && (
-                <h2 className="text-[9px] font-extrabold text-cyan-600 mt-2 mb-2 uppercase">
-                  Social links
+                <h2 className="text-[9px] font-extrabold text-cyan-600 mt-4 mb-2">
+                  SOCIAL LINKS
                 </h2>
               )}
 
@@ -279,7 +279,7 @@ const DefaultTemplate: React.FC = () => {
 
           <article>
             <div>
-              <h2 className="text-[9px] font-extrabold text-cyan-600 mt-2 mb-2">
+              <h2 className="text-[9px] font-extrabold text-cyan-600 mt-4 mb-2">
                 SKILLS
               </h2>
               <div className="flex flex-wrap">
@@ -298,7 +298,7 @@ const DefaultTemplate: React.FC = () => {
           {certification.length > 0 && (
             <article>
               <div>
-                <h2 className="text-[9px] font-extrabold text-cyan-600 mt-2 mb-2">
+                <h2 className="text-[9px] font-extrabold text-cyan-600 mt-4 mb-2">
                   CERTIFICATION
                 </h2>
                 {certification.map((item, index) => (

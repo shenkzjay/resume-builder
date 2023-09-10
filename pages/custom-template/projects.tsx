@@ -150,7 +150,7 @@ const Project = () => {
                         }
                       />
                       <label htmlFor={`${GenerateId(index, "projectLink")}`}>
-                        Project link: https://www.example.com
+                        Project link
                       </label>
                     </div>
 

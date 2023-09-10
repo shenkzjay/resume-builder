@@ -55,7 +55,7 @@ const IndoTemplate: React.FC = () => {
               ? updatePersonalDetails.name
               : "Olajide Seun"}
           </h2>
-          <p className="font-bold text-[9px] mt-1">
+          <p className="font-bold text-[9px] mt-2">
             {updatePersonalDetails.profession
               ? updatePersonalDetails.profession
               : "Frontend developer"}
@@ -135,10 +135,10 @@ const IndoTemplate: React.FC = () => {
         </div>
 
         {/**objective summary */}
-        <div>
-          <h2 className=" font-extrabold leading-none uppercase text-[9px] w-[145px] text-white bg-black py-1 px-2">
-            Professional summary
-          </h2>
+        <div className="flex flex-col justify-center">
+          <div className=" flex font-extrabold text-[9px] text-black items-center justify-center mb-2">
+            PROFESSIONAL SUMMARY
+          </div>
           <hr className="border-[0,5px] border-slate-500 mb-2" />
           <p className="text-[9px]">
             {careerObjective
@@ -148,11 +148,11 @@ const IndoTemplate: React.FC = () => {
         </div>
 
         {/**skill */}
-        <div>
-          <h2 className=" font-extrabold leading-none uppercase text-[9px] w-[50px] text-white bg-black py-1 px-2">
+        <div className="">
+          <h2 className="flex font-extrabold leading-none uppercase text-[9px] w-full justify-center mb-2">
             Skills
           </h2>
-          <hr className="border-[0,5px] border-slate-500 mb-2" />
+          <hr className="border-[0.5px] border-slate-500 mb-2" />
           <div className="flex  flex-wrap">
             {updateSkills.map((skills, index) => (
               <div key={index} className="text-[9px]">
@@ -171,16 +171,16 @@ const IndoTemplate: React.FC = () => {
         <article>
           <div>
             <header className="mt-4">
-              <h2 className="uppercase text-[9px] leading-none font-extrabold w-[78px] text-white bg-black py-1 px-2">
+              <h2 className="flex text-[9px] leading-none font-extrabold text-black justify-center">
                 EXPERIENCE
               </h2>
 
-              <hr className="border-[0.5px] border-slate-500" />
+              <hr className="border-[0.5px] border-slate-500 my-2" />
             </header>
 
             {workExperience.map((item, index) => (
               <div key={index}>
-                <div className="mt-2 mb-2">
+                <div className="mt-2 mb-2 flex flex-col">
                   <div className="text-[11px]">
                     <b>
                       {item.job_title ? item.job_title : "Job Title"}
@@ -224,10 +224,10 @@ const IndoTemplate: React.FC = () => {
         <article>
           <div>
             <header className="mt-4">
-              <h2 className="text-[9px] font-extrabold  w-[73px] text-white bg-black py-1 px-2">
+              <h2 className="flex text-[9px] text-center font-extrabold text-black justify-center">
                 EDUCATION
               </h2>
-              <hr className="border-[0.5px] border-slate-500 mb-2" />
+              <hr className="border-[0.5px] border-slate-500 my-2" />
             </header>
             {educationHistory.map((item, index) => (
               <div key={index}>
@@ -275,10 +275,10 @@ const IndoTemplate: React.FC = () => {
           <article className="space-y-2">
             <div className="space-y-2">
               <header>
-                <h2 className="text-[9px] font-extrabold w-[68px] text-white bg-black py-1 px-2">
+                <h2 className="text-[9px] font-extrabold text-black text-center">
                   PROJECTS
                 </h2>
-                <hr className="border-[0.5px] border-slate-500 mb-2" />
+                <hr className="border-[0.5px] border-slate-500 my-2" />
               </header>
               {updateProject.map((item, index) => (
                 <div key={index}>
@@ -310,10 +310,10 @@ const IndoTemplate: React.FC = () => {
 
         {/**Certification */}
         <article>
-          <h2 className=" font-extrabold leading-none uppercase text-[9px] w-[145px] text-white bg-black py-1 px-2">
+          <h2 className=" text-center font-extrabold leading-none uppercase text-[9px] text-black">
             CERTIFICATION
           </h2>
-          <hr className="border-[0,5px] border-slate-500 mb-2" />
+          <hr className="border-[0,5px] border-slate-500 my-2" />
           {certification.map((item, index) => (
             <div key={index}>
               <ul className="text-[9px] space-y-2 ml-0">

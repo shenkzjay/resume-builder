@@ -253,7 +253,7 @@ input:not(:placeholder-shown) ~ label {
   transition: bottom 300ms ease-out;
 }
 
-.linkedIn {
+/* .linkedIn {
   display: flex;
 }
 
@@ -294,4 +294,179 @@ input:not(:placeholder-shown) ~ label {
 
 .edu[open] {
   height: 22em;
+} */
+
+.animate-circle {
+  opacity: 0;
+  animation: animate-circle 1s forwards;
+  animation-delay: 9s;
+}
+
+@keyframes animate-circle {
+  0% {
+    opacity: 0;
+    transform: translateX(200%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.name {
+  opacity: 0;
+  animation: software 1s 7s forwards;
+}
+
+.name-text {
+  opacity: 0;
+  animation: software 1s 7s forwards;
+}
+
+.name-card-bg {
+  opacity: 0;
+  animation: software 1s 7s forwards;
+}
+
+.thumbs-up-text {
+  opacity: 0;
+  animation: thumb 1s forwards;
+  animation-delay: 8s;
+}
+
+.thumb-up-bg {
+  opacity: 0;
+  animation: thumb 1s forwards;
+  animation-delay: 8s;
+}
+
+.thumb-up {
+  opacity: 0;
+  animation: thumb 1s forwards;
+  animation-delay: 8s;
+}
+
+@keyframes thumb {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.25);
+    transform-origin: center center;
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+    transform-origin: center center;
+  }
+}
+
+.name-subtext {
+  opacity: 0;
+  animation: software 1s 7s forwards;
+}
+
+.guy-avatar {
+  opacity: 0;
+  animation: software 1s 7s forwards;
+}
+
+@keyframes software {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.25);
+    transform-origin: center center;
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+    transform-origin: center center;
+  }
+}
+
+.right-card-bg {
+  animation: right-card 1s forwards;
+  animation-delay: 1s;
+  opacity: 0;
+}
+
+.right-card-words {
+  opacity: 0;
+  animation: right-words 2.5s 4s forwards;
+}
+
+@keyframes right-card {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    transform: translateX(-5%);
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes right-words {
+  100% {
+    opacity: 1;
+    transition: opacity 3s ease-in-out;
+  }
+}
+
+.left-card-bg {
+  opacity: 0;
+  animation: left-card 1.5s forwards;
+  animation-delay: 1.5s;
+}
+
+.left-card-words {
+  opacity: 0;
+  animation: left-words 3.5s 5s forwards;
+}
+
+@keyframes left-card {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+    transition: opacity 3s ease-in-out;
+  }
+}
+
+@keyframes left-words {
+  100% {
+    opacity: 1;
+    transition: opacity 4s ease-in-out;
+  }
+}
+
+.center-card-bg {
+  animation: center-card 0.5s 300ms forwards;
+}
+
+.center-card-words {
+  opacity: 0;
+  animation: card-words 2.5s 3s forwards;
+}
+
+@keyframes center-card {
+  50% {
+    transform: scale(1.25);
+    transform-origin: center center;
+  }
+}
+
+@keyframes card-words {
+  100% {
+    opacity: 1;
+    transition: opacity 2.5s ease-in-out;
+  }
 }

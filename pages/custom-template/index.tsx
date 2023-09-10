@@ -60,6 +60,7 @@ const SelectTemplate = () => {
               } max-h-[50vh] mx-6 md:mx-0`}
             >
               {template.component}
+              <p className="text-center mt-6">{template.name}</p>
             </div>
           ))}
         </div>
