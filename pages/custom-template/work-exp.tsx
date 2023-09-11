@@ -398,7 +398,6 @@ const WorkExperience = () => {
           <div className="h-[70vh]">{TemplateComponent}</div>
         </ModalCard>
       </div>
-      <Dropthatdown />
     </section>
   );
 };
