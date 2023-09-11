@@ -16,9 +16,11 @@ import axios from "axios";
 import { templateType } from "@/components/templates";
 import ReactDOMServer from "react-dom/server";
 import Dummy from "@/components/dummy";
+import Dropthatdown from "@/components/ui-components/toggleButton/dropthatdown";
 
 //@ts-ignore
 import html2pdf from "html2pdf.js";
+import Navbar from "@/components/navbar";
 
 const DownloadPage = () => {
   const printRef = useRef<HTMLDivElement | null>(null);
@@ -45,31 +47,14 @@ const DownloadPage = () => {
     setSelectTemplate(index);
   };
 
+  const data = [
+    { value: "Download pdf file", label: "Download pdf file" },
+    { value: "Download doc file", label: "Download doc file" },
+    { value: "saudi", label: "gomorrah" },
+    { value: "anthony", label: "gomorrah" },
+  ];
+
   const handleDownloadPDF = async () => {
-    // try {
-    //   if (!printRef.current) return;
-    //   const canvas = await html2canvas(printRef.current, { scale: 5 });
-    //   const imgData = canvas.toDataURL("image/jpeg");
-
-    //   const pdf = new jsPDF("p", "mm", "a4");
-    //   const pdfWidth = pdf.internal.pageSize.getWidth();
-    //   const pdfHeight = pdf.internal.pageSize.getHeight();
-    //   const canvasHeight = canvas.height;
-    //   pdf.addImage(imgData, "JPEG", 0, 0, pdfWidth, pdfHeight, "", "FAST");
-    //   if (canvasHeight > pdfHeight) {
-    //     pdf.addPage();
-    //   }
-
-    //   pdf.save("resume.pdf");
-
-    //   // persistor.pause();
-    //   // persistor.flush().then(() => {
-    //   //   return persistor.purge();
-    //   // });
-    // } catch (error) {
-    //   console.error("Error generating PDF:", error);
-    // }
-
     try {
       if (!printRef.current) return;
 
@@ -77,7 +62,7 @@ const DownloadPage = () => {
         const imgData = canvas.toDataURL("image/jpeg");
 
         const contentHeight = canvas.height;
-        const pdf = new jsPDF("p", "mm", [210, contentHeight]);
+        const pdf = new jsPDF("p", "mm", "a4");
         const pdfWidth = pdf.internal.pageSize.getWidth();
         const pdfHeight = pdf.internal.pageSize.getHeight();
 
@@ -112,14 +97,18 @@ const DownloadPage = () => {
 
   return (
     <section className="md:mx-auto md:w-[90vw]">
-      <div className="non-printable my-10 flex flex-col md:flex-row justify-between mx-6 md:mx-0">
-        <p className="font-bold text-4xl">RESUME</p>
+      <div className="non-printable mb-10 flex flex-col md:flex-row items-end justify-between mx-6 md:mx-0">
+        <Navbar />
         <div className="flex gap-10 ">
-          <ExportButton onClick={handleDownloadPDF} />
-          <button onClick={handlePDF}>Click here to download</button>
+          <Dropthatdown
+            buttonName="Click to download"
+            data={data}
+            onClick={handleDownloadPDF}
+          />
+          {/* <button onClick={handlePDF}>Click here to download</button>
           <a href="/api/downladpdf" download="resume.pdf">
             Click to download
-          </a>
+          </a> */}
         </div>
       </div>
       <div className="flex justify-center gap-20">

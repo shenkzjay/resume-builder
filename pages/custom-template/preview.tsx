@@ -13,6 +13,7 @@ import { RootState } from "@/states/store";
 import { useDispatch } from "react-redux";
 import { updateSeletedTemplate } from "@/states/reducers/slice/textUpdateSlice";
 import Navbar from "@/components/navbar";
+import Dropthatdown from "@/components/ui-components/toggleButton/dropthatdown";
 
 const PreviewTemplate = () => {
   const printRef = useRef<HTMLDivElement | null>(null);
@@ -38,14 +39,29 @@ const PreviewTemplate = () => {
     dispatch(updateSeletedTemplate(index));
   };
 
+  const editData = [
+    { value: "Personal details", label: "Personal details" },
+    { value: "Work expereience", label: "Work expereience" },
+    { value: "Education history", label: "Education history" },
+    { value: "Project", label: "Project" },
+    { value: "Certification", label: "Certification" },
+  ];
+
+  const handleClick = () => {};
+
   return (
     <section className="md:mx-auto md:w-[85vw]">
       <div className=" flex mb-6 flex-col md:flex-row justify-between md:items-end">
         <Navbar />
-        <div className="flex md:gap-10 justify-between mx-6 md:mx-0 mt-6 md:mt-0">
-          <EditSectionButton />
+        <div className="flex md:gap-10 mx-6 md:mx-0 mt-6 md:mt-0">
+          <Dropthatdown
+            buttonName="Edit section"
+            data={editData}
+            onClick={handleClick}
+          />
+
           <button
-            className="py-3 px-4 bg-cyan-600 font-semibold text-white rounded"
+            className="py-3 px-4 outline bg-cyan-600 font-semibold text-white rounded"
             onClick={() =>
               router.push({
                 pathname: "/custom-template/download",

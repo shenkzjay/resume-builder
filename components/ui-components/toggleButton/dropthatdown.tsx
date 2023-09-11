@@ -1,13 +1,16 @@
 import React, { use, useState } from "react";
 
-const Dropthatdown = () => {
-  const data = [
-    { value: "Sodom", label: "gomorrah" },
-    { value: "solution", label: "gomorrah" },
-    { value: "saudi", label: "gomorrah" },
-    { value: "anthony", label: "gomorrah" },
-  ];
+interface Data {
+  value: string;
+  label: string;
+}
 
+interface Dropdownstate {
+  onClick: () => void;
+  buttonName: string;
+  data: Data[];
+}
+const Dropthatdown = ({ onClick, buttonName, data }: Dropdownstate) => {
   const [toggle, setToggle] = useState(false);
   const [selected, setSelected] = useState("");
   console.log("selected", selected);
@@ -15,28 +18,35 @@ const Dropthatdown = () => {
   const handleSelect = (selectedString: string) => {
     setSelected(selectedString);
     setToggle(false);
+    if (selectedString === "Sodom") {
+      onClick();
+    }
   };
 
   return (
     <div className="">
-      <button
-        className="bg-primaryButton p-2 rounded"
-        onClick={() => setToggle((prev) => !prev)}
-      >
-        Yessir
-      </button>
+      <div>
+        <button
+          className="border-cyan-600 border-2 px-4 py-3 rounded text-cyan-600 hover:bg-cyan-600 hover:text-white font-semibold"
+          onClick={() => setToggle((prev) => !prev)}
+        >
+          {buttonName}
+        </button>
+      </div>
       {toggle && (
-        <ul className="bg-white w-24 border">
-          {data.map((item, index) => (
-            <li
-              key={index}
-              className="hover:bg-slate-200 p-1 m-1"
-              onClick={() => handleSelect(item.value)}
-            >
-              {item.value}
-            </li>
-          ))}
-        </ul>
+        <div className="relative">
+          <ul className="bg-white w-max border absolute top-2 drop-shadow-[0px_8px_20px_rgba(0,0,0,0.08)] z-50 cursor-pointer">
+            {data.map((item, index) => (
+              <li
+                key={index}
+                className="hover:bg-slate-200 p-2 m-2 rounded text-[14px]"
+                onClick={() => handleSelect(item.value)}
+              >
+                {item.value}
+              </li>
+            ))}
+          </ul>
+        </div>
       )}
     </div>
   );

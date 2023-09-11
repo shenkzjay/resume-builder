@@ -84,7 +84,7 @@ const FresherTemplate: React.FC = () => {
           <div className="text-[9px]">
             {socailLinks.linkedIn !== "" && (
               <div className="flex gap-1">
-                <IconBrandLinkedin size={12} />
+                <p className=" font-semibold text-cyan-600">LinkedIn:</p>
                 <p>
                   {" "}
                   {socailLinks.linkedIn
@@ -96,7 +96,7 @@ const FresherTemplate: React.FC = () => {
 
             {socailLinks.twitter !== "" && (
               <div className="flex gap-1">
-                <IconBrandTwitter size={12} />
+                <p className=" font-semibold text-cyan-600">Twitter:</p>
                 <p>
                   {socailLinks.twitter
                     ? socailLinks.twitter
@@ -107,7 +107,7 @@ const FresherTemplate: React.FC = () => {
 
             {socailLinks.github !== "" && (
               <div className="flex gap-1">
-                <IconBrandGithub size={12} />
+                <p className=" font-semibold text-cyan-600">Github:</p>
                 <p>
                   {socailLinks.github
                     ? socailLinks.github
