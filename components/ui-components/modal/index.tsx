@@ -1,6 +1,4 @@
-import { Modal, Group, Button } from "@mantine/core";
-import { useDisclosure } from "@mantine/hooks";
-import { useRef } from "react";
+import { Modal } from "@mantine/core";
 
 interface ModalProps {
   open: () => void;

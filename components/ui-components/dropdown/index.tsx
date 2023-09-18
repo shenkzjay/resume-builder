@@ -1,6 +1,4 @@
 import { Select, rem } from "@mantine/core";
-import { useState } from "react";
-import { updateWorkExperience } from "@/states/reducers/slice/textUpdateSlice";
 
 interface dropdown {
   value: string;
