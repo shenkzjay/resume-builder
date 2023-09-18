@@ -1,15 +1,7 @@
-"use client";
-
 import { RootState } from "@/states/store";
 import { useSelector } from "react-redux";
-import { useDispatch } from "react-redux";
+
 import htmr from "htmr";
-import {
-  IconBrandGithub,
-  IconBrandLinkedin,
-  IconBrandTwitter,
-} from "@tabler/icons-react";
-import { updateSkills } from "@/states/reducers/slice/textUpdateSlice";
 
 const IndoTemplate: React.FC = () => {
   const updatePersonalDetails = useSelector(

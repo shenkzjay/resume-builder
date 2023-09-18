@@ -10,12 +10,9 @@ import {
   updateSkills,
   deleteSkill,
 } from "@/states/reducers/slice/textUpdateSlice";
-import Link from "next/link";
 import { NextButton, BackButton } from "@/components/buttons";
 import { ModalCard } from "@/components/ui-components/modal";
 import { useDisclosure } from "@mantine/hooks";
-import localforage from "localforage";
-import { ActionTypes } from "@/states/actions-types";
 import Navbar from "@/components/navbar";
 
 const Skills = () => {
@@ -47,8 +44,6 @@ const Skills = () => {
   const addSkills = useSelector(
     (state: RootState) => state.updateTextName.skills
   );
-
-  console.log(addSkills);
 
   //adding style to component using mantine style api
   const useStyles = createStyles(() => ({
@@ -121,7 +116,14 @@ const Skills = () => {
               />
             </div>
             <div className="flex justify-between mt-4">
-              <BackButton name="Back" link="javascript:history.back()" />
+              <BackButton
+                name="Back"
+                onClick={() =>
+                  router.push({
+                    pathname: "/custom-template/update-template",
+                  })
+                }
+              />
 
               <NextButton name="Continue" onClick={handleNext} />
             </div>

@@ -10,9 +10,7 @@ import {
 import { eduHistory as InputItem } from "@/states/actions-types";
 import { useRouter } from "next/router";
 import { templatesData } from "@/components/templates";
-import { IconTrashX } from "@tabler/icons-react";
 import DropDown from "@/components/ui-components/dropdown";
-import Link from "next/link";
 import { BackButton, NextButton, AddButtons } from "@/components/buttons";
 import { ModalCard } from "@/components/ui-components/modal";
 
@@ -21,6 +19,7 @@ import Navbar from "@/components/navbar";
 import { MonthGenerator } from "@/utils/month-year-generator";
 import { YearGenerator } from "@/utils/month-year-generator";
 import { GenerateId } from "@/utils/generateId";
+import Trash from "@/components/svg/trash";
 
 const EducationHistory = () => {
   //init router
@@ -101,7 +100,7 @@ const EducationHistory = () => {
                         onClick={() => handleDeleteEducationHistory(index)}
                         className="absolute top-0 bottom-0 right-0"
                       >
-                        <IconTrashX color="red" size={20} />
+                        <Trash />
                       </button>
                     </summary>
                     <div className="flex flex-col space-y-4 mt-4">
@@ -227,7 +226,14 @@ const EducationHistory = () => {
             </div>
 
             <div className="flex justify-between mt-4">
-              <BackButton name="Back" link="javascript:history.back()" />
+              <BackButton
+                name="Back"
+                onClick={() =>
+                  router.push({
+                    pathname: "/custom-template/work-exp",
+                  })
+                }
+              />
 
               <NextButton
                 name="Continue"

@@ -1,13 +1,8 @@
-import React, { useState, useRef } from "react";
+import React, { useRef } from "react";
 import { templatesData } from "@/components/templates";
 import { useRouter } from "next/router";
-import ExportButton from "@/components/ui-components/toggleButton/export-button";
-import html2canvas from "html2canvas";
-import { jsPDF } from "jspdf";
-import EditSectionButton from "@/components/ui-components/toggleButton/edit-section";
 import { ModalCard } from "@/components/ui-components/modal";
 import { useDisclosure } from "@mantine/hooks";
-import { IconDownload } from "@tabler/icons-react";
 import { useSelector } from "react-redux";
 import { RootState } from "@/states/store";
 import { useDispatch } from "react-redux";
@@ -24,8 +19,6 @@ const PreviewTemplate = () => {
   const selected_template = useSelector(
     (state: RootState) => state.updateTextName.seletedTemplate
   );
-
-  console.log(selected_template);
 
   let TemplateComponent;
 
@@ -53,7 +46,7 @@ const PreviewTemplate = () => {
     <section className="md:mx-auto md:w-[85vw]">
       <div className=" flex mb-6 flex-col md:flex-row justify-between md:items-end">
         <Navbar />
-        <div className="flex md:gap-10 mx-6 md:mx-0 mt-6 md:mt-0">
+        <div className="flex md:gap-10 justify-between mx-6 md:mx-0 mt-6 md:mt-0">
           <Dropthatdown
             buttonName="Edit section"
             data={editData}
@@ -61,7 +54,7 @@ const PreviewTemplate = () => {
           />
 
           <button
-            className="py-3 px-4 outline bg-cyan-600 font-semibold text-white rounded"
+            className="py-3 px-4 outline bg-orange-600 font-semibold text-white rounded"
             onClick={() =>
               router.push({
                 pathname: "/custom-template/download",

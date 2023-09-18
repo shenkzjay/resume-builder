@@ -3,8 +3,6 @@ import {
   UpdateAction,
   skillUpdateAction,
   certificateActions,
-  updateObjectiveAction,
-  editorExperienceActions,
   searchSuggestionsActions,
   updateSocialLinksActions,
   updateProject,

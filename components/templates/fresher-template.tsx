@@ -1,14 +1,6 @@
-"use client";
-
 import { RootState } from "@/states/store";
 import { useSelector } from "react-redux";
-import { useMemo } from "react";
 import htmr from "htmr";
-import {
-  IconBrandGithub,
-  IconBrandLinkedin,
-  IconBrandTwitter,
-} from "@tabler/icons-react";
 
 const FresherTemplate: React.FC = () => {
   const updateTextName = useSelector(
@@ -22,8 +14,6 @@ const FresherTemplate: React.FC = () => {
   const workExperience = useSelector(
     (state: RootState) => state.updateTextName.workExperience
   );
-
-  console.log("updates", workExperience);
 
   const educationHistory = useSelector(
     (state: RootState) => state.updateTextName.educationHistory

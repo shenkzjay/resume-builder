@@ -2,7 +2,6 @@ import { Provider } from "react-redux";
 import DefaultTemplate from "./defaultTemplate";
 import FresherTemplate from "./fresher-template";
 import IndoTemplate from "./indo-template";
-import { store } from "@/states/store";
 
 export interface templateType {
   name: string;

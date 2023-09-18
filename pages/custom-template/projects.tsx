@@ -16,12 +16,12 @@ import {
   AddButtons,
   InverseAddButtons,
 } from "@/components/buttons";
-import { IconPlus, IconTrashX, IconX } from "@tabler/icons-react";
 import { ModalCard } from "@/components/ui-components/modal";
 import { useDisclosure } from "@mantine/hooks";
 import { useState } from "react";
 import Navbar from "@/components/navbar";
 import { GenerateId } from "@/utils/generateId";
+import Trash from "@/components/svg/trash";
 
 const Project = () => {
   //init router
@@ -33,8 +33,6 @@ const Project = () => {
     linkedIndisplay: false,
     twitterDisplay: false,
   });
-
-  console.log(displayProject);
 
   const [opened, { open, close }] = useDisclosure();
 
@@ -58,8 +56,6 @@ const Project = () => {
   const updatedSkill = useSelector(
     (state: RootState) => state.updateTextName.socialLinks
   );
-
-  console.log(updatedSkill);
 
   const handleToggleDisplay = (value: boolean, field: string) => {
     setDisplayProject({ ...displayProject, [field]: value });
@@ -118,7 +114,7 @@ const Project = () => {
                       className="absolute top-0 bottom-0 right-0"
                       onClick={() => handleDeleteProject(index)}
                     >
-                      <IconTrashX color="red" size={20} />
+                      <Trash />
                     </button>
                   </summary>
                   <div className="flex flex-col space-y-4 mt-4">
@@ -207,7 +203,7 @@ const Project = () => {
                         handleToggleDisplay(false, "githubDisplay")
                       }
                     >
-                      <IconTrashX size={20} color="red" />
+                      <Trash />
                     </div>
                   </div>
                 )}
@@ -241,7 +237,7 @@ const Project = () => {
                         handleToggleDisplay(false, "twitterDisplay")
                       }
                     >
-                      <IconTrashX size={20} color="red" />
+                      <Trash />
                     </div>
                   </div>
                 )}
@@ -276,7 +272,7 @@ const Project = () => {
                         handleToggleDisplay(false, "linkedIndisplay")
                       }
                     >
-                      <IconTrashX size={20} color="red" />
+                      <Trash />
                     </div>
                   </div>
                 )}
@@ -307,7 +303,14 @@ const Project = () => {
             </div>
 
             <div className="flex justify-between mt-4">
-              <BackButton name="Back" link="javascript:history.back()" />
+              <BackButton
+                name="Back"
+                onClick={() =>
+                  router.push({
+                    pathname: "/custom-template/education",
+                  })
+                }
+              />
 
               <NextButton
                 name="Continue"

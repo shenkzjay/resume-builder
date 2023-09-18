@@ -1,8 +1,3 @@
-import Link from "next/link";
-
-import { IconArrowLeft, IconPlus } from "@tabler/icons-react";
-import { IconArrowRight } from "@tabler/icons-react";
-
 interface NextButtonProps {
   name: string;
   onClick: () => void;
@@ -10,7 +5,7 @@ interface NextButtonProps {
 
 interface BackButtonProps {
   name: string;
-  link: string;
+  onClick: () => void;
 }
 
 interface AddButtonsProps {
@@ -33,18 +28,17 @@ export const NextButton: React.FC<NextButtonProps> = ({ onClick, name }) => {
   );
 };
 
-export const BackButton: React.FC<BackButtonProps> = ({ name, link }) => {
+export const BackButton: React.FC<BackButtonProps> = ({ name, onClick }) => {
   return (
     <div
-      className=" flex item-center justify-center mt-4 border-2 border-primaryButton rounded px-4 py-3"
+      className=" flex item-center justify-center border-2 border-primaryButton rounded px-4 py-3"
       role="button"
+      onClick={onClick}
     >
-      <button className="flex items-center gap-2">
+      <button className="flex items-center gap-2 font-semibold text-primaryButton">
         {" "}
         {/* <IconArrowLeft size={18} color="blue" /> */}
-        <Link href={link} className="font-semibold text-primaryButton">
-          {name}
-        </Link>
+        {name}
       </button>
     </div>
   );

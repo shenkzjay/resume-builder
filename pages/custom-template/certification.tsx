@@ -9,18 +9,13 @@ import {
   deleteCertification,
 } from "@/states/reducers/slice/textUpdateSlice";
 
-import {
-  BackButton,
-  NextButton,
-  AddButtons,
-  InverseAddButtons,
-} from "@/components/buttons";
-import { IconPlus, IconTrashX, IconX } from "@tabler/icons-react";
+import { BackButton, NextButton, AddButtons } from "@/components/buttons";
 import { ModalCard } from "@/components/ui-components/modal";
 import { useDisclosure } from "@mantine/hooks";
 import { useState } from "react";
 import Navbar from "@/components/navbar";
 import { GenerateId } from "@/utils/generateId";
+import Trash from "@/components/svg/trash";
 
 const Certification = () => {
   //init router
@@ -32,8 +27,6 @@ const Certification = () => {
     linkedIndisplay: false,
     twitterDisplay: false,
   });
-
-  console.log(displayProject);
 
   const [opened, { open, close }] = useDisclosure();
 
@@ -97,7 +90,7 @@ const Certification = () => {
                     onClick={() => handleDeleteCertification(index)}
                     className="mx-4 absolute top-3 right-0"
                   >
-                    <IconTrashX size={20} color="red" />
+                    <Trash />
                   </button>
                 </div>
               ))}
@@ -111,7 +104,14 @@ const Certification = () => {
             </div>
 
             <div className="flex justify-between mt-4">
-              <BackButton name="Back" link="javascript:history.back()" />
+              <BackButton
+                name="Back"
+                onClick={() =>
+                  router.push({
+                    pathname: "/custom-template/projects",
+                  })
+                }
+              />
 
               <NextButton
                 name="Continue"

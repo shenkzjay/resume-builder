@@ -1,5 +1,5 @@
 import { RootState } from "@/states/store";
-import React, { useRef, useState, ChangeEvent, useEffect } from "react";
+import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import {
@@ -11,27 +11,23 @@ import {
 import { workExp as InputItem } from "@/states/actions-types";
 import { useRouter } from "next/router";
 import { templatesData } from "@/components/templates";
-import SunEditorFile from "@/components/ui-components/markdown-editor/sun-editor";
 import DropDown from "@/components/ui-components/dropdown";
 import { ModalCard } from "@/components/ui-components/modal";
 import { useDisclosure } from "@mantine/hooks";
-import { IconSearch, IconTrashX } from "@tabler/icons-react";
+import Trash from "@/components/svg/trash";
+
 import UseSuggestions from "@/hooks/useSuggestions";
-import { IconPlus } from "@tabler/icons-react";
+
 import TiptapEditor from "@/components/ui-components/markdown-editor";
 import { Checkboxelement } from "@/components/ui-components/checkbox";
-import Link from "next/link";
 import { BackButton, NextButton, AddButtons } from "@/components/buttons";
-import MenuBar from "../../components/ui-components/markdown-editor/index";
 import Navbar from "@/components/navbar";
 import { YearGenerator } from "@/utils/month-year-generator";
 import { MonthGenerator } from "@/utils/month-year-generator";
 import { GenerateId } from "@/utils/generateId";
-import Dropthatdown from "@/components/ui-components/toggleButton/dropthatdown";
 
 const WorkExperience = () => {
   const { data, isLoading, error } = UseSuggestions();
-  // console.log("wx", data);
 
   const [opened, { open, close }] = useDisclosure(false);
 
@@ -39,7 +35,6 @@ const WorkExperience = () => {
   const [addBtnAnimation, setAddBtnAnimation] = useState(false);
 
   const [deleteBtnAnimation, setDeleteBtnAnimation] = useState(false);
-  console.log(deleteBtnAnimation);
 
   const { yearArray } = YearGenerator();
 
@@ -65,11 +60,6 @@ const WorkExperience = () => {
   //retrieve updated state from store
   const updateWorkExp = useSelector(
     (state: RootState) => state.updateTextName.workExperience
-  );
-
-  console.log(
-    "updateWork",
-    updateWorkExp.map((item) => item.description)
   );
 
   // const updateEditor = useSelector(
@@ -125,7 +115,6 @@ const WorkExperience = () => {
     item: InputItem,
     selectedDescription: string
   ) => {
-    console.log("Item:", item);
     // const currentContent = updateWorkExp[index].description; // Get current Tiptap editor content
     // const updatedContent = currentContent
     //   ? `${currentContent}\n${selectedDescription}`
@@ -142,7 +131,6 @@ const WorkExperience = () => {
     updatedWorkExp[index].description = updatedContent;
 
     handleInputChange(index, "description", updatedContent);
-    console.log("wos", updatedContent);
 
     close();
   };
@@ -189,7 +177,7 @@ const WorkExperience = () => {
                         onClick={() => handleDeleteWorkExperience(index)}
                         className="absolute top-0 bottom-0 right-0"
                       >
-                        <IconTrashX color="red" size={20} />
+                        <Trash />
                       </button>
                     </summary>
                     <div className="flex flex-col space-y-4 mt-6">
@@ -336,7 +324,14 @@ const WorkExperience = () => {
             </div>
 
             <div className="flex justify-between mt-4">
-              <BackButton name="Back" link="javascript:history.back()" />
+              <BackButton
+                name="Back"
+                onClick={() =>
+                  router.push({
+                    pathname: "/custom-template/skills",
+                  })
+                }
+              />
 
               <NextButton name="Continue" onClick={handleNext} />
             </div>

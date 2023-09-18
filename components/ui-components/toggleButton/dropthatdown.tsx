@@ -1,4 +1,5 @@
 import React, { use, useState } from "react";
+import { useRouter } from "next/router";
 
 interface Data {
   value: string;
@@ -12,29 +13,53 @@ interface Dropdownstate {
 }
 const Dropthatdown = ({ onClick, buttonName, data }: Dropdownstate) => {
   const [toggle, setToggle] = useState(false);
-  const [selected, setSelected] = useState("");
-  console.log("selected", selected);
+  // const [selected, setSelected] = useState("");
+  // console.log("selected", selected);
+
+  const router = useRouter();
 
   const handleSelect = (selectedString: string) => {
-    setSelected(selectedString);
-    setToggle(false);
-    if (selectedString === "Sodom") {
+    if (selectedString === "Download pdf file") {
       onClick();
     }
+
+    if (selectedString === "Personal details") {
+      router.push({ pathname: "/custom-template/update-template" });
+    }
+
+    if (selectedString === "Work expereience") {
+      router.push({ pathname: "/custom-template/work-exp" });
+    }
+
+    if (selectedString === "Education history") {
+      router.push({ pathname: "/custom-template/education" });
+    }
+
+    if (selectedString === "Project") {
+      router.push({ pathname: "/custom-template/projects" });
+    }
+
+    if (selectedString === "Certification") {
+      router.push({ pathname: "/custom-template/certification" });
+    }
+  };
+
+  const handleOnBlur = () => {
+    setToggle(false);
   };
 
   return (
     <div className="">
       <div>
         <button
-          className="border-cyan-600 border-2 px-4 py-3 rounded text-cyan-600 hover:bg-cyan-600 hover:text-white font-semibold"
+          className="border-orange-600 border-2 px-4 py-3 rounded text-orange-600 hover:bg-orange-600 hover:text-white font-semibold"
           onClick={() => setToggle((prev) => !prev)}
         >
           {buttonName}
         </button>
       </div>
       {toggle && (
-        <div className="relative">
+        <div className="relative" onBlur={handleOnBlur} tabIndex={1}>
           <ul className="bg-white w-max border absolute top-2 drop-shadow-[0px_8px_20px_rgba(0,0,0,0.08)] z-50 cursor-pointer">
             {data.map((item, index) => (
               <li

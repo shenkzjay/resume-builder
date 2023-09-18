@@ -1,30 +1,17 @@
 import React, { useState, useRef } from "react";
 import { templatesData } from "@/components/templates";
 import { useRouter } from "next/router";
-import ExportButton from "@/components/ui-components/toggleButton/export-button";
 import html2canvas from "html2canvas";
 import { jsPDF } from "jspdf";
-import EditSectionButton from "@/components/ui-components/toggleButton/edit-section";
-import { ModalCard } from "@/components/ui-components/modal";
-import { useDisclosure } from "@mantine/hooks";
-import { IconDownload } from "@tabler/icons-react";
 import { useSelector } from "react-redux";
 import { RootState } from "@/states/store";
-import { persistor } from "@/states/store";
-import Link from "next/link";
-import axios from "axios";
 import { templateType } from "@/components/templates";
-import ReactDOMServer from "react-dom/server";
-import Dummy from "@/components/dummy";
 import Dropthatdown from "@/components/ui-components/toggleButton/dropthatdown";
-
-//@ts-ignore
-import html2pdf from "html2pdf.js";
 import Navbar from "@/components/navbar";
+import { BackButton } from "@/components/buttons";
 
 const DownloadPage = () => {
   const printRef = useRef<HTMLDivElement | null>(null);
-  const [opened, { open, close }] = useDisclosure();
   const router = useRouter();
 
   const selected_template = useSelector(
@@ -50,8 +37,6 @@ const DownloadPage = () => {
   const data = [
     { value: "Download pdf file", label: "Download pdf file" },
     { value: "Download doc file", label: "Download doc file" },
-    { value: "saudi", label: "gomorrah" },
-    { value: "anthony", label: "gomorrah" },
   ];
 
   const handleDownloadPDF = async () => {
@@ -75,36 +60,29 @@ const DownloadPage = () => {
     }
   };
 
-  const handlePDF = async () => {
-    try {
-      const templateHTML = ReactDOMServer.renderToString(<Dummy />);
-
-      console.log(templateHTML);
-
-      const response = await axios.post("/api/generate-pdf", {
-        templateComponent: templateHTML,
-      });
-
-      const pdfUrl = response.data.pdfUrl;
-
-      console.log("pdf", pdfUrl);
-
-      window.open(pdfUrl, "_blank"); // Open the PDF in a new tab
-    } catch (error) {
-      console.error("Error generating PDF:", error);
-    }
-  };
-
   return (
     <section className="md:mx-auto md:w-[90vw]">
-      <div className="non-printable mb-10 flex flex-col md:flex-row items-end justify-between mx-6 md:mx-0">
+      <div className="non-printable mb-10 flex flex-col md:flex-row  justify-between">
         <Navbar />
-        <div className="flex gap-10 ">
-          <Dropthatdown
-            buttonName="Click to download"
-            data={data}
-            onClick={handleDownloadPDF}
-          />
+        <div className="flex gap-10 md:items-center mx-6 md:mx-0 justify-between mt-6 md:mt-0">
+          <div>
+            <Dropthatdown
+              buttonName="Click to download"
+              data={data}
+              onClick={handleDownloadPDF}
+            />
+          </div>
+          <div className="flex justify-start">
+            <BackButton
+              name="Back"
+              onClick={() =>
+                router.push({
+                  pathname: "/custom-template/preview",
+                })
+              }
+            />
+          </div>
+
           {/* <button onClick={handlePDF}>Click here to download</button>
           <a href="/api/downladpdf" download="resume.pdf">
             Click to download

@@ -17,8 +17,6 @@ const SelectTemplate = () => {
 
   const dispatch = useDispatch();
 
-  console.log(selectedTemplate);
-
   const seleted_template = useSelector(
     (state: RootState) => state.updateTextName.seletedTemplate
   );

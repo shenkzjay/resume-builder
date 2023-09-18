@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useCallback, useEffect } from "react";
+import React from "react";
 import { templatesData } from "@/components/templates";
 import { useRouter } from "next/router";
 import { useSelector } from "react-redux";
@@ -8,22 +8,11 @@ import {
   updateName,
   updateObjective,
 } from "@/states/reducers/slice/textUpdateSlice";
-import Tiptap from "@/components/ui-components/markdown-editor";
 import SunEditorFile from "@/components/ui-components/markdown-editor/sun-editor";
-import Link from "next/link";
 import { NextButton, BackButton } from "@/components/buttons";
 import { useDisclosure } from "@mantine/hooks";
 import { ModalCard } from "@/components/ui-components/modal";
-import { ActionTypes } from "@/states/actions-types";
-import { update } from "@/states/actions-types";
 import Navbar from "@/components/navbar";
-import Skills from "./skills";
-import WorkExperience from "./work-exp";
-import EducationHistory from "./education";
-import Project from "./projects";
-import Certification from "./certification";
-import PreviewTemplate from "./preview";
-import DownloadPage from "./download";
 
 const UpdateTemplate = () => {
   //init router
@@ -216,7 +205,14 @@ const UpdateTemplate = () => {
             </div>
 
             <div className="flex justify-between mt-4 mb-20">
-              <BackButton name="Back" link="javascript:history.back()" />
+              <BackButton
+                name="Back"
+                onClick={() =>
+                  router.push({
+                    pathname: "/custom-template/",
+                  })
+                }
+              />
 
               <NextButton name="Continue" onClick={handleNext} />
             </div>
