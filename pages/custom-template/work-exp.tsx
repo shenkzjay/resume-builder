@@ -15,9 +15,7 @@ import DropDown from "@/components/ui-components/dropdown";
 import { ModalCard } from "@/components/ui-components/modal";
 import { useDisclosure } from "@mantine/hooks";
 import Trash from "@/components/svg/trash";
-
 import UseSuggestions from "@/hooks/useSuggestions";
-
 import TiptapEditor from "@/components/ui-components/markdown-editor";
 import { Checkboxelement } from "@/components/ui-components/checkbox";
 import { BackButton, NextButton, AddButtons } from "@/components/buttons";

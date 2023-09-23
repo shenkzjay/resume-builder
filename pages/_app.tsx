@@ -19,7 +19,6 @@ export default function App({ Component, pageProps }: AppProps) {
     >
       <QueryClientProvider client={queryClient}>
         <PersistGate loading={null} persistor={persistor}>
-          {/* <Navbar /> */}
           <Provider store={store}>
             <Component {...pageProps} />
           </Provider>

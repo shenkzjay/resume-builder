@@ -544,3 +544,20 @@ input:not(:placeholder-shown) ~ label {
     transition: opacity 2.5s ease-in-out;
   }
 }
+
+.simple-scroll {
+  animation: scroller 20s linear infinite;
+}
+
+.simple-scroll span {
+  margin: 40px 0;
+}
+
+@keyframes scroller {
+  from {
+    transform: translateY(0%);
+  }
+  to {
+    transform: translateY(-100%);
+  }
+}

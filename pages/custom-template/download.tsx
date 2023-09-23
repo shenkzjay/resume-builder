@@ -65,13 +65,6 @@ const DownloadPage = () => {
       <div className="non-printable mb-10 flex flex-col md:flex-row  justify-between">
         <Navbar />
         <div className="flex gap-10 md:items-center mx-6 md:mx-0 justify-between mt-6 md:mt-0">
-          <div>
-            <Dropthatdown
-              buttonName="Click to download"
-              data={data}
-              onClick={handleDownloadPDF}
-            />
-          </div>
           <div className="flex justify-start">
             <BackButton
               name="Back"
@@ -80,6 +73,13 @@ const DownloadPage = () => {
                   pathname: "/custom-template/preview",
                 })
               }
+            />
+          </div>
+          <div>
+            <Dropthatdown
+              buttonName="Click to download"
+              data={data}
+              onClick={handleDownloadPDF}
             />
           </div>
 

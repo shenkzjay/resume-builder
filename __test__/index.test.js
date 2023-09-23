@@ -15,20 +15,9 @@ test("start button routes to update page", () => {
   expect(buttonElement).toBeInTheDocument();
 });
 
-// jest.mock("next/router");
 
-// test("navigates to correct url when button is clicked", async () => {
-//   router = {
-//     push: pushMock,
-//   };
+//test if the array returns all template component and are displayed on the custom template page
 
-//   render(<Home router={router} />);
+//test that the states are updated on the template component when the entries are made
 
-//   const buttonElement = screen.getByRole("button", {
-//     name: "Start building your resume",
-//   });
 
-//   await fireEvent.click(buttonElement);
-
-//   expect(pushMock.pathname).toBe("/custom-template");
-// });
