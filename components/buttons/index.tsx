@@ -16,7 +16,7 @@ interface AddButtonsProps {
 export const NextButton: React.FC<NextButtonProps> = ({ onClick, name }) => {
   return (
     <div
-      className="flex item-center justify-center mt-4  bg-primaryButton rounded px-4 py-3"
+      className="flex item-center justify-center  bg-primaryButton rounded px-4 py-3"
       onClick={onClick}
       role="button"
     >
@@ -35,7 +35,7 @@ export const BackButton: React.FC<BackButtonProps> = ({ name, onClick }) => {
       role="button"
       onClick={onClick}
     >
-      <button className="flex items-center gap-2 font-semibold text-primaryButton">
+      <button className="font-semibold text-primaryButton">
         {" "}
         {/* <IconArrowLeft size={18} color="blue" /> */}
         {name}
