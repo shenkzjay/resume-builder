@@ -41,6 +41,8 @@ const Home = () => {
                   width={400}
                   height={600}
                   alt="an A4 dummy resume picture"
+                  style={{ width: "auto", height: "auto" }}
+                  priority={true}
                 />
               </span>
               <span className=" ">
@@ -49,6 +51,7 @@ const Home = () => {
                   width={400}
                   height={600}
                   alt="an A4 dummy resume picture"
+                  style={{ width: "auto", height: "auto" }}
                 />
               </span>
               <span className="">
@@ -57,6 +60,7 @@ const Home = () => {
                   width={400}
                   height={600}
                   alt="an A4 dummy resume picture"
+                  style={{ width: "auto", height: "auto" }}
                 />
               </span>
               <span className=" ">
@@ -65,6 +69,7 @@ const Home = () => {
                   width={400}
                   height={600}
                   alt="an A4 dummy resume picture"
+                  style={{ width: "auto", height: "auto" }}
                 />
               </span>
             </div>
@@ -75,6 +80,8 @@ const Home = () => {
                   width={400}
                   height={600}
                   alt="an A4 dummy resume picture"
+                  style={{ width: "auto", height: "auto" }}
+                  priority={true}
                 />
               </span>
               <span className="">
@@ -83,6 +90,7 @@ const Home = () => {
                   width={400}
                   height={600}
                   alt="an A4 dummy resume picture"
+                  style={{ width: "auto", height: "auto" }}
                 />
               </span>
               <span className=" ">
@@ -91,6 +99,7 @@ const Home = () => {
                   width={400}
                   height={600}
                   alt="an A4 dummy resume picture"
+                  style={{ width: "auto", height: "auto" }}
                 />
               </span>
               <span className="">
@@ -99,6 +108,7 @@ const Home = () => {
                   width={400}
                   height={600}
                   alt="an A4 dummy resume picture"
+                  style={{ width: "auto", height: "auto" }}
                 />
               </span>
             </div>

@@ -550,7 +550,7 @@ input:not(:placeholder-shown) ~ label {
 }
 
 .simple-scroll span {
-  margin: 40px 0;
+  margin: 10px 0;
 }
 
 @keyframes scroller {
