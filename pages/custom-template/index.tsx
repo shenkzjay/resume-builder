@@ -42,12 +42,10 @@ const SelectTemplate = () => {
             Select a template
           </h1>
         </div>
-        <div
-          className="grid md:grid-cols-[repeat(auto-fit,minmax(auto,314px))] gap-20 md:gap-10 w-full"
-          data-testid="templates"
-        >
+        <div className="grid md:grid-cols-[repeat(auto-fit,minmax(auto,314px))] gap-20 md:gap-10 w-full">
           {templatesData.map((template, index) => (
             <div
+              data-testid="templates"
               key={index}
               role="button"
               onClick={() => handleSelectTemplate(index)}
@@ -58,7 +56,9 @@ const SelectTemplate = () => {
               } max-h-[50vh] mx-6 md:mx-0`}
             >
               {template.component}
-              <p className="text-center mt-6">{template.name}</p>
+              <p className="text-center mt-6" data-testid="template-name">
+                {template.name}
+              </p>
             </div>
           ))}
         </div>

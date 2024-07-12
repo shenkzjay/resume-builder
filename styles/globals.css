@@ -561,3 +561,246 @@ input:not(:placeholder-shown) ~ label {
     transform: translateY(-100%);
   }
 }
+
+/* homepage */
+.headertempwrap {
+  /* animation: scrollstouch 1s linear infinite; */
+  view-timeline: --scroller;
+}
+
+@keyframes scrollstouch {
+  100% {
+    transform: translate(100%);
+  }
+}
+
+.scroller {
+  view-timeline: --scroller;
+}
+
+.headertempwrap-card {
+  animation: popout 0.5s 0.5s linear forwards, scrollstouch 0.5s 1s linear forwards;
+  animation-range: entry 50% cover 100%;
+  animation-timeline: --scroller;
+  position: relative;
+  z-index: 9;
+  width: 100%;
+  transition: width 0.5s ease-out;
+}
+
+.headertemp {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(#e4e4e4, #e4e4e4) 3% 12% / 50% 20%,
+    linear-gradient(#e4e4e4, #e4e4e4) 40% 55% / 96% 1.8vmin,
+    linear-gradient(#e4e4e4, #e4e4e4) 5% 90% / 28vmin 1.8vmin, linear-gradient(#f4f4f4, #f4f4f4);
+  background-repeat: no-repeat;
+  border-radius: 10px;
+}
+
+.objtempwrap-card {
+  animation: popleft 0.7s 0.5s linear forwards;
+  position: relative;
+  z-index: 9;
+  width: 100%;
+  transition: width 0.5s ease-out;
+}
+
+.objtemp {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(#e4e4e4, #e4e4e4) 3% 15% / 50% 28%,
+    linear-gradient(#e4e4e4, #e4e4e4) 5% 80% / 28vmin 1.8vmin, linear-gradient(#f4f4f4, #f4f4f4);
+  background-repeat: no-repeat;
+
+  border-radius: 10px;
+}
+
+.exptemp1,
+.exptemp2,
+.exptemp3 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(#e4e4e4, #e4e4e4) 3% 12% / 50% 20%,
+    linear-gradient(#e4e4e4, #e4e4e4) 40% 55% / 96% 2vmin,
+    linear-gradient(#e4e4e4, #e4e4e4) 5% 90% / 28vmin 2vmin, linear-gradient(#f4f4f4, #f4f4f4);
+  background-repeat: no-repeat;
+
+  border-radius: 10px;
+}
+
+.headercontainer {
+  animation: slidedown 0.5s ease-in forwards;
+}
+
+.exptempwrap1-card {
+  animation: slideleft 1.1s 0.5s linear forwards;
+  position: relative;
+  z-index: 9;
+  width: 100%;
+  transition: width 0.5s ease-out;
+}
+
+.exptempwrap2-card {
+  animation: slideright 1.4s 0.5s linear forwards;
+  position: relative;
+  z-index: 9;
+  width: 100%;
+  transition: width 0.5s ease-out;
+}
+
+.exptempwrap3-card {
+  animation: slideleft 1.8s 0.5s linear forwards;
+  position: relative;
+  z-index: 9;
+  width: 100%;
+  transition: width 0.5s ease-out;
+}
+
+@keyframes scrollback {
+  to {
+    transform: translateY(100px);
+  }
+}
+
+@keyframes slideleft {
+  to {
+    transform: translate(310px, -40px);
+  }
+}
+
+@keyframes slideright {
+  to {
+    transform: translate(-310px, -40px);
+  }
+}
+
+@keyframes slidedown {
+  from {
+    transform: translateY(50%);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes popout {
+  to {
+    transform: translate(310px, -40px);
+  }
+}
+
+@keyframes popleft {
+  to {
+    transform: translate(-310px, -40px);
+  }
+}
+
+.secs {
+  scroll-timeline: --pagescroll block;
+}
+
+.testscroll {
+  timeline-scope: --pagescroll;
+}
+
+.sec2 {
+  animation: hellmove auto linear both;
+  animation-timeline: --pagescroll;
+  animation-range: entry 20% cover 50%;
+}
+
+@keyframes hellmove {
+  100% {
+    background-color: blue;
+    transform: translateX(50px);
+  }
+}
+
+/* typewriter */
+.resumeBtn {
+  box-shadow: 10px 10px 0px 3px black;
+}
+
+.resumeBtn:hover {
+  box-shadow: none;
+  transform: translate(10px, 5px);
+}
+
+.box-hover:hover {
+  transform: translate(-5px, -5px);
+}
+
+.polkadots {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, #888, #fff),
+    radial-gradient(circle, #000 14%, 12%, #0000 100%) 0 0 / 1vmin 1vmin;
+  filter: contrast(21);
+
+  background-blend-mode: multiply;
+}
+
+#downloadarrow {
+  animation: downloadIconAnimation 1s linear infinite;
+}
+
+.spanscrollup {
+  animation: moveupscroll 5s infinite;
+}
+
+.spanscrollupdown {
+  animation: movedownscroll 5s infinite;
+}
+
+@keyframes moveupscroll {
+  0% {
+    transform: translateY(0%);
+  }
+  50% {
+    transform: translateY(100%);
+  }
+  80% {
+    transform: translateY(0%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+
+@keyframes movedownscroll {
+  0% {
+    transform: translateY(100%);
+  }
+  50% {
+    transform: translateY(0%);
+  }
+  80% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+@keyframes downloadIconAnimation {
+  0%,
+  100% {
+    transform: translateY(100px);
+  }
+
+  50% {
+    transform: translateY(0);
+  }
+}
