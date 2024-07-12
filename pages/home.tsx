@@ -9,7 +9,7 @@ interface backgroundColorProps {
   backgroundColor: string;
 }
 
-export const Home = () => {
+export default function Home() {
   const colorChange: backgroundColorProps[] = [
     {
       backgroundColor: "bg-blue-500",
@@ -123,4 +123,4 @@ export const Home = () => {
       </div>
     </section>
   );
-};
+}
